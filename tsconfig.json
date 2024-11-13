@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "useDefineForClassFields": true,
+      "lib": ["dom", "esnext"],
+      "esModuleInterop": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "jsx": "react-jsx"
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"]
+  }
+  
