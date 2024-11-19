@@ -2,7 +2,7 @@ import React from 'react';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div className="container mobile">
       <h1>Hello, World!</h1>
     </div>
   );
