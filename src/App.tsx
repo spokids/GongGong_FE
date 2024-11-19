@@ -1,9 +1,10 @@
 import React from 'react';
+import LoginPage from './pages/login/LoginPage';
 
 const App: React.FC = () => {
   return (
     <div className="container mobile">
-      <h1>Hello, World!</h1>
+    <LoginPage />
     </div>
   );
 };
