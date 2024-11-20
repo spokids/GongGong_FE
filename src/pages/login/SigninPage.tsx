@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import logoLogin from '../../assets/logoLogin.svg';
 import ButtonComponent from '../components/ButtonComponent';
 import Input from '../components/InputComponents';
 
-const LoginPage = () => {
+const SigninPage = () => {
     return (
         <div className="flex flex-col items-center mt-56 space-y-6">
             {/* 로고 */}
@@ -22,10 +23,15 @@ const LoginPage = () => {
             <ButtonComponent
                 className="flex bg-[#FF8C2E] text-white"
                 text="로그인하기"
-                style={{ marginTop: '70px'}} // style 객체 형태로 수정
+                style={{ marginTop: '70px'}}
             />
+
+            <text style={{display:'flex', color:'#484851', fontSize:'14px', letterSpacing:'-0.42px', marginTop:'20px'}}>스포키즈가 처음이신가요?</text>
+            <Link to="/signup">
+                <text style={{display:'flex', color:'#484851', fontSize:'14px', letterSpacing:'-0.42px', textDecorationLine:'underline', marginTop:'0px'}}>회원가입하기</text>
+            </Link>
         </div>
     );
 };
 
-export default LoginPage;
+export default SigninPage;
