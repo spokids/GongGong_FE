@@ -1,13 +1,20 @@
-// vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  plugins: [react()],
-  root: './',  // Make sure the root is correct
+  plugins: [
+    react(),
+    svgr({
+      svgrOptions: {
+        icon: true, 
+      },
+    }),
+  ],
+  root: './',
   build: {
     rollupOptions: {
-      input: '/src/main.tsx', // Update this if you're using TSX
+      input: '/src/main.tsx',
     },
   },
 });

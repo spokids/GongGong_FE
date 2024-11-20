@@ -10,6 +10,6 @@
       "jsx": "react-jsx",
       "typeRoots": ["types"]
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx"]
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src", "custom.d.ts"]
   }
   
