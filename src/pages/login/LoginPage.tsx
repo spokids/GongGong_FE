@@ -1,10 +1,11 @@
-import React from 'react';
-import logoInLogin from '../../assets/logoInLogin';
+import logoLogin from '../../assets/logoLogin.svg'
 
 const LoginPage = () => {
     return (
-        <div className='mt-[223px] space-between'>
-            <img src='logoInLogin'/>
+        <div className='flex mt-[223px] content-center justify-center'>
+            <img src={logoLogin} style={{width: '180px'}}/>
+
+            
         </div>
     );
 };
