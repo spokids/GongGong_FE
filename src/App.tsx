@@ -5,13 +5,13 @@ import SignupPage from './pages/login/SignupPage';
 
 const App: React.FC = () => {
   return (
-    <div className="container mobile">
+    <div className="container px-5 max-w-[410px] min-w-[390px] mx-auto">
       <Router>
-            <Routes>
-                <Route path="/signin" element={<SigninPage />} /> 
-                <Route path="/signup" element={<SignupPage />} />
-            </Routes>
-        </Router>
+        <Routes>
+          <Route path="/signin" element={<SigninPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 };
