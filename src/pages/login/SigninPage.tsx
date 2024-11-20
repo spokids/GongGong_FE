@@ -11,7 +11,7 @@ const SigninPage = () => {
 
             {/* 입력 필드 */}
             <div
-                className="flex flex-col gap-2 w-[350px]"
+                className="flex flex-col w-full gap-2"
                 style={{ marginTop: '120px' }}
                 >
                 <Input placeholder="아이디를 입력해주세요." />
