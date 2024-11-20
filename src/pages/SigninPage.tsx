@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import logoLogin from '../../assets/logoLogin.svg';
-import ButtonComponent from '../components/ButtonComponent';
-import Input from '../components/InputComponents';
+import ButtonComponent from './components/ButtonComponent';
+import Input from './components/InputComponents';
 import loginMain from '../../assets/loginMain.svg';
 
 const SigninPage = () => {
