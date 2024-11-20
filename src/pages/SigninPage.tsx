@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import logoLogin from '../../assets/logoLogin.svg';
+import logoLogin from '../assets/logoLogin.svg';
 import ButtonComponent from './components/ButtonComponent';
 import Input from './components/InputComponents';
-import loginMain from '../../assets/loginMain.svg';
+import bgLogo from '../assets/bgLogo.svg';
 
 const SigninPage = () => {
     return (
@@ -10,7 +10,7 @@ const SigninPage = () => {
             {/* 이미지 겹치기 */}
             <div className="relative w-full" style={{ height: '300px' }}>
                 <img 
-                    src={loginMain} 
+                    src={bgLogo} 
                     alt="Login Main" 
                     className="absolute top-0 left-0 object-cover w-full h-full" 
                 />
