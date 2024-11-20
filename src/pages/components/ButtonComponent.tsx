@@ -6,7 +6,7 @@ const ButtonComponent = ({
     style = {},
     ...props
 }) => {
-    const baseSize = `flex justify-center items-center w-full h-[56px] padding-[1px 20px] rounded-lg `; 
+    const baseSize = `flex justify-center items-center w-[350px] h-[56px] padding-[1px 20px] rounded-lg `; 
     return (
         <button
             className={`${baseSize} ${className}`}
