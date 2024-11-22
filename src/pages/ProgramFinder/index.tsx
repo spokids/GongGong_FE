@@ -66,10 +66,7 @@ const ProgramFinder = () => {
           <Input className="w-[294px]" placeholder="숫자로 입력해주세요" />
           <p className="ml-2">세</p>
         </div>
-        <Button
-          className="mt-[136px] flex bg-[#FF8C2E] text-white"
-          text="다음"
-        />
+        <Button className="mt-[136px] flex bg-[#FF8C2E] text-white">다음</Button>
       </div>
     </div>
   );

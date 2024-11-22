@@ -20,6 +20,7 @@ export default {
       colors: {
         primary: {
           40: "#A3A3A8",
+          60: "#76767C",
           70: "#5F5F67",
           100: "#1A1A25",
         },

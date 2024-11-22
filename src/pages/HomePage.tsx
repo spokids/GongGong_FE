@@ -1,6 +1,9 @@
 import React from "react";
 import mainIcon from '@assets/svg/mainIcon.svg';
 import fire from '@assets/svg/fire.svg';
+import run from '@assets/svg/run.svg';
+import Button from "@components/Button";
+import search from '@assets/svg/search.svg';
 
 const HomePage = () => {
   return (
@@ -13,18 +16,29 @@ const HomePage = () => {
         <img src={mainIcon} className="absolute top-0 right-0 z-0 w-60" />
       </div>
 
-      <main className="-9/2">
-        <section className="mt-6">
-          <h2 className="mb-3 text-lg font-bold">체육 프로그램 목록</h2>
-          <div className="mb-4">
-            <input
-              type="text"
-              placeholder="아이에게 딱 맞는 프로그램 찾기"
-              className="w-full p-2 border rounded-lg"
-            />
-          </div>
-        </section>
-      </main>
+      <div className="flex flex-row w-full mt-5 mb-6">
+        <img src={fire} className="w-9"/>
+        <div className="flex flex-col gap-0 ml-2">
+          <h2 className="text-title1">아이들이 많이 수강하는 종목 Top3</h2>
+          <p className="text-body9 text-primary-60">2024.11.15 기준</p>
+        </div>
+      </div>
+
+      <hr style={{ margin: '0 -20px 0 -20px', height: '8px', background: 'var(--primary_foundation-5, #F3F3F4)', border: 'none' }} />
+
+      <div className="flex flex-row w-full mt-4 mb-6">
+        <img src={run} className="w-8"/>
+          <div className="flex flex-col gap-0 ml-3">
+          <h2 className="text-title1">체육 프로그램 목록</h2>
+          <p className="text-body9 text-primary-60">최근에 후기가 올라온 프로그램 순의 목록이에요</p>
+        </div>
+      </div>
+
+      <Button className="flex gap-2 text-white bg-primary-100">
+        <img src={search} className="w-5 h-5"/>
+        아이에게 딱 맞는 프로그램 찾기
+      </Button>
+    
     </div>
   );
 };
