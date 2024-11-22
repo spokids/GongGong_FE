@@ -2,7 +2,7 @@ import { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 
-const SignupPage = () => {
+const SignUp = () => {
   const [step, setStep] = useState(1);
 
   const handleNextStep = () => setStep(step + 1);
@@ -33,4 +33,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default SignUp;
