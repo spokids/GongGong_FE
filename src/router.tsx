@@ -3,7 +3,6 @@ import App from "./App";
 import routes from "./constants/routes";
 import SignUpPage from "./pages/SignUp";
 import SignInPage from "@pages/SignIn";
-import ProgramFinder from "@pages/ProgramFinder";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +16,6 @@ const router = createBrowserRouter([
       {
         path: routes.signUp,
         element: <SignUpPage />,
-      },
-      {
-        path: routes.ProgramFinder,
-        element: <ProgramFinder />,
       },
     ],
   },
