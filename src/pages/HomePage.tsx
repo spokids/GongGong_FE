@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div className="min-h-screen pb-20 bg-gray-100">
       <div className="w-full h-[252px] p-4 text-white bg-orange-400">
@@ -25,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
