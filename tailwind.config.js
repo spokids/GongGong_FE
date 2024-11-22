@@ -10,6 +10,9 @@ export default {
       spacing: {
         "padding-default": "20px",
       },
+      padding: {
+        'custom': '0',
+      },
       container: {
         center: true,
         padding: "20px",
