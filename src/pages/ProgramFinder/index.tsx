@@ -2,8 +2,26 @@ import Input from "@components/Input";
 import FieldButton from "./components/FieldButton";
 import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
+import RegionDropdown from "./components/RegionDropdown";
 
 const ProgramFinder = () => {
+  const handleRegionSelect = (region: string) => {
+    console.log("선택된 지역:", region);
+  };
+
+  const regions = [
+    "서울특별시",
+    "경상북도",
+    "경기도",
+    "강원특별자치도",
+    "부산광역시",
+    "대구광역시",
+    "인천광역시",
+    "충청남도",
+    "경상남도",
+    "충청북도",
+  ];
+
   return (
     <div>
       <div className="mt-3 flex flex-col gap-1">
@@ -23,6 +41,9 @@ const ProgramFinder = () => {
           </p>
         </div>
       </div>
+
+      <RegionDropdown options={regions} onSelect={handleRegionSelect} />
+
       <div className="mt-10">
         <div className="flex gap-3 items-center mb-1">
           <p className="text-body6 font-medium text-primary-100">분야</p>
@@ -32,6 +53,7 @@ const ProgramFinder = () => {
         </div>
         <FieldButton icon={SwimmingIcon} label="수영" />
       </div>
+
       <div className="mt-[42px]">
         <div className="flex flex-col">
           <p className="text-primary-100 text-body6 font-medium">아이의 나이</p>
