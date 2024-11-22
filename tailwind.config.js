@@ -28,6 +28,7 @@ export default {
       },
       fontSize: {
         title1: ["20px", "160%"],
+        headline1: ["24px", "141.667%"],
         body7: ["16px", "162.5%"],
         body6: ["16px", "162.5%"],
         body9: ["14px", "157.143%"],
