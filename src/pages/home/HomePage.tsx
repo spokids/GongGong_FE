@@ -39,7 +39,14 @@ const HomePage = () => {
         아이에게 딱 맞는 프로그램 찾기
       </Button>
 
-      <LessonInfo />
+      <LessonInfo
+        programId={1}
+        programType="수영"
+        programName="그룹레슨3"
+        facilityName="강남스포츠문화센터수영장"
+        programAge="만 7세 ~ 만 12세"
+        programDate="24.11.01 - 24.11.30"
+      />
     
     </div>
   );
