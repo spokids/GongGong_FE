@@ -33,9 +33,11 @@ export default {
       fontSize: {
         title1: ["20px", "160%"],
         headline1: ["24px", "141.667%"],
-        body7: ["16px", "162.5%"],
         body6: ["16px", "162.5%"],
+        body7: ["16px", "162.5%"],
+        body8: ["14px", "162.5%"],
         body9: ["14px", "157.143%"],
+        button3: ["12px", "166.667%"],
         caption4: ["12px", "166.667%"],
       },
       fontWeight: {

@@ -3,8 +3,8 @@ import React from 'react';
 interface ButtonProps {
     className?: string;
     style?: React.CSSProperties;
-    children: React.ReactNode; // children의 타입을 ReactNode로 명시
-    [key: string]: any; // 기타 props를 받기 위한 설정
+    children: React.ReactNode;
+    [key: string]: any;
 }
 
 const Button: React.FC<ButtonProps> = ({

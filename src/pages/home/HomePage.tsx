@@ -1,4 +1,4 @@
-import React from "react";
+import LessonInfo from './components/lessonInfo';
 import mainIcon from '@assets/svg/mainIcon.svg';
 import fire from '@assets/svg/fire.svg';
 import run from '@assets/svg/run.svg';
@@ -38,6 +38,8 @@ const HomePage = () => {
         <img src={search} className="w-5 h-5"/>
         아이에게 딱 맞는 프로그램 찾기
       </Button>
+
+      <LessonInfo />
     
     </div>
   );
