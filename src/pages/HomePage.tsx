@@ -1,11 +1,15 @@
 import React from "react";
+import mainIcon from '@assets/svg/mainIcon.svg';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen pb-20 bg-gray-100">
-      <div className="w-full h-[252px] p-4 text-white bg-orange-400">
-        <p className="text-body9">안녕하세요, 닉네임님</p>
-        <h1 className="mt-1 text-sm">우리 아이를 위한 <br/> 체육 활동을 찾아볼까요?</h1>
+    <div className="w-full min-h-screen bg-white">
+      <div className="relative w-full h-[252px] bg-orange-400">
+        <div className="absolute top-[126px] left-5 z-10 text-white">
+          <p className="text-body9">안녕하세요, 닉네임님</p>
+          <h1 className="mt-1 text-headline1">우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?</h1>
+        </div>
+        <img src={mainIcon} className="absolute bottom-0 right-0 z-0 w-50" />
       </div>
 
       <main className="p-4">
@@ -18,7 +22,6 @@ const HomePage = () => {
               className="w-full p-2 border rounded-lg"
             />
           </div>
-
         </section>
       </main>
     </div>

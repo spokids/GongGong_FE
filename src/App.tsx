@@ -1,4 +1,4 @@
-import Home from "@pages/Home";
+import Home from "@pages/HomePage";
 import React from "react";
 import { Outlet } from "react-router-dom";
 
