@@ -8,20 +8,21 @@ interface ChipProps {
 
 const Chip: React.FC<ChipProps> = ({ children, className = "", style = {} }) => {
   const baseStyle = `
-    flex items-center justify-center 
-    w-[61px] h-8
-    px-2 py-[6px]
+    inline-flex items-center justify-center
+    h-8
+    px-3 py-[6px]
     text-button3
     rounded-lg 
     bg-orange-100 
     text-orange-400 
     cursor-pointer
+    gap-1
   `;
 
   return (
     <div
       className={`${baseStyle} ${className}`}
-      style={style}
+      style={{ width: "fit-content", ...style }}
     >
       {children}
     </div>

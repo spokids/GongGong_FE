@@ -40,7 +40,7 @@ const HomePage = () => {
         아이에게 딱 맞는 프로그램 찾기
       </Button>
 
-      <Link to='/detail'>
+      <Link to='/Program-info'>
         <div className='mt-5'>
           <LessonInfo
             programId={1}
