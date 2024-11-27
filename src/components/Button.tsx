@@ -1,19 +1,26 @@
 import React from 'react';
 
-const Button = ({
+interface ButtonProps {
+    className?: string;
+    style?: React.CSSProperties;
+    children: React.ReactNode;
+    [key: string]: any;
+}
+
+const Button: React.FC<ButtonProps> = ({
     className = "",
-    text = "",
     style = {},
+    children , 
     ...props
 }) => {
-    const baseSize = `flex justify-center items-center w-[350px] h-[56px] padding-[1px 20px] rounded-lg `; 
+    const baseSize = `flex justify-center items-center w-[350px] h-[56px] p-[1px 20px] rounded-lg`; // padding 수정
     return (
         <button
             className={`${baseSize} ${className}`}
             style={style}
             {...props}
         >
-            {text}
+            {children} 
         </button>
     );
 };

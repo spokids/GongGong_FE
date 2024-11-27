@@ -11,7 +11,6 @@
       "@pages/*": ["pages/*"],
       "@types/*": ["types/*"],
       "@api/*": ["api/*"],
-      "@constants/*": ["constants/*"],
       "@utils/*": ["utils/*"],
       "@lib/*": ["lib/*"],
       "@styles/*": ["styles/*"],

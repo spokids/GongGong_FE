@@ -20,6 +20,9 @@ export default {
         system: {
           blue: "#528DFF",
         },
+        system: {
+          blue: "#528DFF",
+        },
         primary: {
           5: "#F3F3F4",
           10: "#E9E9EA",
@@ -38,6 +41,7 @@ export default {
           },
         },
         orange: {
+          50: "#FFF7ED",
           50: "#FFF7ED",
           100: "#FFEDD5",
           200: "#FED7AA",
