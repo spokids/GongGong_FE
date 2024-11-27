@@ -1,4 +1,4 @@
-import LessonInfo from './components/lessonInfo';
+import LessonInfo from './components/LessonInfo';
 import mainIcon from '@assets/svg/mainIcon.svg';
 import fire from '@assets/svg/fire.svg';
 import run from '@assets/svg/run.svg';
@@ -15,7 +15,7 @@ const HomePage = () => {
         </div>
         <img src={mainIcon} className="absolute top-0 right-0 z-0 w-60" />
       </div>
-
+``
       <div className="flex flex-row w-full mt-5 mb-6">
         <img src={fire} className="w-9"/>
         <div className="flex flex-col gap-0 ml-2">
