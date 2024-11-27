@@ -1,11 +1,13 @@
 import runIcon from '@assets/svg/run.svg';
+import linkIcon from '@assets/svg/link.svg';
+import calendarIcon from '@assets/svg/calendar.svg';
 import WeekSchedule from './components/WeekSchedule';
 
 
 const DetailTab = () => {
     
   return (
-    <div className="p-4 mt-5">
+    <div className="mt-5">
         <div className="flex items-center gap-2">
             <img src={runIcon} className="w-6" alt="Run Icon" />
             <h2 className="text-xl font-semibold">프로그램 기본 정보</h2>
@@ -25,7 +27,7 @@ const DetailTab = () => {
         <div className='border-[1px] bgcolor-foundation-5 mt-5 mb-5'/>
 
         <div className="flex items-center gap-2 mt-5">
-            <img src={runIcon} className="w-6" alt="Run Icon" />
+            <img src={calendarIcon} className="w-6" alt="Run Icon" />
             <h2 className="text-xl font-semibold">프로그램 주간 계획</h2>
         </div>
         <p className="mt-5 text-body9 text-foundation-60">프로그램 기간</p>
@@ -45,7 +47,7 @@ const DetailTab = () => {
 
 
       <div className="flex items-center gap-2 mt-5">
-            <img src={runIcon} className="w-6" alt="Run Icon" />
+            <img src={linkIcon} className="w-6" alt="Run Icon" />
             <h2 className="text-xl font-semibold">기타 정보</h2>
         </div>
         <p className="mt-5 text-body9 text-foundation-60">프로그램 링크</p>

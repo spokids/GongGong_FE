@@ -16,7 +16,7 @@ const Chip: React.FC<ChipProps> = ({ children, className = "", style = {} }) => 
     bg-orange-100 
     text-orange-400 
     cursor-pointer
-    gap-1
+    gap-[4px]
   `;
 
   return (

@@ -20,7 +20,7 @@ const WeekSchedule: React.FC = () => {
       {daysOfWeek.map((day, index) => (
         <div key={day} className="flex flex-col items-center">
           <div
-            className={`flex items-center text-body7 justify-center rounded-full h-[42px] w-[42px] ${
+            className={`flex items-center text-body7 justify-center rounded-full h-11 w-11 ${
               schedule[index]?.isActive ? 'bg-orange-50 border-orange-400 text-orange-400' : 'bg-foundation-5 text-foundation-40'
             }`}
           >

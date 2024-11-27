@@ -1,4 +1,5 @@
 import { SwimmingIcon } from "@assets/svg";
+import badge from "@assets/svg/badge.svg";
 import Chip from "@components/Chip";
 import { useState } from "react";
 import DetailTab from "./Step1/DetailTab";
@@ -8,15 +9,19 @@ const ProgramInfo = () => {
   const [activeTab, setActiveTab] = useState<"details" | "reviews">("details");
 
   return (
-    <div className="w-full h-screen">
-
+    <div className="w-full h-screen mt-14">
       <div className="flex flex-col h-[118px] w-full">
-        <div className="flex flex-col mt-[8px]">
+        <div className="flex flex-row gap-2 mt-2">
           <Chip>
             <img src={SwimmingIcon} />
             수영
           </Chip>
+          <Chip className="bg-system-blue bg-opacity-10 text-button3 text-system-blue">
+            <img src={badge} />
+            지도사 자격증 있음
+          </Chip>
         </div>
+        <h1 className="mt-[6px] text-foundation-100 text-title1">뫄뫄수영강습 (초급)</h1>
       </div>
 
       <div className="flex items-center justify-between w-full h-[31px] border-b p-6">
