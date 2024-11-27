@@ -1,4 +1,3 @@
-
 const ReviewItem = ({ name, date, content, image }: { name: string; date: string; content: string; image?: string }) => (
   <div className="flex flex-col gap-1 mt-5">
     <p className="text-foundation-100 text-body8">
