@@ -6,7 +6,7 @@ const SignUp = () => {
   const [step, setStep] = useState(1);
 
   const handleNextStep = () => setStep(step + 1);
-  const handlePreviousStep = () => setStep(step - 1);
+  // const handlePreviousStep = () => setStep(step - 1);
 
   return (
     <div>
