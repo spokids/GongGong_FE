@@ -1,7 +1,7 @@
 import runIcon from '@assets/svg/run.svg';
 import linkIcon from '@assets/svg/link.svg';
 import calendarIcon from '@assets/svg/calendar.svg';
-import WeekSchedule from './components/WeekSchedule';
+import WeekSchedule from './components';
 
 
 const DetailTab = () => {

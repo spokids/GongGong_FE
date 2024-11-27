@@ -27,6 +27,7 @@ export default {
           70: "#5F5F67",
           100: "#1A1A25",
           'foundation':{
+            50: "#8D8D92",
             100: "#1A1A25",
           }
         },

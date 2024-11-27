@@ -2,7 +2,7 @@ import { SwimmingIcon } from "@assets/svg";
 import badge from "@assets/svg/badge.svg";
 import Chip from "@components/Chip";
 import { useState } from "react";
-import DetailTab from "./Step1/DetailTab";
+import DetailTab from "./Step1/index";
 import ReviewTab from "./Step2/ReviewTab";
 
 const ProgramInfo = () => {
