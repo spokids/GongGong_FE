@@ -4,6 +4,7 @@ import fire from '@assets/svg/fire.svg';
 import run from '@assets/svg/run.svg';
 import Button from "@components/Button";
 import search from '@assets/svg/search.svg';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -39,18 +40,20 @@ const HomePage = () => {
         아이에게 딱 맞는 프로그램 찾기
       </Button>
 
-      <div className='mt-5'>
-        
-        <LessonInfo
-          programId={1}
-          programType="수영"
-          programName="그룹레슨3"
-          facilityName="강남스포츠문화센터수영장"
-          programAge="만 7세 ~ 만 12세"
-          programDate="24.11.01 - 24.11.30"
+      <Link to='/detail'>
+        <div className='mt-5'>
+          <LessonInfo
+            programId={1}
+            programType="수영"
+            programName="그룹레슨3"
+            facilityName="강남스포츠문화센터수영장"
+            programAge="만 7세 ~ 만 12세"
+            programDate="24.11.01 - 24.11.30"
         />
-
+              
       </div>
+      </Link>
+
       
     
     </div>

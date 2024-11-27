@@ -23,14 +23,21 @@ export default {
           60: "#76767C",
           70: "#5F5F67",
           100: "#1A1A25",
+          'foundation':{
+            100: "#1A1A25",
+          }
         },
         orange: {
           100: "#FFEDD5",
           200: "#FED7AA",
           400: "#FF8C2E",
         },
+        foundation: {
+          100: "#1A1A25",
+        }
       },
       fontSize: {
+        subtitle1: ["16px", "150%"],
         title1: ["20px", "160%"],
         headline1: ["24px", "141.667%"],
         body6: ["16px", "162.5%"],
