@@ -1,8 +1,11 @@
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 
-const Step1 = ({ onNext }) => {
-  return (
+interface Step1Props {
+  onNext: () => void; // onNext 함수가 반환 값이 없는 함수임을 명시
+}
+
+const Step1 = ({ onNext }: Step1Props) => {  return (
     <>
       <div className="flex flex-col gap-1 mt-10">
         <label>아이디</label>
@@ -17,10 +20,11 @@ const Step1 = ({ onNext }) => {
         <Input placeholder="비밀번호를 다시 입력해주세요" />
       </div>
       <Button
-        className="mt-[136px] flex bg-[#FF8C2E] text-white"
-        text="다음"
+        className="mt-[136px] flex bg-orange-400 text-white"
         onClick={onNext}
-      />
+      >
+        다음
+      </Button>
     </>
   );
 };
