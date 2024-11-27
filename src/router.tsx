@@ -4,7 +4,8 @@ import routes from "./constants/routes";
 import SignUpPage from "./pages/SignUp";
 import SignInPage from "@pages/SignIn";
 import ProgramFinder from "@pages/ProgramFinder";
-import HomePage from "@pages/home/HomePage";
+import HomePage from "@pages/Home";
+import DetailPage from "@pages/Detail/DetailPage";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,10 @@ const router = createBrowserRouter([
         path: routes.ProgramFinder,
         element: <ProgramFinder />,
       },
-      
+      {
+        path: routes.DetailPage,
+        element: <DetailPage />,
+      },
     ],
   },
 ]);

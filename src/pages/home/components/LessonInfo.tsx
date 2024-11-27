@@ -1,5 +1,5 @@
 import React from "react";
-import Chip from "@components/chip";
+import Chip from "@components/Chip";
 import swimming from "@assets/svg/swimming.svg";
 
 interface LessonInfoProps {

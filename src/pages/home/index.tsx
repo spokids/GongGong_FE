@@ -1,4 +1,4 @@
-import LessonInfo from './components/lessonInfo';
+import LessonInfo from './Components/LessonInfo';
 import mainIcon from '@assets/svg/mainIcon.svg';
 import fire from '@assets/svg/fire.svg';
 import run from '@assets/svg/run.svg';
@@ -39,17 +39,18 @@ const HomePage = () => {
         아이에게 딱 맞는 프로그램 찾기
       </Button>
 
-<div className='mt-5'>
-<LessonInfo
-        programId={1}
-        programType="수영"
-        programName="그룹레슨3"
-        facilityName="강남스포츠문화센터수영장"
-        programAge="만 7세 ~ 만 12세"
-        programDate="24.11.01 - 24.11.30"
-      />
+      <div className='mt-5'>
+        
+        <LessonInfo
+          programId={1}
+          programType="수영"
+          programName="그룹레슨3"
+          facilityName="강남스포츠문화센터수영장"
+          programAge="만 7세 ~ 만 12세"
+          programDate="24.11.01 - 24.11.30"
+        />
 
-</div>
+      </div>
       
     
     </div>
