@@ -4,7 +4,7 @@ import routes from "./constants/routes";
 import SignUpPage from "./pages/SignUp";
 import SignInPage from "@pages/SignIn";
 import ProgramFinder from "@pages/ProgramFinder";
-import HomePage from "@pages/Home/HomePage";
+import HomePage from "@pages/Home";
 import ProgramInfo from "@pages/Detail/ProgramInfo";
 
 const router = createBrowserRouter([
