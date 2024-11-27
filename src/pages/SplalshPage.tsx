@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const SplalshPage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div>SplalshPage</div>;
 };
 
 export default SplalshPage;
