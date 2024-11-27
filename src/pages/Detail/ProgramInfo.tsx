@@ -1,13 +1,15 @@
 import { SwimmingIcon } from "@assets/svg";
 import Chip from "@components/Chip";
 import { useState } from "react";
+import DetailTab from "./Step1/DetailTab";
+import ReviewTab from "./Step2/ReviewTab";
 
 const ProgramInfo = () => {
   const [activeTab, setActiveTab] = useState<"details" | "reviews">("details");
 
   return (
     <div className="w-full h-screen">
-      {/* 상단 섹션 */}
+
       <div className="flex flex-col h-[118px] w-full">
         <div className="flex flex-col mt-[8px]">
           <Chip>
@@ -17,7 +19,6 @@ const ProgramInfo = () => {
         </div>
       </div>
 
-      {/* 탭바 섹션 */}
       <div className="flex items-center justify-between w-full h-[31px] border-b p-6">
         <button
           className={`flex-1 text-center py-3 text-subtitle1 border-b-2 w-full ml-[-24px] ${
@@ -38,8 +39,16 @@ const ProgramInfo = () => {
           }`}
           onClick={() => setActiveTab("reviews")}
         >
-          후기 <span className="text-primary-foundation-100">14개</span>
+          후기 <span className="text-orange-400 text-body9">14개</span>
         </button>
+      </div>
+
+      <div className="w-full">
+        {activeTab === "details" ? (
+          <DetailTab/>
+        ) : (
+          <ReviewTab/>
+        )}
       </div>
     </div>
   );
