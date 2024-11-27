@@ -17,7 +17,7 @@ const SignIn = () => {
         <Input type="password" placeholder="비밀번호를 입력해주세요." />
       </div>
 
-      <Button className="flex bg-[#FF8C2E] text-white">로그인하기</Button>
+      <Button className="flex text-white bg-orange-400">로그인하기</Button>
 
       <text
         style={{

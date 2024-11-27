@@ -17,10 +17,11 @@ const Step1 = ({ onNext }) => {
         <Input placeholder="비밀번호를 다시 입력해주세요" />
       </div>
       <Button
-        className="mt-[136px] flex bg-[#FF8C2E] text-white"
-        text="다음"
+        className="mt-[136px] flex bg-orange-400 text-white"
         onClick={onNext}
-      />
+      >
+        다음
+      </Button>
     </>
   );
 };

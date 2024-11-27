@@ -9,7 +9,7 @@ const Step2 = () => {
         <Input />
       </div>
       <p className="mt-[6px]">8자 이내의 한글/영문/숫자로 입력해주세요.</p>
-      <Button className="mt-[366px] flex bg-[#FF8C2E] text-white" text="다음" />
+      <Button className="mt-[366px] flex bg-orange-400 text-white">다음</Button>
     </>
   );
 };
