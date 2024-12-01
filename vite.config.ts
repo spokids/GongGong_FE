@@ -1,17 +1,15 @@
 import { defineConfig } from "vite";
-import tsConfigPaths from 'vite-tsconfig-paths';
+import tsConfigPaths from "vite-tsconfig-paths";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import path from "path";
 
 export default defineConfig({
   plugins: [
-    tsConfigPaths(),
     react(),
+    tsConfigPaths(),
     svgr({
-      svgrOptions: {
-        icon: true,
-      },
+      include: "**/*.svg?react",
     }),
   ],
   root: "./",
