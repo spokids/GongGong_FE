@@ -9,7 +9,10 @@ export default defineConfig({
     react(),
     tsConfigPaths(),
     svgr({
-      include: "**/*.svg?react",
+      include: "**/*.svg",
+      svgrOptions: {
+        icon: true,
+      },
     }),
   ],
   root: "./",
