@@ -5,3 +5,4 @@
 export { default as SwimmingIcon } from "./swimming.svg?react";
 export { default as HideIcon } from "./hide.svg?react";
 export { default as EyeIcon } from "./eye.svg?react";
+export { default as UserIcon } from "./user.svg?react";
