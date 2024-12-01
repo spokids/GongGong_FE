@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Button from "../../components/Button";
 import Input from "../../components/Input";
 import BgLogo from "../../assets/svg/BgLogo";
 import LogoLogin from "../../assets/svg/LogoLogin";
 import { SwimmingIcon } from "@assets/svg";
+import Button from "@components/Button";
 
 const SignIn = () => {
   return (
