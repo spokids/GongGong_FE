@@ -1,8 +1,8 @@
 import Input from "@components/Input";
 import FieldButton from "./components/FieldButton";
 import { SwimmingIcon } from "@assets/svg";
-import Button from "@components/Button";
 import RegionDropdown from "./components/RegionDropdown";
+import Button from "@components/Button";
 
 const ProgramFinder = () => {
   const handleRegionSelect = (region: string) => {
@@ -51,7 +51,7 @@ const ProgramFinder = () => {
             여러 개 선택할 수 있어요
           </p>
         </div>
-        <FieldButton icon={SwimmingIcon} label="수영" />
+        {/* <FieldButton icon={SwimmingIcon} label="수영" /> */}
       </div>
 
       <div className="mt-[42px]">
@@ -66,7 +66,9 @@ const ProgramFinder = () => {
           <Input className="w-[294px]" placeholder="숫자로 입력해주세요" />
           <p className="ml-2">세</p>
         </div>
-        <Button className="mt-[136px] flex bg-[#FF8C2E] text-white">다음</Button>
+        <Button style="filled" className="mt-[136px] w-full h-14 flex">
+          다음
+        </Button>
       </div>
     </div>
   );
