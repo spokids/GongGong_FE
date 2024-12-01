@@ -1,5 +1,5 @@
-import FieldButton from "./components/FieldButton";
 import { SwimmingIcon } from "@assets/svg";
+import FieldButton from "./components/FieldButton";
 import RegionDropdown from "./components/RegionDropdown";
 import Button from "@components/Button";
 import Input from "@components/Input";
@@ -51,7 +51,7 @@ const ProgramFinder = () => {
             여러 개 선택할 수 있어요
           </p>
         </div>
-        {/* <FieldButton icon={SwimmingIcon} label="수영" /> */}
+        <FieldButton icon={SwimmingIcon} label="수영" />
       </div>
 
       <div className="mt-[42px]">
