@@ -1,8 +1,8 @@
-import Input from "@components/Input";
 import FieldButton from "./components/FieldButton";
 import { SwimmingIcon } from "@assets/svg";
 import RegionDropdown from "./components/RegionDropdown";
 import Button from "@components/Button";
+import Input from "@components/Input";
 
 const ProgramFinder = () => {
   const handleRegionSelect = (region: string) => {

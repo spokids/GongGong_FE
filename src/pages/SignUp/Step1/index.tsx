@@ -1,11 +1,12 @@
-import Input from "../../../components/Input";
+import Input from "@components/Input";
 import Button from "../../../components/Button";
 
 interface Step1Props {
-  onNext: () => void; // onNext 함수가 반환 값이 없는 함수임을 명시
+  onNext: () => void;
 }
 
-const Step1 = ({ onNext }: Step1Props) => {  return (
+const Step1 = ({ onNext }: Step1Props) => {
+  return (
     <>
       <div className="flex flex-col gap-1 mt-10">
         <label>아이디</label>
