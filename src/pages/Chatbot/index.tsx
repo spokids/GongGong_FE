@@ -1,4 +1,12 @@
+import usePostChoiceChatRoom from "@api/hooks/chatbot/usePostChoiceChatRoom";
+
 const Chatbot = () => {
+  const { mutate } = usePostChoiceChatRoom();
+
+  const handleButtonClick = (choice: string) => {
+    mutate(choice);
+  };
+
   return (
     <div className="bg-linear-orange h-full flex flex-col">
       <p className="mt-5 text-body6 font-medium text-primary-90">
@@ -12,12 +20,14 @@ const Chatbot = () => {
         <button
           type="button"
           className="rounded-xl bg-primary-100 text-white text-button2 font-semibold py-3 px-4"
+          onClick={() => handleButtonClick("FREE_CHAT")}
         >
           자유롭게 아이에게 맞는 프로그램을 찾고싶어요.
         </button>
         <button
           type="button"
           className="rounded-xl bg-primary-100 text-white text-button2 font-semibold py-3 px-4"
+          onClick={() => handleButtonClick("ABILITY_CHAT")}
         >
           키우고 싶은 능력치를 기준으로 찾고 싶어요.
         </button>
