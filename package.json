@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^3.2.2",
+    "@chakra-ui/system": "^2.6.2",
     "@chakra-ui/toast": "^7.0.2",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
