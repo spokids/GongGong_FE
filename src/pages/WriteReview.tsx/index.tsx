@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { PictureIcon } from "@assets/svg";
 import React from "react";
@@ -38,10 +39,19 @@ const WriteReview = () => {
     return (
         <div className='mt-3'>
             <div className='flex flex-row items-center gap-2'>
+=======
+import { PictureIcon } from "@assets/svg";
+
+const WriteReview = () => {
+    return (
+        <div className='mt-3'>
+            <div className='flex flex-row gap-2'>
+>>>>>>> 132d85cc (병합 충돌 해결 후 적용된 수정 사항)
                 <h1 className='text-subtitle1'>후기글</h1>
                 <span className='text-orange-400 text-caption4'>필수</span>
             </div>
             
+<<<<<<< HEAD
             <div className="relative mt-2">
                 <textarea 
                     placeholder="이곳에 프로그램에 대한 의견을 작성해주세요" 
@@ -61,10 +71,17 @@ const WriteReview = () => {
             </div>
 
             <div className='flex flex-row items-center gap-2 mt-8'>
+=======
+            <textarea placeholder="이곳에 프로그램에 대한 의견을 작성해주세요" 
+            className="gap-40 mt-[6px] h-[244px] w-full py-[11px] px-3 flex justify-center rounded-lg, font-regular focus:outline-none focus:outline-[1.5px] focus:bg-orange-50 focus:border-orange-200 placeholder:text-body-9 placeholder:text-primary-foundation-50 border-[1.5px] border-orange-100" />
+
+            <div className='flex flex-row gap-2 mt-8'>
+>>>>>>> 132d85cc (병합 충돌 해결 후 적용된 수정 사항)
                 <h1 className='text-subtitle1'>사진</h1>
                 <span className='text-primary-foundation-50 text-caption4'>선택</span>
             </div>
 
+<<<<<<< HEAD
             <div className="flex flex-row gap-2 mt-2">
                 {selectedImage ? (
                     <>
@@ -108,8 +125,21 @@ const WriteReview = () => {
                 욕설, 초상권 침해, 비방 및 허위 사실 등을 포함한 후기는 삭제 될 수 있으며
                 가이드라인에 따라 이용 정지 등의 처분이 따를 수 있습니다.
             </p>
+=======
+            <div className='w-[100px] h-[100px] flex justify-center items-center border-[1.5px] rounded-lg bg-foundation-5'>
+                <PictureIcon/>
+            </div>
+            
+            <h3 className='text-primary-70 mt-[51px] text-caption3'>쾌적한 스포키즈를 위해 꼭 지켜주세요!</h3>
+            <p className='text-primary-50 text-caption4'>욕설, 초상권 침해, 비방 및 허위 사실 등을 포함한 후기는 삭제 될 수 있으며
+            가이드라인에 따라 이용 정지 등의 처분이 따를 수 있습니다.</p>
+>>>>>>> 132d85cc (병합 충돌 해결 후 적용된 수정 사항)
         </div>
     );
 };
 
+<<<<<<< HEAD
 export default WriteReview;
+=======
+export default WriteReview;
+>>>>>>> 132d85cc (병합 충돌 해결 후 적용된 수정 사항)
