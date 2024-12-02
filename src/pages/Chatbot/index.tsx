@@ -1,10 +1,16 @@
+import { useState } from "react";
 import usePostChoiceChatRoom from "@api/hooks/chatbot/usePostChoiceChatRoom";
 
 const Chatbot = () => {
   const { mutate } = usePostChoiceChatRoom();
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   const handleButtonClick = (choice: string) => {
-    mutate(choice);
+    mutate(choice, {
+      onSuccess: () => {
+        setButtonClicked(true);
+      },
+    });
   };
 
   return (
@@ -17,20 +23,24 @@ const Chatbot = () => {
         프로그램을 찾기 위한 기준을 아래에서 선택해주세요.
       </p>
       <div className="flex flex-col justify-center mt-auto mb-6 px-[34px] gap-2">
-        <button
-          type="button"
-          className="rounded-xl bg-primary-100 text-white text-button2 font-semibold py-3 px-4"
-          onClick={() => handleButtonClick("FREE_CHAT")}
-        >
-          자유롭게 아이에게 맞는 프로그램을 찾고싶어요.
-        </button>
-        <button
-          type="button"
-          className="rounded-xl bg-primary-100 text-white text-button2 font-semibold py-3 px-4"
-          onClick={() => handleButtonClick("ABILITY_CHAT")}
-        >
-          키우고 싶은 능력치를 기준으로 찾고 싶어요.
-        </button>
+        {!buttonClicked && (
+          <>
+            <button
+              type="button"
+              className="rounded-xl bg-primary-100 text-white text-button2 font-semibold py-3 px-4"
+              onClick={() => handleButtonClick("FREE_CHAT")}
+            >
+              자유롭게 아이에게 맞는 프로그램을 찾고싶어요.
+            </button>
+            <button
+              type="button"
+              className="rounded-xl bg-primary-100 text-white text-button2 font-semibold py-3 px-4"
+              onClick={() => handleButtonClick("ABILITY_CHAT")}
+            >
+              키우고 싶은 능력치를 기준으로 찾고 싶어요.
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
