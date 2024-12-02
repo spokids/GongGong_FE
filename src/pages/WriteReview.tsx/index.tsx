@@ -9,7 +9,8 @@ const WriteReview = () => {
             </div>
             
             <textarea placeholder="이곳에 프로그램에 대한 의견을 작성해주세요" 
-            className="gap-40 mt-[6px] h-[244px] w-full py-[11px] px-3 flex justify-center rounded-lg, font-regular focus:outline-none focus:outline-[1.5px] focus:bg-orange-50 focus:border-orange-200 placeholder:text-body-9 placeholder:text-primary-foundation-50 border-[1.5px] border-orange-100" />
+            className="gap-40 mt-[6px] h-[244px] w-full py-[11px] px-3 flex justify-center rounded-lg font-regular focus:outline-none focus:outline-[1.5px] focus:bg-orange-50 focus:border-orange-200 placeholder:text-body-9 placeholder:text-primary-foundation-50 border-[1.5px] border-orange-100"
+            style={{resize: 'none'}} />
 
             <div className='flex flex-row gap-2 mt-8'>
                 <h1 className='text-subtitle1'>사진</h1>
