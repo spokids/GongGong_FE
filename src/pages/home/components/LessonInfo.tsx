@@ -1,6 +1,6 @@
 import React from "react";
 import Chip from "@components/Chip";
-import swimming from "@assets/svg/swimming.svg";
+import { SwimmingIcon } from "@assets/svg";
 
 interface LessonInfoProps {
   programId: number;
@@ -34,7 +34,7 @@ const LessonInfo: React.FC<LessonInfoProps> = ({
   return (
     <div className="mt-4 mb-4">
       <Chip>
-        <img src={swimming} alt="Swimming" className="w-4 h-4 mr-2" />
+        <SwimmingIcon />
         {programType}
       </Chip>
 

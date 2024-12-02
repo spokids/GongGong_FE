@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import BgLogo from "../../assets/svg/BgLogo";
-import LogoLogin from "../../assets/svg/LogoLogin";
+import BgLogo from "@assets/BgLogo";
+import LogoLogin from "@assets/LogoLogin";
 import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
 import Input from "@components/Input";
+import FieldButton from "@pages/ProgramFinder/components/FieldButton";
 
 const SignIn = () => {
   return (
@@ -44,7 +45,7 @@ const SignIn = () => {
         >
           회원가입하기
         </text>
-        <SwimmingIcon />
+        <FieldButton icon={SwimmingIcon} label="수영" />
       </Link>
     </div>
   );

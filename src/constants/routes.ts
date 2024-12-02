@@ -5,7 +5,10 @@ const routes = {
   Home: "/home",
   ProgramFinder: "/program-finder",
   ProgramInfo: "/program-info",
-  Chatbot: "/chatbot",
+  WriteReview: "/write-review",
+  MyPage: "/my-page",
+  AccountSetting: "/account-setting",
 } as const;
 
 export default routes;
+ 
