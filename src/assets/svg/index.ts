@@ -12,3 +12,10 @@ export { default as UserIcon } from "./user.svg?react";
 export { default as SwimmingIcon } from "./swimming.svg?react";
 export { default as HideIcon } from "./hide.svg?react";
 export { default as EyeIcon } from "./eye.svg?react";
+<<<<<<< HEAD
+=======
+export { default as UserIcon } from "./user.svg?react";
+export { default as HomeIcon } from "./home.svg?react";
+export { default as MessageIcon } from "./message.svg?react";
+export { default as CheckIcon } from "./check.svg?react";
+>>>>>>> 298e4d33 (#30 [Chore] add svg)
