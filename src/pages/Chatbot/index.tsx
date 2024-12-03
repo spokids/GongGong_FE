@@ -12,6 +12,7 @@ const Chatbot = () => {
       },
     });
   };
+  //
 
   return (
     <div className="bg-linear-orange h-full flex flex-col">
