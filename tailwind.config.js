@@ -84,14 +84,5 @@ export default {
       "linear-orange":
         "linear-gradient(180deg, #FFF 24.64%, #FFF8F2 72.39%, #FFDEC2 113.93%, #FF8C2E 129.38%)",
     },
-    rollupOptions: {
-      output:{
-          manualChunks(id) {
-              if (id.includes('node_modules')) {
-                  return id.toString().split('node_modules/')[1].split('/')[0].toString();
-              }
-          }
-      }
-  }
   },
 };
