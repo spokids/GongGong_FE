@@ -8,18 +8,18 @@ import FieldButton from "@pages/ProgramFinder/components/FieldButton";
 
 const SignIn = () => {
   return (
-    <div className="flex flex-col items-center mt-[94px] pace-y-6">
-      <div className="mb-[120px] relative w-full h-[300px]">
-        <BgLogo className="absolute top-0 left-0 object-cover w-full h-full" />
-        <LogoLogin className="absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[180px]" />
+    <div className="pace-y-6 mt-[94px] flex flex-col items-center">
+      <div className="relative mb-[120px] h-[300px] w-full">
+        <BgLogo className="absolute left-0 top-0 h-full w-full object-cover" />
+        <LogoLogin className="absolute left-[50%] top-[60%] w-[180px] -translate-x-1/2 -translate-y-1/2 transform" />
       </div>
 
-      <div className="flex flex-col w-[350px] gap-2 mb-[70px]">
+      <div className="mb-[70px] flex w-[350px] flex-col gap-2">
         <Input placeholder="아이디를 입력해주세요." />
         <Input type="password" placeholder="비밀번호를 입력해주세요." />
       </div>
 
-      <Button className="flex text-white bg-orange-400">로그인하기</Button>
+      <Button className="flex bg-orange-400 text-white">로그인하기</Button>
 
       <text
         style={{

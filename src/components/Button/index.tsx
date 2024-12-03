@@ -11,7 +11,7 @@ const ButtonVariants = cva(
         white: "",
       },
     },
-  }
+  },
 );
 
 interface ButtonProps

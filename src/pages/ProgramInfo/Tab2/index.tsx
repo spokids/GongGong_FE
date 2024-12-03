@@ -1,13 +1,25 @@
-const ReviewItem = ({ name, date, content, image }: { name: string; date: string; content: string; image?: string }) => (
-  <div className="flex flex-col gap-1 mt-5">
-    <p className="text-foundation-100 text-body8">
+const ReviewItem = ({
+  name,
+  date,
+  content,
+  image,
+}: {
+  name: string;
+  date: string;
+  content: string;
+  image?: string;
+}) => (
+  <div className="mt-5 flex flex-col gap-1">
+    <p className="text-body8 text-foundation-100">
       {name}
       <span className="ml-2 text-caption4 text-foundation-40">{date}</span>
     </p>
-    <div className="w-full h-auto rounded-lg bg-[#F7F7F7] p-3 gap-2">
+    <div className="h-auto w-full gap-2 rounded-lg bg-[#F7F7F7] p-3">
       <p className="text-body9 text-foundation-100">{content}</p>
       {image && <img src={image} alt="리뷰 이미지" className="mt-2" />}
-      <button className="h-auto mt-2 underline text-primary-foundation-50 text-button3">신고</button>
+      <button className="mt-2 h-auto text-button3 text-primary-foundation-50 underline">
+        신고
+      </button>
     </div>
   </div>
 );
@@ -17,13 +29,15 @@ const ReviewTab = () => {
     {
       name: "동준맘",
       date: "2022.01.11",
-      content: "이 체육 프로그램은 진짜 최고에요! 제 아들이 3달 수강했더니 몸짱이 되어버렸어여",
+      content:
+        "이 체육 프로그램은 진짜 최고에요! 제 아들이 3달 수강했더니 몸짱이 되어버렸어여",
       image: "/images/reviewPhoto.png",
     },
     {
       name: "지훈아빠",
       date: "2023.03.05",
-      content: "프로그램이 너무 좋습니다! 코치님들이 정말 친절하시고 전문성이 느껴졌어요.",
+      content:
+        "프로그램이 너무 좋습니다! 코치님들이 정말 친절하시고 전문성이 느껴졌어요.",
     },
     {
       name: "혜린맘",
