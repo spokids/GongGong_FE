@@ -3,10 +3,7 @@ import { PictureIcon } from "@assets/svg";
 import React from "react";
 
 const WriteReview = () => {
-<<<<<<< HEAD
     const [imgCnt, setImgCnt] = useState<number>(0);
-=======
->>>>>>> f57b8666 (#26 [Design] 글자수 세기 추가)
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [text, setText] = useState<string>(""); 
     const [isWriting, setIsWriting] = useState(false);
@@ -23,7 +20,6 @@ const WriteReview = () => {
     const handleBlur = () => {
         setIsWriting(false);
     };
-<<<<<<< HEAD
     const triggerFileInput = () => {
         if (fileInputRef.current) {
             fileInputRef.current.click();
@@ -38,8 +34,6 @@ const WriteReview = () => {
             setImgCnt(1);
         }
     };
-=======
->>>>>>> f57b8666 (#26 [Design] 글자수 세기 추가)
 
     return (
         <div className='mt-3'>
