@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface FieldButtonProps {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  label: string;
+  children: React.ReactNode;
 }
 
-const FieldButton: React.FC<FieldButtonProps> = ({ icon: Icon, label }) => {
+const FieldButton: React.FC<FieldButtonProps> = ({ children }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -15,19 +14,18 @@ const FieldButton: React.FC<FieldButtonProps> = ({ icon: Icon, label }) => {
   return (
     <button
       type="button"
-      className={`flex p-3 items-center gap-1 rounded-xl border-[1.5px] border-orange-100 ${
-        isClicked ? "bg-orange-200" : "bg-white"
+      className={`flex items-center gap-1 rounded-xl border-[1.5px] p-3 ${
+        isClicked
+          ? "border-orange-200 bg-orange-100"
+          : "border-orange-100 bg-white"
       }`}
       onClick={handleClick}
     >
-      <Icon className="w-5 h-5" />
-      <p
-        className={`font-regular text-body7 ${
-          isClicked ? "text-orange-400" : "text-primary-70"
-        }`}
+      <span
+        className={`flex items-center gap-1 ${isClicked ? "text-orange-400" : "text-primary-70"}`}
       >
-        {label}
-      </p>
+        {children}
+      </span>
     </button>
   );
 };
