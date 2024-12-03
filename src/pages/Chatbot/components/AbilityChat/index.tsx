@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FieldButton from "@pages/ProgramFinder/components/FieldButton";
+import FieldButton from "@components/FieldButton";
 import BotBubble from "../BotBubble";
 import SenderBubble from "../SenderBubble";
 import ChatbotButton from "../ChatbotButton";
