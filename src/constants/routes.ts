@@ -5,6 +5,7 @@ const routes = {
   Home: "/home",
   ProgramFinder: "/program-finder",
   ProgramInfo: "/program-info",
+  Chatbot: "/chatbot",
 } as const;
 
 export default routes;

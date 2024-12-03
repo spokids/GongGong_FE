@@ -6,6 +6,7 @@ import SignInPage from "@pages/SignIn";
 import ProgramFinder from "@pages/ProgramFinder";
 // import HomePage from "@pages/Home";
 import ProgramInfo from "@pages/Detail/ProgramInfo";
+import Chatbot from "@pages/Chatbot";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: routes.ProgramInfo,
         element: <ProgramInfo />,
+      },
+      {
+        path: routes.Chatbot,
+        element: <Chatbot />,
       },
     ],
   },
