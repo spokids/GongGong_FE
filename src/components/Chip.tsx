@@ -1,12 +1,16 @@
 import React from "react";
 
 interface ChipProps {
-    className?: string;
-    style?: React.CSSProperties;
-    children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
 }
 
-const Chip: React.FC<ChipProps> = ({ children, className = "", style = {} }) => {
+const Chip: React.FC<ChipProps> = ({
+  children,
+  className = "",
+  style = {},
+}) => {
   const baseStyle = `
     inline-flex items-center justify-center
     h-8

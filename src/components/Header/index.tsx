@@ -13,8 +13,8 @@ const Header = () => {
   }
 
   return (
-    <header className="flex justify-between p-[10px] items-center">
-      <h1 className="text-title1 font-semibold text-center">{title}</h1>
+    <header className="flex items-center justify-between p-[10px]">
+      <h1 className="text-center text-title1 font-semibold">{title}</h1>
       <UserIcon />
     </header>
   );
