@@ -2,13 +2,17 @@ import { useState } from "react";
 
 interface FieldButtonProps {
   children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const FieldButton: React.FC<FieldButtonProps> = ({ children }) => {
+const FieldButton: React.FC<FieldButtonProps> = ({ children, onClick }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setIsClicked((prev) => !prev);
+    if (onClick) {
+      onClick(e);
+    }
   };
 
   return (
