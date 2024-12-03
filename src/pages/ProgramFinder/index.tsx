@@ -51,7 +51,10 @@ const ProgramFinder = () => {
             여러 개 선택할 수 있어요
           </p>
         </div>
-        <FieldButton icon={SwimmingIcon} label="수영" />
+        <FieldButton>
+          <SwimmingIcon />
+          수영
+        </FieldButton>
       </div>
 
       <div className="mt-[42px]">
