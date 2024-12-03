@@ -9,9 +9,9 @@ const ProgramInfo = () => {
   const [activeTab, setActiveTab] = useState<"details" | "reviews">("details");
 
   return (
-    <div className="w-full h-screen mt-14">
-      <div className="flex flex-col h-[118px] w-full">
-        <div className="flex flex-row gap-2 mt-2">
+    <div className="mt-14 h-screen w-full">
+      <div className="flex h-[118px] w-full flex-col">
+        <div className="mt-2 flex flex-row gap-2">
           <Chip>
             <img src={SwimmingIcon} />
             수영
@@ -21,15 +21,17 @@ const ProgramInfo = () => {
             지도사 자격증 있음
           </Chip>
         </div>
-        <h1 className="mt-[6px] text-foundation-100 text-title1">뫄뫄수영강습 (초급)</h1>
+        <h1 className="mt-[6px] text-title1 text-foundation-100">
+          뫄뫄수영강습 (초급)
+        </h1>
       </div>
 
-      <div className="flex items-center justify-between w-full h-[31px] border-b p-6">
+      <div className="flex h-[31px] w-full items-center justify-between border-b p-6">
         <button
-          className={`flex-1 text-center py-3 text-subtitle1 border-b-2 w-full ml-[-24px] ${
+          className={`ml-[-24px] w-full flex-1 border-b-2 py-3 text-center text-subtitle1 ${
             activeTab === "details"
-              ? "text-foundation-100 border-foundation-100"
-              : "text-gray-400 border-transparent"
+              ? "border-foundation-100 text-foundation-100"
+              : "border-transparent text-gray-400"
           }`}
           onClick={() => setActiveTab("details")}
         >
@@ -37,23 +39,19 @@ const ProgramInfo = () => {
         </button>
 
         <button
-          className={`flex-1 text-center py-3 text-subtitle1 border-b-2 mr-[-24px] ${
+          className={`mr-[-24px] flex-1 border-b-2 py-3 text-center text-subtitle1 ${
             activeTab === "reviews"
-              ? "text-foundation-100 border-primary-foundation-100"
-              : "text-gray-400 border-transparent"
+              ? "border-primary-foundation-100 text-foundation-100"
+              : "border-transparent text-gray-400"
           }`}
           onClick={() => setActiveTab("reviews")}
         >
-          후기 <span className="text-orange-400 text-body9">14개</span>
+          후기 <span className="text-body9 text-orange-400">14개</span>
         </button>
       </div>
 
       <div className="w-full">
-        {activeTab === "details" ? (
-          <DetailTab/>
-        ) : (
-          <ReviewTab/>
-        )}
+        {activeTab === "details" ? <DetailTab /> : <ReviewTab />}
       </div>
     </div>
   );

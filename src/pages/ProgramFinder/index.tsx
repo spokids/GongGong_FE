@@ -24,8 +24,8 @@ const ProgramFinder = () => {
 
   return (
     <div>
-      <div className="flex flex-col gap-1 mt-3">
-        <h2 className="font-semibold text-primary-100 text-title1">
+      <div className="mt-3 flex flex-col gap-1">
+        <h2 className="text-title1 font-semibold text-primary-100">
           지역, 분야, 아이의 나이를 <br />
           입력하고 잘 맞는 프로그램을 찾아봐요!
         </h2>
@@ -34,9 +34,9 @@ const ProgramFinder = () => {
         </h2>
       </div>
       <div className="mt-10">
-        <div className="flex items-center gap-3 mb-1">
-          <p className="font-medium text-body6 text-primary-100">지역</p>
-          <p className="text-orange-400 text-caption4 font-regular">
+        <div className="mb-1 flex items-center gap-3">
+          <p className="text-body6 font-medium text-primary-100">지역</p>
+          <p className="text-caption4 font-regular text-orange-400">
             시 / 도까지 필수입력
           </p>
         </div>
@@ -45,9 +45,9 @@ const ProgramFinder = () => {
       <RegionDropdown options={regions} onSelect={handleRegionSelect} />
 
       <div className="mt-10">
-        <div className="flex items-center gap-3 mb-1">
-          <p className="font-medium text-body6 text-primary-100">분야</p>
-          <p className="text-orange-400 text-caption4 font-regular">
+        <div className="mb-1 flex items-center gap-3">
+          <p className="text-body6 font-medium text-primary-100">분야</p>
+          <p className="text-caption4 font-regular text-orange-400">
             여러 개 선택할 수 있어요
           </p>
         </div>
@@ -56,17 +56,17 @@ const ProgramFinder = () => {
 
       <div className="mt-[42px]">
         <div className="flex flex-col">
-          <p className="font-medium text-primary-100 text-body6">아이의 나이</p>
-          <p className="text-caption4 text-primary-40 font-regular">
+          <p className="text-body6 font-medium text-primary-100">아이의 나이</p>
+          <p className="text-caption4 font-regular text-primary-40">
             나이는 최대 만 18세까지 입력 가능해요.
           </p>
         </div>
         <div className="flex items-center">
-          <p className="mr-5 font-medium text-body6 text-primary-100">만</p>
+          <p className="mr-5 text-body6 font-medium text-primary-100">만</p>
           <Input className="w-[294px]" placeholder="숫자로 입력해주세요" />
           <p className="ml-2">세</p>
         </div>
-        <Button style="filled" className="mt-[136px] w-full h-14 flex">
+        <Button style="filled" className="mt-[136px] flex h-14 w-full">
           다음
         </Button>
       </div>

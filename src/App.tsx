@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
 const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="container max-w-[410px] min-w-[390px] mx-auto flex flex-col h-[100vh]">
+      <div className="container mx-auto flex h-[100vh] min-w-[390px] max-w-[410px] flex-col">
         <Header />
         <Outlet />
         <TabBar />
