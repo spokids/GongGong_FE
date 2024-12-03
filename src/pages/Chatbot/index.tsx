@@ -9,11 +9,16 @@ const Chatbot = () => {
   const { mutate } = usePostChoiceChatRoom();
   const [buttonClicked, setButtonClicked] = useState(false);
   const [choice, setChoice] = useState<string>("");
+  const [chatRoomId, setChatRoomId] = useState<number | null>(null);
 
   const handleButtonClick = (choice: string) => {
     setChoice(choice);
     mutate(choice, {
-      onSuccess: () => {
+      onSuccess: (response) => {
+        if (response.data) {
+          const chatRoomId = response.data.chatRoomId;
+          setChatRoomId(chatRoomId);
+        }
         setButtonClicked(true);
       },
     });
@@ -27,7 +32,10 @@ const Chatbot = () => {
           프로그램을 찾기 위한 기준을 아래에서 선택해주세요.`}
       />
       {buttonClicked && choice === "FREE_CHAT" && <FreeChat />}
-      {buttonClicked && choice === "ABILITY_CHAT" && <AbilityChat />}
+      {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
+        <AbilityChat chatRoomId={chatRoomId} />
+      )}
+
       <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">
         {!buttonClicked && (
           <>
