@@ -4,13 +4,12 @@ import LogoLogin from "@assets/LogoLogin";
 import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
 import Input from "@components/Input";
-import FieldButton from "@pages/ProgramFinder/components/FieldButton";
 
 const SignIn = () => {
   return (
     <div className="pace-y-6 mt-[94px] flex flex-col items-center">
       <div className="relative mb-[120px] h-[300px] w-full">
-        <BgLogo className="absolute left-0 top-0 h-full w-full object-cover" />
+        <BgLogo className="absolute top-0 left-0 object-cover w-full h-full" />
         <LogoLogin className="absolute left-[50%] top-[60%] w-[180px] -translate-x-1/2 -translate-y-1/2 transform" />
       </div>
 
@@ -19,7 +18,7 @@ const SignIn = () => {
         <Input type="password" placeholder="비밀번호를 입력해주세요." />
       </div>
 
-      <Button className="flex bg-orange-400 text-white">로그인하기</Button>
+      <Button className="flex text-white bg-orange-400">로그인하기</Button>
 
       <text
         style={{
@@ -45,7 +44,7 @@ const SignIn = () => {
         >
           회원가입하기
         </text>
-        <FieldButton icon={SwimmingIcon} label="수영" />
+        <SwimmingIcon />
       </Link>
     </div>
   );

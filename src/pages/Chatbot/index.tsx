@@ -1,9 +1,5 @@
 import { useState } from "react";
-import usePostChoiceChatRoom from "@api/hooks/chatbot/usePostChoiceChatRoom";
-import FreeChat from "./components/FreeChat";
-import AbilityChat from "./components/AbilityChat";
-import BotBubble from "./components/BotBubble";
-import ChatbotButton from "./components/ChatbotButton";
+import usePostChoiceChatRoom from "@api/hooks/chatbot/usePostAbility";
 import FreeChat from "./components/FreeChat";
 import AbilityChat from "./components/AbilityChat";
 import BotBubble from "./components/BotBubble";
@@ -14,19 +10,11 @@ const Chatbot = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [choice, setChoice] = useState<string>("");
   const [chatRoomId, setChatRoomId] = useState<number | null>(null);
-  const [choice, setChoice] = useState<string>("");
-  const [chatRoomId, setChatRoomId] = useState<number | null>(null);
 
   const handleButtonClick = (choice: string) => {
     setChoice(choice);
-    setChoice(choice);
     mutate(choice, {
-      onSuccess: (response) => {
-        if (response.data) {
-          const chatRoomId = response.data.chatRoomId;
-          setChatRoomId(chatRoomId);
-        }
-      onSuccess: (response) => {
+      onSuccess: (response:any) => {
         if (response.data) {
           const chatRoomId = response.data.chatRoomId;
           setChatRoomId(chatRoomId);
@@ -52,14 +40,10 @@ const Chatbot = () => {
         {!buttonClicked && (
           <>
             <ChatbotButton onClick={() => handleButtonClick("FREE_CHAT")}>
-            <ChatbotButton onClick={() => handleButtonClick("FREE_CHAT")}>
               자유롭게 아이에게 맞는 프로그램을 찾고싶어요.
             </ChatbotButton>
             <ChatbotButton onClick={() => handleButtonClick("ABILITY_CHAT")}>
-            </ChatbotButton>
-            <ChatbotButton onClick={() => handleButtonClick("ABILITY_CHAT")}>
               키우고 싶은 능력치를 기준으로 찾고 싶어요.
-            </ChatbotButton>
             </ChatbotButton>
           </>
         )}

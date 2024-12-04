@@ -1,4 +1,4 @@
-import LessonInfo from './components/LessonInfo';
+import LessonInfo from './LessonInfo';
 import {FireIcon, MainIcon, RunIcon, SearchIcon} from '@assets/svg';
 import Button from "@components/Button";
 import { Link } from 'react-router-dom';
