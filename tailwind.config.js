@@ -79,11 +79,6 @@ export default {
         regular: "400",
       },
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 132d85cc (병합 충돌 해결 후 적용된 수정 사항)
     backgroundImage: {
       "linear-orange":
         "linear-gradient(180deg, #FFF 24.64%, #FFF8F2 72.39%, #FFDEC2 113.93%, #FF8C2E 129.38%)",

@@ -22,14 +22,13 @@ export default defineConfig({
               manualChunks(id) {
                 if (id.includes('node_modules')) {
                     const packageName = id.toString().split('node_modules/')[1].split('/')[0].toString();
-                    // 특정 조건으로 더 큰 청크 그룹화
                     if (['react', 'react-dom'].includes(packageName)) {
                         return 'react-vendor';
                     }
                     return 'vendor';
                 }
             }            
-            }
-        }
+            },
+        },
   },
 });
