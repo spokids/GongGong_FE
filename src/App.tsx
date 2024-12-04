@@ -19,7 +19,6 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider value={defaultSystem}>
-        {/* ChakraProvider 안에 자식 요소들을 넣어야 합니다 */}
         <div className="container mx-auto flex h-[100vh] min-w-[390px] max-w-[410px] flex-col">
           <Header />
           <Outlet />

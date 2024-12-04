@@ -1,26 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BgLogo from "@assets/BgLogo";
 import LogoLogin from "@assets/LogoLogin";
 import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
 import Input from "@components/Input";
-import usePostLogin from "@api/hooks/login/usePostLogin"; // 로그인 훅 가져오기
+import usePostLogin from "@api/hooks/login/usePostLogin";
 
 const SignIn = () => {
   const { mutate: postLogin } = usePostLogin();
+  const navigate = useNavigate();
   const [isComplete, setIsComplete] = useState(false);
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [responseMessage, setResponseMessage] = useState<string | null>(null); // 타입을 string | null로 변경
+  const [responseMessage, setResponseMessage] = useState<string | null>(null); 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // 에러 메시지 상태 추가
 
   const handleLogin = () => {
+    console.log("userId", userId);
+    console.log("password", password);
+    
     postLogin(
       { userId, password },
       {
         onSuccess: (response) => {
           setIsComplete(true);
-          setResponseMessage(response.data?.message || null); // null을 할당할 수 있음
+          setResponseMessage(response.data?.message || null);
+          setErrorMessage(null); // 성공 시 에러 메시지 초기화
+          navigate("/home-page"); 
+        },
+        onError: () => {
+          setErrorMessage("로그인에 실패했습니다. 아이디나 비밀번호를 확인해주세요.");
         },
       }
     );
@@ -34,13 +44,38 @@ const SignIn = () => {
       </div>
 
       <div className="mb-[70px] flex w-[350px] flex-col gap-2">
-        <Input placeholder="아이디를 입력해주세요." />
-        <Input type="password" placeholder="비밀번호를 입력해주세요." />
+        <Input
+          placeholder="아이디를 입력해주세요."
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="비밀번호를 입력해주세요."
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+      {errorMessage && (
+        <span
+          style={{
+            display: "flex",
+            color: "red",
+            fontSize: "14px",
+            justifyContent: "center",
+          }}
+        >
+          {errorMessage}
+        </span>
+      )}
       </div>
 
-      <Button className="flex text-white bg-orange-400">로그인하기</Button>
+      <Button onClick={handleLogin} style="filled" className="mt-6 w-[310px] h-[54px]">
+        로그인하기
+      </Button>
 
-      <text
+
+      <span
         style={{
           display: "flex",
           color: "#484851",
@@ -50,9 +85,9 @@ const SignIn = () => {
         }}
       >
         스포키즈가 처음이신가요?
-      </text>
-      <Link to="/signup">
-        <text
+      </span>
+      <Link to="/sign-up">
+        <span
           style={{
             display: "flex",
             color: "#484851",
@@ -63,7 +98,7 @@ const SignIn = () => {
           }}
         >
           회원가입하기
-        </text>
+        </span>
         <SwimmingIcon />
       </Link>
     </div>

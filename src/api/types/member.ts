@@ -10,3 +10,17 @@ export interface LoginResponse {
     token: string;
   };
 }
+
+export interface RegisterParams {
+  userId: string;
+  password: string;
+  nickName: string;
+}
+
+export interface RegisterResponse {
+  code: number;
+  message: string;
+  data: {
+    token: string;
+  };
+}
