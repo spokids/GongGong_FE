@@ -1,4 +1,4 @@
-import LessonInfo from '@pages/Home/LessonInfo';
+import LessonInfo from '@pages/HomePage/LessonInfo';
 import { Link } from 'react-router-dom';
 
 const SaveProgramming = () => {
