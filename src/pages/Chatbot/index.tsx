@@ -35,9 +35,8 @@ const Chatbot = () => {
       {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
         <AbilityChat chatRoomId={chatRoomId} />
       )}
-
+      {!buttonClicked && (
       <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">
-        {!buttonClicked && (
           <>
             <ChatbotButton onClick={() => handleButtonClick("FREE_CHAT")}>
               자유롭게 아이에게 맞는 프로그램을 찾고싶어요.
@@ -46,8 +45,8 @@ const Chatbot = () => {
               키우고 싶은 능력치를 기준으로 찾고 싶어요.
             </ChatbotButton>
           </>
-        )}
       </div>
+              )}
     </div>
   );
 };
