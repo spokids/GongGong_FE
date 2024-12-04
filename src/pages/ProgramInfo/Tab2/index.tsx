@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import Popup from './Popup';
+
 const ReviewItem = ({
   name,
   date,
@@ -8,21 +11,38 @@ const ReviewItem = ({
   date: string;
   content: string;
   image?: string;
-}) => (
-  <div className="flex flex-col gap-1 mt-5">
-    <p className="text-body8 text-foundation-100">
-      {name}
-      <span className="ml-2 text-caption4 text-foundation-40">{date}</span>
-    </p>
-    <div className="h-auto w-full gap-2 rounded-lg bg-[#F7F7F7] p-3">
-      <p className="text-body9 text-foundation-100">{content}</p>
-      {image && <img src={image} alt="리뷰 이미지" className="mt-2" />}
-      <button className="h-auto mt-2 underline text-button3 text-primary-foundation-50">
-        신고
-      </button>
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleReportClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div className="flex flex-col gap-1 mt-5">
+      <p className="text-body8 text-foundation-100">
+        {name}
+        <span className="ml-2 text-caption4 text-foundation-40">{date}</span>
+      </p>
+      <div className="h-auto w-full gap-2 rounded-lg bg-[#F7F7F7] p-3">
+        <p className="text-body9 text-foundation-100">{content}</p>
+        {image && <img src={image} alt="리뷰 이미지" className="mt-2" />}
+        <button
+          className="h-auto mt-2 underline text-button3 text-primary-foundation-50"
+          onClick={handleReportClick}
+        >
+          신고
+        </button>
+      </div>
+
+      {isModalOpen && <Popup closeModal={closeModal} />}
     </div>
-  </div>
-);
+  );
+};
 
 const ReviewTab = () => {
   const reviews = [
