@@ -18,7 +18,7 @@ tokenInstance.interceptors.response.use(
       window.location.href = "/";
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default tokenInstance;
