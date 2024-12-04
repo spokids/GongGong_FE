@@ -15,6 +15,7 @@ export default {
       container: {
         center: true,
         padding: "20px",
+        height: "100%",
       },
       colors: {
         system: {
