@@ -8,6 +8,7 @@ const routes = {
   WriteReview: "/write-review",
   MyPage: "/my-page",
   AccountSetting: "/account-setting",
+  Chatbot: "/chatbot",
 } as const;
 
 export default routes;
