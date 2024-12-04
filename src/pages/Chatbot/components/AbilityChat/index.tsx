@@ -60,7 +60,8 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId }) => {
   return (
     <div className="flex flex-col h-full">
       <SenderBubble message="키우고 싶은 능력치를 기준으로 찾고 싶어요." />
-      <BotBubble message="키우고 싶은 아이의 능력치를 선택해주세요. 여러 개 선택할 수도 있어요." />
+      <BotBubble message={`키우고 싶은 아이의 능력치를 선택해주세요. 
+      여러 개 선택할 수도 있어요.`} />
 
       <div className="flex flex-wrap gap-2 mt-2">
         {abilities.map((ability) => (
