@@ -15,6 +15,9 @@ const HomePage = () => {
           <h1 className="mt-1 text-headline1">
             우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
           </h1>
+          <h1 className="mt-1 text-headline1">
+            우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
+          </h1>
         </div>
         <MainIcon className="absolute top-0 right-0 z-0 w-60" />
       </div>
@@ -35,11 +38,22 @@ const HomePage = () => {
           border: "none",
         }}
       />
+      <hr
+        style={{
+          margin: "0 -20px 0 -20px",
+          height: "8px",
+          background: "var(--primary_foundation-5, #F3F3F4)",
+          border: "none",
+        }}
+      />
 
       <div className="flex flex-row w-full mt-4 mb-6">
         <RunIcon className="w-8"/>
           <div className="flex flex-col gap-0 ml-3">
           <h2 className="text-title1">체육 프로그램 목록</h2>
+          <p className="text-body9 text-primary-60">
+            최근에 후기가 올라온 프로그램 순의 목록이에요
+          </p>
           <p className="text-body9 text-primary-60">
             최근에 후기가 올라온 프로그램 순의 목록이에요
           </p>
@@ -53,6 +67,8 @@ const HomePage = () => {
 
       <Link to="/Program-info">
         <div className="mt-5">
+      <Link to="/Program-info">
+        <div className="mt-5">
           <LessonInfo
             programId={1}
             programType="수영"
@@ -60,6 +76,8 @@ const HomePage = () => {
             facilityName="강남스포츠문화센터수영장"
             programAge="만 7세 ~ 만 12세"
             programDate="24.11.01 - 24.11.30"
+          />
+        </div>
           />
         </div>
       </Link>
