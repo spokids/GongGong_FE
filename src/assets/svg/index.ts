@@ -15,3 +15,4 @@ export { default as EyeIcon } from "./eye.svg?react";
 export { default as HomeIcon } from "./home.svg?react";
 export { default as MessageIcon } from "./message.svg?react";
 export { default as CheckIcon } from "./check.svg?react";
+export { default as SendIcon } from "./send.svg?react";
