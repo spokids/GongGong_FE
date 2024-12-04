@@ -38,7 +38,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="flex h-full flex-col bg-linear-orange overflow-y-auto">
+    <div className="flex flex-col h-full overflow-y-auto bg-linear-orange">
       <BotBubble
         message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
           찾아주는 스포키톡이에요!

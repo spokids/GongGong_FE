@@ -1,11 +1,31 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import BgLogo from "@assets/BgLogo";
 import LogoLogin from "@assets/LogoLogin";
 import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
 import Input from "@components/Input";
+import usePostLogin from "@api/hooks/login/usePostLogin"; // 로그인 훅 가져오기
 
 const SignIn = () => {
+  const { mutate: postLogin } = usePostLogin();
+  const [isComplete, setIsComplete] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [responseMessage, setResponseMessage] = useState<string | null>(null); // 타입을 string | null로 변경
+
+  const handleLogin = () => {
+    postLogin(
+      { userId, password },
+      {
+        onSuccess: (response) => {
+          setIsComplete(true);
+          setResponseMessage(response.data?.message || null); // null을 할당할 수 있음
+        },
+      }
+    );
+  };
+
   return (
     <div className="pace-y-6 mt-[94px] flex flex-col items-center">
       <div className="relative mb-[120px] h-[300px] w-full">
