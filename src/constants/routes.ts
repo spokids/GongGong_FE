@@ -5,7 +5,7 @@ const routes = {
   homePage: "/homePage",
   ProgramFinder: "/program-finder",
   ProgramInfo: "/program-info",
-  WriteReview: "/write-review",
+  Review: "/review",
   MyPage: "/my-page",
   AccountSetting: "/account-setting",
 } as const;
