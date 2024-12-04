@@ -42,10 +42,10 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId }) => {
   };
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex flex-col h-full">
       <SenderBubble message="키우고 싶은 능력치를 기준으로 찾고 싶어요." />
       <BotBubble message="키우고 싶은 아이의 능력치를 선택해주세요. 여러 개 선택할 수도 있어요." />
-      <div className="mt-2 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mt-2">
         {abilities.map((ability) => (
           <FieldButton
             key={ability.value}
@@ -55,7 +55,7 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId }) => {
           </FieldButton>
         ))}
       </div>
-      <div className="mb-6 mt-auto flex justify-center">
+      <div className="flex justify-center mt-auto mb-6">
         <ChatbotButton
           disabled={selectedAbilities.length === 0}
           onClick={handleComplete}

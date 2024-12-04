@@ -4,7 +4,7 @@ interface BotBubbleProps {
 
 const BotBubble: React.FC<BotBubbleProps> = ({ message }) => {
   return (
-    <p className="mt-5 whitespace-pre-line text-body6 font-medium text-primary-90">
+    <p className="mt-5 font-medium whitespace-pre-line text-body6 text-primary-90">
       {message}
     </p>
   );
