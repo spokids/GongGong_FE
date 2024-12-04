@@ -9,6 +9,7 @@ import ProgramInfo from "@pages/ProgramInfo";
 import WriteReview from "@pages/Review";
 import MyPage from "@pages/MyPage/Step1";
 import AccountSetting from "@pages/MyPage/Step2";
+import Chatbot from "@pages/Chatbot";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: routes.AccountSetting,
         element: <AccountSetting />,
+      },
+      {
+        path: routes.Chatbot,
+        element: <Chatbot />,
       },
     ],
   },
