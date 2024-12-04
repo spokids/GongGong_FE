@@ -40,7 +40,7 @@ const RegionDropdown: React.FC<RegionDropdownProps> = ({
   }, []);
 
   return (
-    <div className="relative region-dropdown">
+    <div className="region-dropdown relative">
       <button
         onClick={toggleDropdown}
         className={`w-[171px] px-[11px] py-[12px] mt-2 border-[1.5px] rounded-lg text-left ${
