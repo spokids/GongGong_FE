@@ -1,9 +1,15 @@
 import LessonInfo from './LessonInfo';
 import {FireIcon, MainIcon, RunIcon, SearchIcon} from '@assets/svg';
 import Button from "@components/Button";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleFinder = () => {
+    navigate("/program-finder");
+  };
+
   return (
     <div className="w-full min-h-screen bg-white">
       <div
@@ -54,7 +60,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Button style="filled" className="mt-6 w-[100%] h-[54px] items-center flex gap-2 bg-primary-100">
+      <Button style="filled" className="mt-6 w-[100%] h-[54px] items-center flex gap-2 bg-primary-100" onClick={handleFinder}>
         <SearchIcon className="w-5 h-5"/>
         아이에게 딱 맞는 프로그램 찾기
       </Button>
