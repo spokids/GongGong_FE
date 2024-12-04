@@ -1,5 +1,5 @@
 import { useState } from "react";
-import usePostChoiceChatRoom from "@api/hooks/chatbot/usePostChoiceChatRoom";
+import usePostChoiceChatRoom from "@api/hooks/chatbot/usePostAbility";
 import FreeChat from "./components/FreeChat";
 import AbilityChat from "./components/AbilityChat";
 import BotBubble from "./components/BotBubble";
@@ -14,7 +14,7 @@ const Chatbot = () => {
   const handleButtonClick = (choice: string) => {
     setChoice(choice);
     mutate(choice, {
-      onSuccess: (response) => {
+      onSuccess: (response:any) => {
         if (response.data) {
           const chatRoomId = response.data.chatRoomId;
           setChatRoomId(chatRoomId);
@@ -25,7 +25,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="flex h-full flex-col bg-linear-orange">
+    <div className="flex flex-col h-full bg-linear-orange">
       <BotBubble
         message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
           찾아주는 스포키톡이에요!

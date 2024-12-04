@@ -2,10 +2,13 @@ const routes = {
   main: "/",
   signIn: "/sign-in",
   signUp: "/sign-up",
-  Home: "/home",
+  homePage: "/homePage",
   ProgramFinder: "/program-finder",
   ProgramInfo: "/program-info",
-  Chatbot: "/chatbot",
+  WriteReview: "/write-review",
+  MyPage: "/my-page",
+  AccountSetting: "/account-setting",
 } as const;
 
 export default routes;
+ 
