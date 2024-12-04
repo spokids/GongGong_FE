@@ -2,11 +2,19 @@ import { useState } from "react";
 import { SendIcon } from "@assets/svg";
 import Input from "@components/Input";
 
-const ChatbotInput = () => {
+interface ChatbotInputProps {
+  onClick: (region: string) => void; 
+}
+
+const ChatbotInput: React.FC<ChatbotInputProps> = ({ onClick }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+  };
+
+  const handleClick = () => {
+    onClick(inputValue); 
   };
 
   return (
@@ -19,6 +27,7 @@ const ChatbotInput = () => {
       />
       <button
         type="button"
+        onClick={handleClick}
         className={`p-[14px] rounded-xl ${inputValue.trim() ? 'bg-orange-400' : 'bg-primary-5'}`}
         disabled={!inputValue.trim()} 
       >

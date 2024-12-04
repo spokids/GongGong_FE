@@ -8,6 +8,7 @@ import usePostAbility from "@api/hooks/chatbot/usePostAbility";
 
 interface AbilityChatProps {
   chatRoomId: number;
+  setShowChatbotInput: (value: boolean) => void;
 }
 
 const abilities = [
@@ -24,7 +25,7 @@ const abilities = [
   { label: "정밀성", value: "PRECISION" },
 ];
 
-const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId }) => {
+const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInput }) => {
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
@@ -52,6 +53,7 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId }) => {
         onSuccess: (response) => {
           setIsComplete(true);
           setResponseMessage(response.data?.responseMessage || null);
+          setShowChatbotInput(true);
         },
       }
     );
