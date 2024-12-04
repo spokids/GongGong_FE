@@ -2,7 +2,7 @@ const routes = {
   main: "/",
   signIn: "/sign-in",
   signUp: "/sign-up",
-  Home: "/home",
+  // Home: "/home",
   ProgramFinder: "/program-finder",
   ProgramInfo: "/program-info",
   WriteReview: "/write-review",
