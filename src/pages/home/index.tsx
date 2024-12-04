@@ -64,9 +64,7 @@ const HomePage = () => {
         <SearchIcon className="w-5 h-5"/>
         아이에게 딱 맞는 프로그램 찾기
       </Button>
-
-      <Link to="/Program-info">
-        <div className="mt-5">
+      
       <Link to="/Program-info">
         <div className="mt-5">
           <LessonInfo
@@ -76,8 +74,6 @@ const HomePage = () => {
             facilityName="강남스포츠문화센터수영장"
             programAge="만 7세 ~ 만 12세"
             programDate="24.11.01 - 24.11.30"
-          />
-        </div>
           />
         </div>
       </Link>
