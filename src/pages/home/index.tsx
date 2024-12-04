@@ -3,7 +3,7 @@ import {FireIcon, MainIcon, RunIcon, SearchIcon} from '@assets/svg';
 import Button from "@components/Button";
 import { Link } from 'react-router-dom';
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div className="w-full min-h-screen bg-white">
       <div
@@ -81,4 +81,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

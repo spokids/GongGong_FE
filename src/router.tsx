@@ -6,7 +6,7 @@ import SignInPage from "@pages/SignIn";
 import ProgramFinder from "@pages/ProgramFinder";
 import HomePage from "@pages/Home";
 import ProgramInfo from "@pages/ProgramInfo";
-import WriteReview from "@pages/WriteReview.tsx";
+import WriteReview from "@pages/Review";
 import MyPage from "@pages/MyPage/Step1";
 import AccountSetting from "@pages/MyPage/Step2";
 

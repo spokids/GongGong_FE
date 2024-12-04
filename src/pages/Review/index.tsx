@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PictureIcon } from "@assets/svg";
 import React from "react";
 
-const WriteReview = () => {
+const Review = () => {
     const [imgCnt, setImgCnt] = useState<number>(0);
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [text, setText] = useState<string>(""); 
@@ -112,4 +112,4 @@ const WriteReview = () => {
     );
 };
 
-export default WriteReview;
+export default Review;

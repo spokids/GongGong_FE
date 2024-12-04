@@ -9,7 +9,7 @@ const ReviewItem = ({
   content: string;
   image?: string;
 }) => (
-  <div className="mt-5 flex flex-col gap-1">
+  <div className="flex flex-col gap-1 mt-5">
     <p className="text-body8 text-foundation-100">
       {name}
       <span className="ml-2 text-caption4 text-foundation-40">{date}</span>
@@ -17,7 +17,7 @@ const ReviewItem = ({
     <div className="h-auto w-full gap-2 rounded-lg bg-[#F7F7F7] p-3">
       <p className="text-body9 text-foundation-100">{content}</p>
       {image && <img src={image} alt="리뷰 이미지" className="mt-2" />}
-      <button className="mt-2 h-auto text-button3 text-primary-foundation-50 underline">
+      <button className="h-auto mt-2 underline text-button3 text-primary-foundation-50">
         신고
       </button>
     </div>

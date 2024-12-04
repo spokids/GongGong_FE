@@ -4,16 +4,15 @@ import Chip from "@components/Chip";
 import { useState } from "react";
 import DetailTab from "./Tap1/index";
 import ReviewTab from "./Tab2";
-import Input from "@components/Input";
 import Button from "@components/Button";
 
 const ProgramInfo = () => {
   const [activeTab, setActiveTab] = useState<"details" | "reviews">("details");
 
   return (
-    <div className="mt-14 h-screen w-full">
+    <div className="w-full h-screen mt-14">
       <div className="flex h-[118px] w-full flex-col">
-        <div className="mt-2 flex flex-row gap-2">
+        <div className="flex flex-row gap-2 mt-2">
           <Chip>
             <SwimmingIcon />
             수영
@@ -48,7 +47,7 @@ const ProgramInfo = () => {
           }`}
           onClick={() => setActiveTab("reviews")}
         >
-          후기 <span className="text-body9 text-orange-400">14개</span>
+          후기 <span className="text-orange-400 text-body9">14개</span>
         </button>
       </div>
 
