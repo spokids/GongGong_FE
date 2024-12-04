@@ -15,9 +15,6 @@ const HomePage = () => {
           <h1 className="mt-1 text-headline1">
             우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
           </h1>
-          <h1 className="mt-1 text-headline1">
-            우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
-          </h1>
         </div>
         <MainIcon className="absolute top-0 right-0 z-0 w-60" />
       </div>
@@ -54,13 +51,10 @@ const HomePage = () => {
           <p className="text-body9 text-primary-60">
             최근에 후기가 올라온 프로그램 순의 목록이에요
           </p>
-          <p className="text-body9 text-primary-60">
-            최근에 후기가 올라온 프로그램 순의 목록이에요
-          </p>
         </div>
       </div>
 
-      <Button className="flex gap-2 text-white bg-primary-100">
+      <Button style="filled" className="mt-6 w-[100%] h-[54px] items-center flex gap-2 bg-primary-100">
         <SearchIcon className="w-5 h-5"/>
         아이에게 딱 맞는 프로그램 찾기
       </Button>
