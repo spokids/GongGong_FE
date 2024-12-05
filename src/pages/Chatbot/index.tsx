@@ -6,6 +6,8 @@ import BotBubble from "./components/BotBubble";
 import ChatbotButton from "./components/ChatbotButton";
 import ChatbotInput from "./components/ChatbotInput";
 import usePostAbility from "@api/hooks/chatbot/usePostAbility";
+import { Program } from "@api/types/chatbot";
+
 
 const Chatbot = () => {
   const { mutate: postChoiceChatRoom } = usePostChoiceChatRoom();
@@ -14,6 +16,11 @@ const Chatbot = () => {
   const [chatRoomId, setChatRoomId] = useState<number | null>(null);
   const [showChatbotInput, setShowChatbotInput] = useState(false);
   const { mutate: postAbility } = usePostAbility();
+  const [programs, setPrograms] = useState<Program[]>([]);
+  const [region, setRegion] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState<number | undefined>(undefined);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
 
   const handleButtonClick = (choice: string) => {
     setChoice(choice);
@@ -29,10 +36,46 @@ const Chatbot = () => {
   };
 
   const handleInputButtonClick = (region: string) => {
+    setRegion(region);
     if (choice === "ABILITY_CHAT" && chatRoomId) {
+      setShowChatbotInput(false);
       const abilities = null;
       postAbility(
         { chatRoomId, abilities, region },
+        {
+          onSuccess: (response) => {
+            if (response.data && response.data.isSuccess) {
+              setPrograms(response.data.programs); 
+              setTotalPages(response.data.totalPage);
+            }
+          },
+        }
+      );
+    }
+  };
+
+  const handleReset = () => {
+    setButtonClicked(false);
+    setRegion(null);
+    setPrograms([]);
+    setShowChatbotInput(false);
+    setChatRoomId(null);
+    setChoice("");
+  };
+  
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    const abilities = null;
+    if(chatRoomId){
+      postAbility(
+        { chatRoomId, abilities, region, page },
+        {
+          onSuccess: (response) => {
+            if (response.data && response.data.isSuccess) {
+              setPrograms(response.data.programs); 
+            }
+          },
+        }
       );
     }
   };
@@ -46,7 +89,16 @@ const Chatbot = () => {
       />
       {buttonClicked && choice === "FREE_CHAT" && <FreeChat />}
       {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
-        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} />
+        <AbilityChat
+        chatRoomId={chatRoomId}
+        setShowChatbotInput={setShowChatbotInput}
+        programs={programs}
+        region={region}
+        onReset={handleReset}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
       )}
       {!buttonClicked && (
         <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">

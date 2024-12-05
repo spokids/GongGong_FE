@@ -3,12 +3,22 @@ import FieldButton from "@components/FieldButton";
 import BotBubble from "../BotBubble";
 import SenderBubble from "../SenderBubble";
 import ChatbotButton from "../ChatbotButton";
-import { CheckIcon } from "@assets/svg";
+import { CheckIcon, LoadingIcon } from "@assets/svg";
 import usePostAbility from "@api/hooks/chatbot/usePostAbility";
+import { Program } from "@api/types/chatbot";
+import LessonInfo from "@pages/HomePage/LessonInfo";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 interface AbilityChatProps {
   chatRoomId: number;
   setShowChatbotInput: (value: boolean) => void;
+  programs?: Program[];
+  region?: string | null;
+  onReset: () => void;
+  totalPages?: number;
+  currentPage?: number;
+  onPageChange: (page: number) => void;
 }
 
 const abilities = [
@@ -25,30 +35,34 @@ const abilities = [
   { label: "정밀성", value: "PRECISION" },
 ];
 
-const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInput }) => {
+const AbilityChat: React.FC<AbilityChatProps> = ({
+  chatRoomId,
+  setShowChatbotInput,
+  programs = [],
+  region,
+  onReset,
+  totalPages = 1,
+  onPageChange
+}) => {
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
   const { mutate: postAbility } = usePostAbility();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleButtonClick = (value: string, label: string) => {
-    setSelectedAbilities((prevSelectedAbilities) =>
-      prevSelectedAbilities.includes(value)
-        ? prevSelectedAbilities.filter((item) => item !== value)
-        : [...prevSelectedAbilities, value]
+    setSelectedAbilities((prev) =>
+      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
     );
-    setSelectedLabels((prevSelectedLabels) =>
-      prevSelectedLabels.includes(label)
-        ? prevSelectedLabels.filter((item) => item !== label)
-        : [...prevSelectedLabels, label]
+    setSelectedLabels((prev) =>
+      prev.includes(label) ? prev.filter((item) => item !== label) : [...prev, label]
     );
   };
 
   const handleComplete = () => {
-    const region = null;
     postAbility(
-      { chatRoomId, abilities: selectedAbilities, region },
+      { chatRoomId, abilities: selectedAbilities, region: null },
       {
         onSuccess: (response) => {
           setIsComplete(true);
@@ -59,11 +73,16 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInp
     );
   };
 
+  const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
+    setCurrentPage(page);
+    onPageChange(page);
+  };
+
   return (
     <div className="flex flex-col h-full">
       <SenderBubble message="키우고 싶은 능력치를 기준으로 찾고 싶어요." />
       <BotBubble message={`키우고 싶은 아이의 능력치를 선택해주세요. 
-      여러 개 선택할 수도 있어요.`} />
+        여러 개 선택할 수도 있어요.`} />
 
       <div className="flex flex-wrap gap-2 mt-2">
         {abilities.map((ability) => (
@@ -78,10 +97,7 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInp
 
       {!isComplete && (
         <div className="flex justify-center mt-auto mb-6">
-          <ChatbotButton
-            disabled={selectedAbilities.length === 0}
-            onClick={handleComplete}
-          >
+          <ChatbotButton disabled={selectedAbilities.length === 0} onClick={handleComplete}>
             <CheckIcon
               className={`mr-[10px] ${
                 selectedAbilities.length === 0 ? "stroke-gray-500" : "stroke-white"
@@ -94,9 +110,48 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInp
 
       {isComplete && (
         <>
-          <SenderBubble message={`${selectedLabels.join(", ")}`} />
+          <SenderBubble message={selectedLabels.join(", ")} />
           {responseMessage && <BotBubble message={responseMessage} />}
         </>
+      )}
+
+      {region && (
+        <div className="mb-4">
+          <SenderBubble message={region} />
+          <BotBubble message="추천 프로그램을 확인하세요!" />
+          <div className="bg-white p-4 mt-4">
+            {programs.map((program) => (
+              <LessonInfo
+                key={program.programId}
+                programType={program.programType}
+                programName={program.programName}
+                facilityName={program.facultyName}
+                programAge={program.programTarget}
+                programDate={program.programDate}
+              />
+            ))}
+          </div>
+
+          <div className="flex justify-center w-full mt-4">
+            <Stack spacing={2}>
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                onChange={handlePageChange}
+                siblingCount={1}
+                boundaryCount={1}
+                shape="rounded"
+              />
+            </Stack>
+          </div>
+
+          <div className="mt-[60px] flex justify-center">
+            <ChatbotButton className="mb-[24px]" onClick={onReset}>
+              <LoadingIcon />
+              대화 초기화하기
+            </ChatbotButton>
+          </div>
+        </div>
       )}
     </div>
   );

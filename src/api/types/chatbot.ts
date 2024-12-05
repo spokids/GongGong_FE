@@ -23,4 +23,5 @@ export interface PostAbilityParams {
   chatRoomId: number;
   abilities: string[] | null;
   region: string | null;
+  page?: number;
 }
