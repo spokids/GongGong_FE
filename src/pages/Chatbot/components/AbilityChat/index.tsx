@@ -5,10 +5,14 @@ import SenderBubble from "../SenderBubble";
 import ChatbotButton from "../ChatbotButton";
 import { CheckIcon } from "@assets/svg";
 import usePostAbility from "@api/hooks/chatbot/usePostAbility";
+import { Program } from "@api/types/chatbot";
+import LessonInfo from "@pages/HomePage/LessonInfo";
 
 interface AbilityChatProps {
   chatRoomId: number;
   setShowChatbotInput: (value: boolean) => void;
+  programs?: Program[];
+  region?: string | null;
 }
 
 const abilities = [
@@ -25,7 +29,7 @@ const abilities = [
   { label: "정밀성", value: "PRECISION" },
 ];
 
-const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInput }) => {
+const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId, setShowChatbotInput, programs = [], region }) => {
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
@@ -62,8 +66,7 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInp
   return (
     <div className="flex flex-col h-full">
       <SenderBubble message="키우고 싶은 능력치를 기준으로 찾고 싶어요." />
-      <BotBubble message={`키우고 싶은 아이의 능력치를 선택해주세요. 
-      여러 개 선택할 수도 있어요.`} />
+      <BotBubble message={`키우고 싶은 아이의 능력치를 선택해주세요. 여러 개 선택할 수도 있어요.`} />
 
       <div className="flex flex-wrap gap-2 mt-2">
         {abilities.map((ability) => (
@@ -98,6 +101,25 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId ,setShowChatbotInp
           {responseMessage && <BotBubble message={responseMessage} />}
         </>
       )}
+
+      {region && 
+      <div className="mb-4">
+      <SenderBubble message={region} />
+      <BotBubble message="추천 프로그램을 확인하세요!" />
+      </div>
+      } 
+      <div className="bg-white p-4">
+        {programs.map((program) => (
+          <LessonInfo
+            key={program.programId}
+            programType={program.programType}
+            programName={program.programName}
+            facilityName={program.facultyName}
+            programAge={program.programTarget}
+            programDate={program.programDate}
+          />
+        ))}
+      </div>
     </div>
   );
 };
