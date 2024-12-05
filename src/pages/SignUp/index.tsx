@@ -1,13 +1,28 @@
 import { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import usePostRegister from "@api/hooks/login/usePostRegister";
 
 const SignUp = () => {
   const [step, setStep] = useState(1);
+  const { mutate: postRegister } = usePostRegister();
+  const [isComplete, setIsComplete] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<string | null>(null); // 타입을 string | null로 변경
 
   const handleNextStep = () => setStep(step + 1);
   // const handlePreviousStep = () => setStep(step - 1);
 
+  // const handleRegister = () => {
+  //   postRegister(
+  //     { userId, password, nickName },
+  //     {
+  //       onSuccess: (response) => {
+  //         setIsComplete(true);
+  //         setResponseMessage(response.data?.message || null); // null을 할당할 수 있음
+  //       },
+  //     }
+  //   );
+  // };
   return (
     <div>
       <div>
