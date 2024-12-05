@@ -51,6 +51,15 @@ const Chatbot = () => {
     }
   };
 
+  const handleReset = () => {
+    setButtonClicked(false);
+    setRegion(null);
+    setPrograms([]);
+    setShowChatbotInput(false);
+    setChatRoomId(null);
+    setChoice("");
+  };
+
   return (
     <div className="flex h-full flex-col bg-linear-orange overflow-y-auto">
       <BotBubble
@@ -60,7 +69,7 @@ const Chatbot = () => {
       />
       {buttonClicked && choice === "FREE_CHAT" && <FreeChat />}
       {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
-        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} programs={programs} region={region} />
+        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} programs={programs} region={region} onReset={handleReset} />
       )}
       {!buttonClicked && (
         <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">
