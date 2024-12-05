@@ -16,18 +16,9 @@ interface AbilityChatProps {
   programs?: Program[];
   region?: string | null;
   onReset: () => void;
-<<<<<<< HEAD
-<<<<<<< HEAD
   totalPages?: number;
   currentPage?: number;
   onPageChange: (page: number) => void;
-=======
->>>>>>> 96ffeae2 (#47 [Feat] 초기화 버튼 구현)
-=======
-  totalPages?: number;
-  currentPage?: number;
-  onPageChange: (page: number) => void;
->>>>>>> 2ab58277 (#47 [Feat] 응답 처리 및 페이지네이션 구현)
 }
 
 const abilities = [
