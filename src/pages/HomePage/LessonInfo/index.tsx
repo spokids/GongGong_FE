@@ -3,7 +3,7 @@ import Chip from "@components/Chip";
 import { SwimmingIcon } from "@assets/svg";
 
 interface LessonInfoProps {
-  programId: number;
+  programId?: number;
   programType: string;
   programName: string;
   facilityName: string;
