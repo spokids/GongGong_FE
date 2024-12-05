@@ -23,6 +23,7 @@ export const authApiGet = async <T>(
   params?: any,
 ): Promise<ApiResponse<T>> => {
   const response = await tokenInstance.get<ApiResponse<T>>(url, { params });
+  console.log("api", response.data);
   return response.data;
 };
 

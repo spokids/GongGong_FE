@@ -11,22 +11,23 @@ const SignIn = () => {
   const { mutate: postLogin } = usePostLogin();
   const navigate = useNavigate();
   const [isComplete, setIsComplete] = useState(false);
-  const [userId, setUserId] = useState("");
+  const [userInputId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState<string | null>(null); 
-  const [errorMessage, setErrorMessage] = useState<string | null>(null); // 에러 메시지 상태 추가
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); 
 
   const handleLogin = () => {
-    console.log("userId", userId);
+    console.log("userId", userInputId);
     console.log("password", password);
     
     postLogin(
-      { userId, password },
+      { userInputId, password },
       {
         onSuccess: (response) => {
+          console.log(response)
           setIsComplete(true);
           setResponseMessage(response.data?.message || null);
-          setErrorMessage(null); // 성공 시 에러 메시지 초기화
+          setErrorMessage(null);
           navigate("/home-page"); 
         },
         onError: () => {
@@ -46,7 +47,7 @@ const SignIn = () => {
       <div className="mb-[70px] flex w-[350px] flex-col gap-2">
         <Input
           placeholder="아이디를 입력해주세요."
-          value={userId}
+          value={userInputId}
           onChange={(e) => setUserId(e.target.value)}
         />
         <Input

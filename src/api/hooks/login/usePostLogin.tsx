@@ -8,6 +8,9 @@ const usePostLogin = () => {
     onSuccess: (data) => {
       console.log("로그인 성공, 응답 데이터:", data);
     },
+    onError: (error) => {
+      console.error("요청 실패:", error);
+    },
   });
 };
 
