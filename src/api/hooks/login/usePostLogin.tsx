@@ -5,6 +5,11 @@ import { LoginParams } from "@api/types/member";
 const usePostLogin = () => {
   return useMutation({
     mutationFn: (params: LoginParams) => postLogin(params),
+    onSuccess: (data) => {
+      if (data?.token) {
+        localStorage.setItem("accessToken", data.token);
+      }
+    }
   });
 };
 
