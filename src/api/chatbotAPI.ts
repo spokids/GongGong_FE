@@ -15,8 +15,14 @@ export const postAbility = ({
   chatRoomId,
   abilities,
   region,
+  page, 
 }: PostAbilityParams) => {
-  return authApiPost<AbilityResponse>("/chat/ability", {
+  let url = "/chat/ability";
+  if (page) {
+    url += `?page=${page}`;
+  }
+
+  return authApiPost<AbilityResponse>(url, {
     chatRoomId,
     abilities,
     region,
