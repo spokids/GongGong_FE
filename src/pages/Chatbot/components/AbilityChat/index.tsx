@@ -16,9 +16,12 @@ interface AbilityChatProps {
   programs?: Program[];
   region?: string | null;
   onReset: () => void;
+<<<<<<< HEAD
   totalPages?: number;
   currentPage?: number;
   onPageChange: (page: number) => void;
+=======
+>>>>>>> 96ffeae2 (#47 [Feat] 초기화 버튼 구현)
 }
 
 const abilities = [
@@ -35,15 +38,7 @@ const abilities = [
   { label: "정밀성", value: "PRECISION" },
 ];
 
-const AbilityChat: React.FC<AbilityChatProps> = ({
-  chatRoomId,
-  setShowChatbotInput,
-  programs = [],
-  region,
-  onReset,
-  totalPages = 1,
-  onPageChange
-}) => {
+const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId, setShowChatbotInput, programs = [], region,  onReset }) => {
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
@@ -115,44 +110,32 @@ const AbilityChat: React.FC<AbilityChatProps> = ({
         </>
       )}
 
-      {region && (
-        <div className="mb-4">
-          <SenderBubble message={region} />
-          <BotBubble message="추천 프로그램을 확인하세요!" />
-          <div className="bg-white p-4 mt-4">
-            {programs.map((program) => (
-              <LessonInfo
-                key={program.programId}
-                programType={program.programType}
-                programName={program.programName}
-                facilityName={program.facultyName}
-                programAge={program.programTarget}
-                programDate={program.programDate}
-              />
-            ))}
-          </div>
 
-          <div className="flex justify-center w-full mt-4">
-            <Stack spacing={2}>
-              <Pagination
-                count={totalPages}
-                page={currentPage}
-                onChange={handlePageChange}
-                siblingCount={1}
-                boundaryCount={1}
-                shape="rounded"
-              />
-            </Stack>
-          </div>
-
-          <div className="mt-[60px] flex justify-center">
-            <ChatbotButton className="mb-[24px]" onClick={onReset}>
-              <LoadingIcon />
-              대화 초기화하기
-            </ChatbotButton>
-          </div>
-        </div>
-      )}
+      {region && 
+      <div className="mb-4">
+      <div className="mb-4">
+      <SenderBubble message={region} />
+      <BotBubble message="추천 프로그램을 확인하세요!" />
+      </div>
+      <div className="bg-white p-4">
+        {programs.map((program) => (
+          <LessonInfo
+            key={program.programId}
+            programType={program.programType}
+            programName={program.programName}
+            facilityName={program.facultyName}
+            programAge={program.programTarget}
+            programDate={program.programDate}
+          />
+        ))}
+      </div>
+      <div className="mt-[60px] flex justify-center">
+        <ChatbotButton className="mb-[24px]" onClick={onReset}>
+            <LoadingIcon />대화 초기화하기
+          </ChatbotButton>
+      </div>
+      </div>
+      } 
     </div>
   );
 };
