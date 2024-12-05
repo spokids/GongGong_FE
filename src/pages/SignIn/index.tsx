@@ -17,14 +17,10 @@ const SignIn = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null); 
 
   const handleLogin = () => {
-    console.log("userId", userInputId);
-    console.log("password", password);
-    
     postLogin(
       { userInputId, password },
       {
         onSuccess: (response) => {
-          console.log(response)
           setIsComplete(true);
           setResponseMessage(response.data?.message || null);
           setErrorMessage(null);
