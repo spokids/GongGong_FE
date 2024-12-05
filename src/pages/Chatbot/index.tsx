@@ -80,17 +80,8 @@ const Chatbot = () => {
     }
   };
 
-  const handleReset = () => {
-    setButtonClicked(false);
-    setRegion(null);
-    setPrograms([]);
-    setShowChatbotInput(false);
-    setChatRoomId(null);
-    setChoice("");
-  };
-
   return (
-    <div className="flex flex-col h-full overflow-y-auto bg-linear-orange">
+    <div className="flex h-full flex-col bg-linear-orange overflow-y-auto">
       <BotBubble
         message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
           찾아주는 스포키톡이에요!
@@ -98,7 +89,6 @@ const Chatbot = () => {
       />
       {buttonClicked && choice === "FREE_CHAT" && <FreeChat />}
       {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
-<<<<<<< HEAD
         <AbilityChat
         chatRoomId={chatRoomId}
         setShowChatbotInput={setShowChatbotInput}
@@ -109,9 +99,6 @@ const Chatbot = () => {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-=======
-        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} programs={programs} region={region} onReset={handleReset} />
->>>>>>> 96ffeae2 (#47 [Feat] 초기화 버튼 구현)
       )}
       {!buttonClicked && (
         <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">
