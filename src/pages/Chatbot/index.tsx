@@ -18,6 +18,9 @@ const Chatbot = () => {
   const { mutate: postAbility } = usePostAbility();
   const [programs, setPrograms] = useState<Program[]>([]);
   const [region, setRegion] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState<number | undefined>(undefined);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
 
   const handleButtonClick = (choice: string) => {
     setChoice(choice);
@@ -43,7 +46,7 @@ const Chatbot = () => {
           onSuccess: (response) => {
             if (response.data && response.data.isSuccess) {
               setPrograms(response.data.programs); 
-              console.log(programs)
+              setTotalPages(response.data.totalPage);
             }
           },
         }
@@ -59,6 +62,23 @@ const Chatbot = () => {
     setChatRoomId(null);
     setChoice("");
   };
+  
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    const abilities = null;
+    if(chatRoomId){
+      postAbility(
+        { chatRoomId, abilities, region, page },
+        {
+          onSuccess: (response) => {
+            if (response.data && response.data.isSuccess) {
+              setPrograms(response.data.programs); 
+            }
+          },
+        }
+      );
+    }
+  };
 
   return (
     <div className="flex h-full flex-col bg-linear-orange overflow-y-auto">
@@ -69,7 +89,16 @@ const Chatbot = () => {
       />
       {buttonClicked && choice === "FREE_CHAT" && <FreeChat />}
       {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
-        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} programs={programs} region={region} onReset={handleReset} />
+        <AbilityChat
+        chatRoomId={chatRoomId}
+        setShowChatbotInput={setShowChatbotInput}
+        programs={programs}
+        region={region}
+        onReset={handleReset}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
       )}
       {!buttonClicked && (
         <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">
