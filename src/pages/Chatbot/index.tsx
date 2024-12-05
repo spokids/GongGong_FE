@@ -6,6 +6,8 @@ import BotBubble from "./components/BotBubble";
 import ChatbotButton from "./components/ChatbotButton";
 import ChatbotInput from "./components/ChatbotInput";
 import usePostAbility from "@api/hooks/chatbot/usePostAbility";
+import { Program } from "@api/types/chatbot";
+
 
 const Chatbot = () => {
   const { mutate: postChoiceChatRoom } = usePostChoiceChatRoom();
@@ -14,6 +16,8 @@ const Chatbot = () => {
   const [chatRoomId, setChatRoomId] = useState<number | null>(null);
   const [showChatbotInput, setShowChatbotInput] = useState(false);
   const { mutate: postAbility } = usePostAbility();
+  const [programs, setPrograms] = useState<Program[]>([]);
+  const [region, setRegion] = useState<string | null>(null);
 
   const handleButtonClick = (choice: string) => {
     setChoice(choice);
@@ -29,10 +33,20 @@ const Chatbot = () => {
   };
 
   const handleInputButtonClick = (region: string) => {
+    setRegion(region);
     if (choice === "ABILITY_CHAT" && chatRoomId) {
+      setShowChatbotInput(false);
       const abilities = null;
       postAbility(
         { chatRoomId, abilities, region },
+        {
+          onSuccess: (response) => {
+            if (response.data && response.data.isSuccess) {
+              setPrograms(response.data.programs); 
+              console.log(programs)
+            }
+          },
+        }
       );
     }
   };
@@ -46,7 +60,7 @@ const Chatbot = () => {
       />
       {buttonClicked && choice === "FREE_CHAT" && <FreeChat />}
       {buttonClicked && choice === "ABILITY_CHAT" && chatRoomId && (
-        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} />
+        <AbilityChat chatRoomId={chatRoomId} setShowChatbotInput={setShowChatbotInput} programs={programs} region={region} />
       )}
       {!buttonClicked && (
         <div className="mb-6 mt-auto flex flex-col justify-center gap-2 px-[34px]">
