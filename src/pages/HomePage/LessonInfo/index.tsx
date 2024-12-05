@@ -17,7 +17,7 @@ const InfoBox: React.FC<{
   className?: string;
 }> = ({ title, value, className }) => {
   return (
-    <div className={`flex flex-col ${className} w-full max-w-[120px]`}>
+    <div className={`flex flex-col ${className} max-w-[120px]`}>
       <p className="text-button3 text-primary-60">{title}</p>
       <p className="overflow-hidden truncate whitespace-nowrap text-body9 text-primary-80">
         {value}
