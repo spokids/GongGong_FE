@@ -3,7 +3,7 @@ import FieldButton from "@components/FieldButton";
 import BotBubble from "../BotBubble";
 import SenderBubble from "../SenderBubble";
 import ChatbotButton from "../ChatbotButton";
-import { CheckIcon } from "@assets/svg";
+import { CheckIcon, LoadingIcon } from "@assets/svg";
 import usePostAbility from "@api/hooks/chatbot/usePostAbility";
 import { Program } from "@api/types/chatbot";
 import LessonInfo from "@pages/HomePage/LessonInfo";
@@ -13,6 +13,7 @@ interface AbilityChatProps {
   setShowChatbotInput: (value: boolean) => void;
   programs?: Program[];
   region?: string | null;
+  onReset: () => void;
 }
 
 const abilities = [
@@ -29,7 +30,7 @@ const abilities = [
   { label: "정밀성", value: "PRECISION" },
 ];
 
-const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId, setShowChatbotInput, programs = [], region }) => {
+const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId, setShowChatbotInput, programs = [], region,  onReset }) => {
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
@@ -104,10 +105,10 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId, setShowChatbotInp
 
       {region && 
       <div className="mb-4">
+      <div className="mb-4">
       <SenderBubble message={region} />
       <BotBubble message="추천 프로그램을 확인하세요!" />
       </div>
-      } 
       <div className="bg-white p-4">
         {programs.map((program) => (
           <LessonInfo
@@ -120,6 +121,13 @@ const AbilityChat: React.FC<AbilityChatProps> = ({ chatRoomId, setShowChatbotInp
           />
         ))}
       </div>
+      <div className="mt-[60px] flex justify-center">
+        <ChatbotButton className="mb-[24px]" onClick={onReset}>
+            <LoadingIcon />대화 초기화하기
+          </ChatbotButton>
+      </div>
+      </div>
+      } 
     </div>
   );
 };
