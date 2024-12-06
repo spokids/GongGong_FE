@@ -4,3 +4,8 @@
 export interface SigunguResponse {
   sigungu: string[];
 }
+
+// 2.2
+export interface DongResponse {
+  dong: string[];
+}
