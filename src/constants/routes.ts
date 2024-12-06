@@ -9,6 +9,8 @@ const routes = {
   MyPage: "/my-page",
   AccountSetting: "/account-setting",
   Chatbot: "/chatbot",
+  Ability: "/chatbot/ability",
+  Free: "/chatbot/free",
 } as const;
 
 export default routes;
