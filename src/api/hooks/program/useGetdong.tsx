@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { getSigungu } from "@api/programAPI";
+import { getDong } from "@api/programAPI";
 
-export const useGetSigungu = (province: string) => {
+export const useGetDong = (province: string, sigungu: string) => {
   return useQuery({
-    queryKey: ["sigungu", province], 
-    queryFn: () => getSigungu(province), 
-    select: (data) => data.data?.sigungu, 
+    queryKey: ["dong", province, sigungu],
+    queryFn: () => getDong(province, sigungu),
+    select: (data) => data.data?.dong,
+    enabled: !!province && !!sigungu,
   });
 };
