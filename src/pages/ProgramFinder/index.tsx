@@ -1,21 +1,43 @@
-import { useState } from "react";
-import { useGetSigungu } from "@api/hooks/program/useGetSigungu"; // 수정된 훅 사용
+import { SwimmingIcon } from "@assets/svg";
 import FieldButton from "@components/FieldButton";
 import RegionDropdown from "./components/RegionDropdown";
 import Button from "@components/Button";
 import Input from "@components/Input";
-import { SwimmingIcon } from "@assets/svg";
+import { useGetSigungu } from "@api/hooks/program/useGetSigungu";
+import { useState } from "react";
 
 const ProgramFinder = () => {
+  const [isSelected, setSelected] = useState(false);
+  const [isSigunguSelected, setSigunguSelected] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시"); 
   const { data } = useGetSigungu(selectedRegion);
 
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
+    setSelected(true);
     console.log("선택된 지역:", region);
   };
-  
-  const regions = data || [];
+
+  const handleStateSelect = (states: string) => {
+    setSelectedRegion(states);
+    setSigunguSelected(true);
+    console.log("선택된 시군구:", states);
+  };
+
+  const regions = [
+    "서울특별시",
+    "경상북도",
+    "경기도",
+    "강원특별자치도",
+    "부산광역시",
+    "대구광역시",
+    "인천광역시",
+    "충청남도",
+    "경상남도",
+    "충청북도",
+  ];
+
+  const states = data || [];
 
   return (
     <div>
@@ -38,6 +60,13 @@ const ProgramFinder = () => {
       </div>
 
       <RegionDropdown options={regions} onSelect={handleRegionSelect} />
+
+      {isSelected && 
+        <RegionDropdown options={states} onSelect={handleStateSelect}/>
+      }
+      {isSigunguSelected && 
+        <RegionDropdown options={states} onSelect={handleStateSelect}/>
+      }
 
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">

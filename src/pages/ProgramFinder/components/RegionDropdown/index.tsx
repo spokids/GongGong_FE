@@ -12,7 +12,7 @@ const RegionDropdown: React.FC<RegionDropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isClicked, setIsClicked] = useState(false);
-  
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     setIsClicked(!isClicked);
