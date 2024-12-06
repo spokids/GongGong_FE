@@ -1,5 +1,3 @@
-// src/api/programAPI.ts
-
 import { apiGet, apiPost } from "./apiUtil";
 import { DongResponse, ProgramRequest, ProgramResponse, SigunguResponse } from "@api/types/program";
 
