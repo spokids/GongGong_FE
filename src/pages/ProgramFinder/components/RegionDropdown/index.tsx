@@ -1,3 +1,4 @@
+import { getSigungu } from "@api/programAPI";
 import React, { useState, useEffect } from "react";
 
 interface RegionDropdownProps {
@@ -13,6 +14,11 @@ const RegionDropdown: React.FC<RegionDropdownProps> = ({
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isClicked, setIsClicked] = useState(false);
 
+  const clickGetSigungu = async() => {
+    const response = await getSigungu("부산광역시");
+    console.log(response);
+  }
+  
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     setIsClicked(!isClicked);
@@ -40,7 +46,7 @@ const RegionDropdown: React.FC<RegionDropdownProps> = ({
   }, []);
 
   return (
-    <div className="region-dropdown relative">
+    <div className="relative region-dropdown">
       <button
         onClick={toggleDropdown}
         className={`w-[171px] px-[11px] py-[12px] mt-2 border-[1.5px] rounded-lg text-left ${

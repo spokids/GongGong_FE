@@ -18,8 +18,7 @@ const SignIn = () => {
     postLogin(
       { userInputId, password },
       {
-        onSuccess: (response) => {
-          setResponseMessage(response.data?.message || null);
+        onSuccess: () => {
           setErrorMessage(null);
           navigate("/"); 
         },
