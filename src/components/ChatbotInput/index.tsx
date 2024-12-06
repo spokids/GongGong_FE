@@ -3,7 +3,7 @@ import { SendIcon } from "@assets/svg";
 import Input from "@components/Input";
 
 interface ChatbotInputProps {
-  onClick: (region: string) => void; 
+  onClick: (region: string) => void;
   placeholder: string;
 }
 
@@ -16,6 +16,7 @@ const ChatbotInput: React.FC<ChatbotInputProps> = ({ onClick, placeholder }) => 
 
   const handleClick = () => {
     onClick(inputValue); 
+    setInputValue("");
   };
 
   return (
