@@ -1,4 +1,4 @@
-import { authApiPost } from "./apiUtil";
+import { authApiDelete, authApiPost } from "./apiUtil";
 import {
   ChoiceChatRoomResponse,
   AbilityResponse,
@@ -45,4 +45,8 @@ export const postFree = ({
     chatRoomId,
     userFreeInput,
   });
+};
+
+export const deleteChatRoom = (chatRoomId: number) => {
+  return authApiDelete(`/chat/${chatRoomId}`);
 };

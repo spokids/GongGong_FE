@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import BotBubble from "../../components/BotBubble";
 import ChatbotInput from "../../components/ChatbotInput";
 import SenderBubble from "../../components/SenderBubble";
@@ -9,12 +9,15 @@ import ChatbotButton from "@components/ChatbotButton";
 import { LoadingIcon } from "@assets/svg";
 import { Pagination, Stack } from "@mui/material";
 import LessonInfo from "@pages/HomePage/LessonInfo";
+import useDeleteChatRoom from "@api/hooks/chatbot/useDeleteChatRoom";
 
 const FreeChat = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { chatRoomId } = location.state || {};
 
   const { mutate: postFree } = usePostFree();
+  const { mutate: deleteChatRoom } = useDeleteChatRoom();
 
   const [programs, setPrograms] = useState<Program[]>([]);
   const [totalPages, setTotalPages] = useState<number | undefined>(undefined);
@@ -55,9 +58,15 @@ const FreeChat = () => {
     fetchPrograms(page);
   };
 
-  const handleReset = () =>{
-    
-  }
+  const handleReset = () => {
+    if (chatRoomId) {
+      deleteChatRoom(chatRoomId, {
+        onSuccess: () => {
+          navigate("/chatbot");
+        },
+      });
+    }
+  };
 
   const fetchPrograms = (page: number) => {
     if (chatRoomId) {
