@@ -9,7 +9,7 @@ export const getSigungu = (province: string) => {
 
 // 2.2 동/읍/면/리 조회
 export const getDong = (province: string, sigungu: string) => {
-  return apiGet<DongResponse>(`/program/dong`, {province, sigungu});
+  return apiGet<DongResponse>(`/program/dong?province=${sigungu}&sigungu=${province}`);
 }
 
 // 2.3 프로그램 조회
