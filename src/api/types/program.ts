@@ -1,7 +1,8 @@
 
 // 2.1
+
 export interface SigunguResponse {
-  sigungu: string[];
+    sigungu: string[];
 }
 
 // 2.2

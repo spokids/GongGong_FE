@@ -3,8 +3,8 @@ import { DongResponse, ProgramRequest, ProgramResponse, SigunguResponse } from "
 
 
 // 2.1 시/군/구 조회
-export const getSigungu = async () => {
-  return apiGet<SigunguResponse>(`/program/sigungu`);
+export const getSigungu = (province: string) => {
+  return apiGet<SigunguResponse>(`/program/sigungu?province=${province}`);
 }
 
 // 2.2 동/읍/면/리 조회
