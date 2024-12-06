@@ -28,14 +28,16 @@ const abilities = [
 
 const AbilityChat: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { chatRoomId } = location.state || {};
+
+  const { mutate: postAbility } = usePostAbility();
+  
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
-  const { mutate: postAbility } = usePostAbility();
   const [currentPage, setCurrentPage] = useState(1);
-  const location = useLocation();
-  const { chatRoomId } = location.state || {};
   const [showChatbotInput, setShowChatbotInput] = useState(false);
   const [region, setRegion] = useState<string | null>(null);
   const [programs, setPrograms] = useState<Program[]>([]);
