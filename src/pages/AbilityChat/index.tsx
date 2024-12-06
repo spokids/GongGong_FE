@@ -1,25 +1,17 @@
 import { useState } from "react";
 import FieldButton from "@components/FieldButton";
-import BotBubble from "../BotBubble";
-import SenderBubble from "../SenderBubble";
-import ChatbotButton from "../ChatbotButton";
 import { CheckIcon, LoadingIcon } from "@assets/svg";
 import usePostAbility from "@api/hooks/chatbot/usePostAbility";
 import { Program } from "@api/types/chatbot";
 import LessonInfo from "@pages/HomePage/LessonInfo";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-
-interface AbilityChatProps {
-  chatRoomId: number;
-  setShowChatbotInput: (value: boolean) => void;
-  programs?: Program[];
-  region?: string | null;
-  onReset: () => void;
-  totalPages?: number;
-  currentPage?: number;
-  onPageChange: (page: number) => void;
-}
+import SenderBubble from "@components/SenderBubble";
+import BotBubble from "@components/BotBubble";
+import ChatbotButton from "@components/ChatbotButton";
+import { useLocation, useNavigate } from "react-router-dom";
+import ChatbotInput from "@components/ChatbotInput";
+import useDeleteChatRoom from "@api/hooks/chatbot/useDeleteChatRoom";
 
 const abilities = [
   { label: "지구력", value: "EARTH" },
@@ -35,21 +27,23 @@ const abilities = [
   { label: "정밀성", value: "PRECISION" },
 ];
 
-const AbilityChat: React.FC<AbilityChatProps> = ({
-  chatRoomId,
-  setShowChatbotInput,
-  programs = [],
-  region,
-  onReset,
-  totalPages = 1,
-  onPageChange
-}) => {
+const AbilityChat: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { chatRoomId } = location.state || {};
+
+  const { mutate: postAbility } = usePostAbility();
+  const { mutate: deleteChatRoom } = useDeleteChatRoom();
+  
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
-  const { mutate: postAbility } = usePostAbility();
   const [currentPage, setCurrentPage] = useState(1);
+  const [showChatbotInput, setShowChatbotInput] = useState(false);
+  const [region, setRegion] = useState<string | null>(null);
+  const [programs, setPrograms] = useState<Program[]>([]);
+  const [totalPages, setTotalPages] = useState<number | undefined>(undefined);
 
   const handleButtonClick = (value: string, label: string) => {
     setSelectedAbilities((prev) =>
@@ -75,11 +69,62 @@ const AbilityChat: React.FC<AbilityChatProps> = ({
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
     setCurrentPage(page);
-    onPageChange(page);
+    fetchPrograms(page);
+  };
+
+  const fetchPrograms = (page: number) => {
+    const abilities = null;
+    if (chatRoomId) {
+      postAbility(
+        { chatRoomId, abilities, region, page },
+        {
+          onSuccess: (response) => {
+            if (response.data && response.data.isSuccess) {
+              setPrograms(response.data.programs);
+              setTotalPages(response.data.totalPage);
+            }
+          },
+        }
+      );
+    }
+  };
+
+  const handleInputButtonClick = (region: string) => {
+    setRegion(region);
+    if (chatRoomId) {
+      setShowChatbotInput(false);
+      const abilities = null;
+      postAbility(
+        { chatRoomId, abilities, region },
+        {
+          onSuccess: (response) => {
+            if (response.data && response.data.isSuccess) {
+              setPrograms(response.data.programs);
+              setTotalPages(response.data.totalPage);
+            }
+          },
+        }
+      );
+    }
+  };
+
+  const handleReset = () => {
+    if (chatRoomId) {
+      deleteChatRoom(chatRoomId, {
+        onSuccess: () => {
+          navigate("/chatbot");
+        },
+      });
+    }
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex h-full flex-col bg-linear-orange overflow-y-auto">
+      <BotBubble
+        message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
+          찾아주는 스포키톡이에요!
+          프로그램을 찾기 위한 기준을 아래에서 선택해주세요.`}
+      />
       <SenderBubble message="키우고 싶은 능력치를 기준으로 찾고 싶어요." />
       <BotBubble message={`키우고 싶은 아이의 능력치를 선택해주세요. 
         여러 개 선택할 수도 있어요.`} />
@@ -146,11 +191,20 @@ const AbilityChat: React.FC<AbilityChatProps> = ({
           </div>
 
           <div className="mt-[60px] flex justify-center">
-            <ChatbotButton className="mb-[24px]" onClick={onReset}>
+            <ChatbotButton className="mb-[24px]" onClick={handleReset}>
               <LoadingIcon />
               대화 초기화하기
             </ChatbotButton>
           </div>
+        </div>
+      )}
+
+      {showChatbotInput && (
+        <div className="mt-auto">
+          <ChatbotInput
+            onClick={handleInputButtonClick}
+            placeholder="ex: 서울시 강남구"
+          />
         </div>
       )}
     </div>
@@ -158,3 +212,4 @@ const AbilityChat: React.FC<AbilityChatProps> = ({
 };
 
 export default AbilityChat;
+

@@ -10,6 +10,8 @@ import WriteReview from "@pages/Review";
 import MyPage from "@pages/MyPage/Step1";
 import AccountSetting from "@pages/MyPage/Step2";
 import Chatbot from "@pages/Chatbot";
+import AbilityChat from "@pages/AbilityChat";
+import FreeChat from "@pages/FreeChat";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: routes.Chatbot,
         element: <Chatbot />,
+      },
+      {
+        path: routes.Ability,
+        element: <AbilityChat />,
+      },
+      {
+        path: routes.Free,
+        element: <FreeChat />,
       },
     ],
   },

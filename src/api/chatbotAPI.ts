@@ -1,8 +1,10 @@
-import { authApiPost } from "./apiUtil";
+import { authApiDelete, authApiPost } from "./apiUtil";
 import {
   ChoiceChatRoomResponse,
   AbilityResponse,
   PostAbilityParams,
+  PostFreeParams,
+  FreeResponse,
 } from "./types/chatbot";
 
 export const postChoiceChatRoom = (choice: string) => {
@@ -27,4 +29,24 @@ export const postAbility = ({
     abilities,
     region,
   });
+};
+
+export const postFree = ({
+  chatRoomId,
+  userFreeInput,
+  page
+}: PostFreeParams) => {
+  let url = "v1/chat/completions";
+  if (page) {
+    url += `?page=${page}`;
+  }
+
+  return authApiPost<FreeResponse>(url, {
+    chatRoomId,
+    userFreeInput,
+  });
+};
+
+export const deleteChatRoom = (chatRoomId: number) => {
+  return authApiDelete(`/chat/${chatRoomId}`);
 };

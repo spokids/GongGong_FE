@@ -25,3 +25,19 @@ export interface PostAbilityParams {
   region: string | null;
   page?: number;
 }
+
+export interface PostFreeParams {
+  chatRoomId: number;
+  userFreeInput: string;
+  page?: number;
+}
+
+export interface FreeResponse {
+  isSuccess: boolean;
+  responseMessage: string;
+  programs: Program[];
+  totalPage: number;
+  currentPage: number;
+}
+
+
