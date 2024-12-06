@@ -11,6 +11,7 @@ import BotBubble from "@components/BotBubble";
 import ChatbotButton from "@components/ChatbotButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import ChatbotInput from "@components/ChatbotInput";
+import useDeleteChatRoom from "@api/hooks/chatbot/useDeleteChatRoom";
 
 const abilities = [
   { label: "지구력", value: "EARTH" },
@@ -32,6 +33,7 @@ const AbilityChat: React.FC = () => {
   const { chatRoomId } = location.state || {};
 
   const { mutate: postAbility } = usePostAbility();
+  const { mutate: deleteChatRoom } = useDeleteChatRoom();
   
   const [selectedAbilities, setSelectedAbilities] = useState<string[]>([]);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
@@ -107,7 +109,13 @@ const AbilityChat: React.FC = () => {
   };
 
   const handleReset = () => {
-    navigate("/chatbot");
+    if (chatRoomId) {
+      deleteChatRoom(chatRoomId, {
+        onSuccess: () => {
+          navigate("/chatbot");
+        },
+      });
+    }
   };
 
   return (
