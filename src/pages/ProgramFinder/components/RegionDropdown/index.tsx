@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface RegionDropdownProps {
   options: string[];
   onSelect: (option: string) => void;
+  placeholder: string;
 }
 
 const RegionDropdown: React.FC<RegionDropdownProps> = ({
   options,
   onSelect,
+  placeholder,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -49,7 +51,7 @@ const RegionDropdown: React.FC<RegionDropdownProps> = ({
             : "border-orange-100 bg-white text-primary-70"
         }`}
       >
-        {selectedOption || "시 / 도"}
+        {selectedOption || placeholder}
       </button>
 
       {isOpen && (

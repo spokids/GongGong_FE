@@ -70,15 +70,15 @@ const ProgramFinder = () => {
         </div>
       </div>
 
-      <RegionDropdown options={regions} onSelect={handleRegionSelect} />
+      <RegionDropdown options={regions} onSelect={handleRegionSelect} placeholder="시/도" />
 
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-2 mt-3">
         {isSelected && 
-          <RegionDropdown options={states} onSelect={handleStateSelect}/>
+          <RegionDropdown options={states} onSelect={handleStateSelect} placeholder="시/군/구"/>
         }
         
         {isSigunguSelected && 
-          <RegionDropdown options={dongs} onSelect={handleDongSelect}/>
+          <RegionDropdown options={dongs} onSelect={handleDongSelect} placeholder="동/읍/면/리"/>
         }
       </div>
 
