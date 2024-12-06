@@ -1,9 +1,10 @@
 import { apiGet, apiPost } from "./apiUtil";
 import { DongResponse, ProgramRequest, ProgramResponse, SigunguResponse } from "@api/types/program";
 
+
 // 2.1 시/군/구 조회
-export const getSigungu = (province: string) => {
-  return apiGet<SigunguResponse>(`/program/sigungu`, {province});
+export const getSigungu = async () => {
+  return apiGet<SigunguResponse>(`/program/sigungu`);
 }
 
 // 2.2 동/읍/면/리 조회
