@@ -10,10 +10,8 @@ import usePostLogin from "@api/hooks/login/usePostLogin";
 const SignIn = () => {
   const { mutate: postLogin } = usePostLogin();
   const navigate = useNavigate();
-  const [isComplete, setIsComplete] = useState(false);
   const [userInputId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [responseMessage, setResponseMessage] = useState<string | null>(null); 
   const [errorMessage, setErrorMessage] = useState<string | null>(null); 
 
   const handleLogin = () => {
@@ -21,7 +19,6 @@ const SignIn = () => {
       { userInputId, password },
       {
         onSuccess: (response) => {
-          setIsComplete(true);
           setResponseMessage(response.data?.message || null);
           setErrorMessage(null);
           navigate("/"); 
