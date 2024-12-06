@@ -60,7 +60,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Button style="filled" className="mt-6 w-[100%] h-[54px] items-center flex gap-2 bg-primary-100" onClick={handleFinder}>
+      <Button style="filled" className="mt-6 w-full h-[54px] items-center flex gap-2 bg-primary-100" onClick={handleFinder}>
         <SearchIcon className="w-5 h-5"/>
         아이에게 딱 맞는 프로그램 찾기
       </Button>
