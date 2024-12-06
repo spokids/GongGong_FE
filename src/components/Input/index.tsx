@@ -3,7 +3,7 @@ import { forwardRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 const style =
-  "h-13 rounded-lg w-full px-3 py-[11px] font-regular focus:outline-none focus:outline-[1.5px] focus:bg-orange-50 focus:border-orange-200 placeholder:text-body-9 border-[1.5px] border-orange-100";
+  "h-13 rounded-lg w-full px-3 py-[11px] font-regular focus:outline-none focus:outline-[1.5px] focus:bg-orange-50 focus:border-orange-200 border-[1.5px] border-orange-100";
 
 const Input = forwardRef<
   HTMLInputElement,

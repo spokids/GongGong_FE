@@ -4,9 +4,10 @@ import Input from "@components/Input";
 
 interface ChatbotInputProps {
   onClick: (region: string) => void; 
+  placeholder: string;
 }
 
-const ChatbotInput: React.FC<ChatbotInputProps> = ({ onClick }) => {
+const ChatbotInput: React.FC<ChatbotInputProps> = ({ onClick, placeholder }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,8 +21,8 @@ const ChatbotInput: React.FC<ChatbotInputProps> = ({ onClick }) => {
   return (
     <div className="pt-3 px-5 pb-5 bg-white flex gap-3">
       <Input
-        className="flex-grow"
-        placeholder="ex: 서울시 강남구"
+        className="flex-grow text-body9"
+        placeholder={placeholder}
         value={inputValue}
         onChange={handleInputChange}
       />
