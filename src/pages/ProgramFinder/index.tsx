@@ -116,7 +116,7 @@ const ProgramFinder = () => {
           <p className="font-medium text-body6 text-primary-100">분야</p>
           <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           {fields.map((field, index) => (
             <FieldButton key={index}>
               {field.icon}

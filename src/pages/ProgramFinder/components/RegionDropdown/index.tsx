@@ -1,4 +1,3 @@
-import { getSigungu } from "@api/programAPI";
 import React, { useState, useEffect } from "react";
 
 interface RegionDropdownProps {
@@ -15,11 +14,6 @@ const RegionDropdown: React.FC<RegionDropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isClicked, setIsClicked] = useState(false);
-
-  const clickGetSigungu = async() => {
-    const response = await getSigungu("부산광역시");
-    console.log(response);
-  }
   
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
