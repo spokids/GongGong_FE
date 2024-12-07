@@ -1,14 +1,57 @@
 import LessonInfo from './LessonInfo';
-import {FireIcon, MainIcon, Popular1Icon, Popular2Icon, Popular3Icon, RunIcon, SearchIcon, SwimmingIcon} from '@assets/svg';
+import { FireIcon, MainIcon, Popular2Icon, Popular3Icon, RunIcon, SearchIcon } from '@assets/svg';
 import Button from "@components/Button";
 import { Link, useNavigate } from 'react-router-dom';
+import { BadmintonIcon, BasketballIcon, BowlingIcon, DancinggIcon, DumbellsIcon, EllipicalIcon, FencingIcon, FitnessIcon, GolfIcon, HollaHoopgIcon, JumpRoopIcon, MoreCircleIcon, PiaonIcon, Popular1Icon, RollerStakeIcon, SoccerIcon, SwimmingIcon, TableTennisIcon, TennisIcon, VolleyballIcon, WarriorIcon } from "@assets/svg";
+import { getProgramTop3 } from '@api/programAPI';
+import { useEffect, useState } from 'react';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [top3data, setTop3data] = useState<string[]>([]);
+
+  const useGetProgramTop3 = async () => {
+    const response = await getProgramTop3();
+    if (response && Array.isArray(response.data)) {
+      setTop3data(response.data);
+    }
+  };
+
+  useEffect(() => {
+    useGetProgramTop3();
+  }, []);
 
   const handleFinder = () => {
     navigate("/program-finder");
   };
+
+  const fields = [
+    { icon: <SwimmingIcon />, label: "수영" },
+    { icon: <BadmintonIcon />, label: "배드민턴" },
+    { icon: <FitnessIcon />, label: "에어로빅" },
+    { icon: <BasketballIcon />, label: "농구" },
+    { icon: <DumbellsIcon />, label: "헬스" },
+    { icon: <TableTennisIcon />, label: "탁구" },
+    { icon: <RollerStakeIcon />, label: "인라인" },
+    { icon: <DancinggIcon />, label: "댄스" },
+    { icon: <GolfIcon />, label: "골프" },
+    { icon: <HollaHoopgIcon />, label: "무용" },
+    { icon: <SoccerIcon />, label: "축구" },
+    { icon: <FencingIcon />, label: "검도" },
+    { icon: <VolleyballIcon />, label: "배구" },
+    { icon: <BowlingIcon />, label: "볼링" },
+    { icon: <EllipicalIcon />, label: "스피닝" },
+    { icon: <TennisIcon />, label: "스쿼시" },
+    { icon: <WarriorIcon />, label: "자세교정" },
+    { icon: <TennisIcon />, label: "테니스" },
+    { icon: <PiaonIcon />, label: "피아노" },
+    { icon: <JumpRoopIcon />, label: "음악줄넘기" },
+    { icon: <MoreCircleIcon />, label: "기타" },
+  ];
+
+  const selectedFields = fields.filter(field =>
+    top3data.includes(field.label)
+  );
 
   return (
     <div className="w-full min-h-screen bg-white">
@@ -34,32 +77,30 @@ const HomePage = () => {
       </div>
       
       <div className="flex flex-row justify-center gap-2 mt-6 mb-6">
-  <div className="relative flex flex-col justify-end">
-    <SwimmingIcon className="absolute inset-0 z-0 flex w-8 h-8 mt-[46px] ml-[21px]" />
-    <Popular2Icon className="object-cover" />
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
-      <span className="text-white text-body8">name</span>
-    </div>
-  </div>
-
-  <div className="relative flex flex-col justify-end">
-    <SwimmingIcon className="absolute inset-0 z-0 flex w-8 h-8 mt-5 ml-[21px]" />
-    <Popular1Icon className="object-cover" />
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
-      <span className="text-white text-body8">name</span>
-    </div>
-  </div>
-
-  <div className="relative flex flex-col justify-end">
-    <SwimmingIcon className="absolute inset-0 z-0 flex w-8 h-8 mt-[74px] ml-[21px]" />
-    <Popular3Icon className="flex justify-end object-cover" />
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
-      <span className="text-white text-body8">name</span>
-    </div>
-  </div>
-</div>
-
-
+        {selectedFields.map((field, index) => (
+          <div key={index} className="relative flex flex-col justify-end">
+            <div key={index} className="relative flex flex-col justify-end">
+              <div
+                className="absolute inset-0 z-0 flex w-8 h-8"
+                style={{
+                  marginTop: `${22 + index*2}px`, 
+                  marginLeft: `${21 + index*2}px`,
+                }}
+              >
+                {field.icon}
+              </div>
+            </div>
+            <div className="object-cover">
+              {index === 0 && <Popular2Icon className="object-cover" />}
+              {index === 1 && <Popular1Icon className="object-cover" />}
+              {index === 2 && <Popular3Icon className="object-cover" />}
+            </div>
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
+              <span className="text-white text-body8">{field.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <hr
         style={{
@@ -69,18 +110,10 @@ const HomePage = () => {
           border: "none",
         }}
       />
-      <hr
-        style={{
-          margin: "0 -20px 0 -20px",
-          height: "8px",
-          background: "var(--primary_foundation-5, #F3F3F4)",
-          border: "none",
-        }}
-      />
-
+      
       <div className="flex flex-row w-full mt-4 mb-6">
         <RunIcon className="w-8"/>
-          <div className="flex flex-col gap-0 ml-3">
+        <div className="flex flex-col gap-0 ml-3">
           <h2 className="text-title1">체육 프로그램 목록</h2>
           <p className="text-body9 text-primary-60">
             최근에 후기가 올라온 프로그램 순의 목록이에요
