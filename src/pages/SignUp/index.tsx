@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
-import usePostRegister from "@api/hooks/login/usePostRegister";
+import usePostRegister from "@api/hooks/auth/usePostRegister";
 
 const SignUp = () => {
   const [step, setStep] = useState(1);
