@@ -1,9 +1,15 @@
 import LessonInfo from './LessonInfo';
 import {FireIcon, MainIcon, RunIcon, SearchIcon} from '@assets/svg';
 import Button from "@components/Button";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleFinder = () => {
+    navigate("/program-finder");
+  };
+
   return (
     <div className="w-full min-h-screen bg-white">
       <div
@@ -12,9 +18,6 @@ const HomePage = () => {
       >
         <div className="absolute left-5 top-[126px] z-10 text-white">
           <p className="text-body9">안녕하세요, 닉네임님</p>
-          <h1 className="mt-1 text-headline1">
-            우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
-          </h1>
           <h1 className="mt-1 text-headline1">
             우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
           </h1>
@@ -54,13 +57,10 @@ const HomePage = () => {
           <p className="text-body9 text-primary-60">
             최근에 후기가 올라온 프로그램 순의 목록이에요
           </p>
-          <p className="text-body9 text-primary-60">
-            최근에 후기가 올라온 프로그램 순의 목록이에요
-          </p>
         </div>
       </div>
 
-      <Button className="flex gap-2 text-white bg-primary-100">
+      <Button style="filled" className="mt-6 w-full h-[54px] items-center flex gap-2 bg-primary-100" onClick={handleFinder}>
         <SearchIcon className="w-5 h-5"/>
         아이에게 딱 맞는 프로그램 찾기
       </Button>

@@ -11,13 +11,13 @@
     "svgr": "npx @svgr/cli -d src/assets/svg --ignore-existing --typescript --no-dimensions public/svg"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.2.2",
+    "@chakra-ui/react": "^3.2.3",
     "@chakra-ui/system": "^2.6.2",
     "@chakra-ui/toast": "^7.0.2",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@mui/material": "^6.1.10",
-    "@tanstack/react-query": "^5.62.2",
+    "@tanstack/react-query": "^5.62.3",
     "add": "^2.0.6",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
