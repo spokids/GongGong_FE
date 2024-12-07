@@ -5,6 +5,7 @@ import Button from "@components/Button";
 import Input from "@components/Input";
 import { useGetSigungu } from "@api/hooks/program/useGetSigungu";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useGetDong } from "@api/hooks/program/useGetdong";
 import { useEffect, useState } from "react";
 
@@ -82,18 +83,31 @@ const ProgramFinder = () => {
   ];
 =======
 =======
+=======
+import { useGetDong } from "@api/hooks/program/useGetdong";
+>>>>>>> c4fdecd3 (#46 [feat] 동읍면리 api 연동 완료)
 import { useState } from "react";
 
 const ProgramFinder = () => {
   const [isSelected, setSelected] = useState(false);
   const [isSigunguSelected, setSigunguSelected] = useState(false);
+<<<<<<< HEAD
 >>>>>>> 1aa83d92 (#46 [fix] main merge- finder)
   const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시"); 
   const { data } = useGetSigungu(selectedRegion);
+=======
+  const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시");
+  const [selectedState, setSelectedState] = useState<string>("");
+  
+  const { data: sigunguData } = useGetSigungu(selectedRegion);
+  const { data: dongData } = useGetDong(selectedState, selectedRegion);
+>>>>>>> c4fdecd3 (#46 [feat] 동읍면리 api 연동 완료)
 
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setSelected(true);
+    setSigunguSelected(false); 
+    setSelectedState("");
     console.log("선택된 지역:", region);
   };
 <<<<<<< HEAD
@@ -103,11 +117,15 @@ const ProgramFinder = () => {
 =======
 
   const handleStateSelect = (states: string) => {
-    setSelectedRegion(states);
+    setSelectedState(states);
     setSigunguSelected(true);
     console.log("선택된 시군구:", states);
   };
 
+  const handleDongSelect = (dong: string) => {
+    console.log("선택된 동읍면리:", dong);
+  };
+  
   const regions = [
     "서울특별시",
     "경상북도",
@@ -121,8 +139,13 @@ const ProgramFinder = () => {
     "충청북도",
   ];
 
+<<<<<<< HEAD
   const states = data || [];
 >>>>>>> 1aa83d92 (#46 [fix] main merge- finder)
+=======
+  const states = sigunguData || [];
+  const dongs = dongData || [];
+>>>>>>> c4fdecd3 (#46 [feat] 동읍면리 api 연동 완료)
 
   const fields = [
     { icon: <SwimmingIcon />, label: "수영" },
@@ -185,12 +208,16 @@ const ProgramFinder = () => {
         )}
       </div>
 
-      {isSelected && 
-        <RegionDropdown options={states} onSelect={handleStateSelect}/>
-      }
-      {isSigunguSelected && 
-        <RegionDropdown options={states} onSelect={handleStateSelect}/>
-      }
+      <div className="flex flex-row">
+        {isSelected && 
+          <RegionDropdown options={states} onSelect={handleStateSelect}/>
+        }
+        
+        {isSigunguSelected && 
+          <RegionDropdown options={dongs} onSelect={handleDongSelect}/>
+        }
+      </div>
+
 
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
