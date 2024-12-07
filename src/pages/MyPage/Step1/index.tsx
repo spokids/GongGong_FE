@@ -7,10 +7,6 @@ const MyPage = () => {
     const [activeTab, setActiveTab] = useState<"SaveProgramming" | "reviews">("SaveProgramming");
     const { data: user } = useGetUser();
 
-    if (!user) {
-      return <div>사용자 데이터를 불러올 수 없습니다.</div>;
-    }
-
     return (
         <div className='mt-2'>
           {user&& (
