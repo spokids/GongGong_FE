@@ -12,11 +12,3 @@ export interface RegisterParams {
   password: string;
   nickName: string;
 }
-
-export interface LoginResponse {
-  token: string; 
-}
-
-export interface RegisterResponse {
-  token: string; 
-}
