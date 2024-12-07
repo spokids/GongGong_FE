@@ -4,6 +4,7 @@ import RegionDropdown from "./components/RegionDropdown";
 import Button from "@components/Button";
 import Input from "@components/Input";
 import { useGetSigungu } from "@api/hooks/program/useGetSigungu";
+<<<<<<< HEAD
 import { useGetDong } from "@api/hooks/program/useGetdong";
 import { useEffect, useState } from "react";
 
@@ -80,16 +81,48 @@ const ProgramFinder = () => {
     { icon: <MoreCircleIcon />, label: "기타" },
   ];
 =======
+=======
+import { useState } from "react";
+
+const ProgramFinder = () => {
+  const [isSelected, setSelected] = useState(false);
+  const [isSigunguSelected, setSigunguSelected] = useState(false);
+>>>>>>> 1aa83d92 (#46 [fix] main merge- finder)
   const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시"); 
   const { data } = useGetSigungu(selectedRegion);
 
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
+    setSelected(true);
     console.log("선택된 지역:", region);
   };
+<<<<<<< HEAD
   
   const regions = data || [];
 >>>>>>> 31954a58 (#46 [fix] main merge)
+=======
+
+  const handleStateSelect = (states: string) => {
+    setSelectedRegion(states);
+    setSigunguSelected(true);
+    console.log("선택된 시군구:", states);
+  };
+
+  const regions = [
+    "서울특별시",
+    "경상북도",
+    "경기도",
+    "강원특별자치도",
+    "부산광역시",
+    "대구광역시",
+    "인천광역시",
+    "충청남도",
+    "경상남도",
+    "충청북도",
+  ];
+
+  const states = data || [];
+>>>>>>> 1aa83d92 (#46 [fix] main merge- finder)
 
   const fields = [
     { icon: <SwimmingIcon />, label: "수영" },
@@ -151,6 +184,13 @@ const ProgramFinder = () => {
           <RegionDropdown options={dongs} onSelect={handleDongSelect} placeholder="동/읍/면/리" />
         )}
       </div>
+
+      {isSelected && 
+        <RegionDropdown options={states} onSelect={handleStateSelect}/>
+      }
+      {isSigunguSelected && 
+        <RegionDropdown options={states} onSelect={handleStateSelect}/>
+      }
 
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
