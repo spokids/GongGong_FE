@@ -9,10 +9,6 @@ import usePostLogin from "@api/hooks/auth/usePostSignIn";
 
 const SignIn = () => {
   const { mutate: postLogin } = usePostLogin();
-<<<<<<< HEAD
-  const navigate = useNavigate();
-=======
->>>>>>> 1f802204 (#52 [Fix] 로그인 오류 해결 및 토큰 저장)
   const [userInputId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null); 
@@ -21,13 +17,6 @@ const SignIn = () => {
     postLogin(
       { userInputId, password },
       {
-<<<<<<< HEAD
-        onSuccess: () => {
-          setErrorMessage(null);
-          navigate("/"); 
-        },
-=======
->>>>>>> 1f802204 (#52 [Fix] 로그인 오류 해결 및 토큰 저장)
         onError: () => {
           setErrorMessage("로그인에 실패했습니다. 아이디나 비밀번호를 확인해주세요.");
         },
