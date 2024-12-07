@@ -1,9 +1,6 @@
-import { authApiPost } from "./apiUtil";
-import { LoginResponse, LoginParams } from "./types/member";
+import { apiPost } from "./apiUtil";
+import { LoginParams, LoginResponse } from "./types/auth";
 
-export const postLogin = ({ userInputId, password }: LoginParams) => {
-  return authApiPost<LoginResponse>("/auth/login", {
-    userInputId,
-    password,
-  });
+export const postLogin = (data: LoginParams) => {
+  return apiPost<LoginResponse>("/auth/login", data);
 };
