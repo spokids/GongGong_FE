@@ -1,14 +1,13 @@
 import { apiGet, apiPost, authApiDelete, authApiGet, authApiPost } from "./apiUtil";
 import { DongResponse, postProgramReviewResponse, ProgramDetailResponse, ProgramRequest, ProgramResponse, ProgramReviewListResponse, SigunguResponse } from "./types/program";
 
-// 2.1 시/군/구 조회
 export const getSigungu = (province: string) => {
-  return apiGet<SigunguResponse>(`/program/sigungu`, {province});
+  console.log("getSigungu");
+  return apiGet<SigunguResponse>(`/program/sigungu?province=${province}`);
 }
 
-// 2.2 동/읍/면/리 조회
-export const getDong = (province: string, sigungu: string) => {
-  return apiGet<DongResponse>(`/program/dong`, {province, sigungu});
+export const getDong = (sigungu: string, province: string) => {
+  return apiGet<DongResponse>(`/program/dong?province=${province}&sigungu=${sigungu}`);
 }
 
 // 2.3 프로그램 조회
