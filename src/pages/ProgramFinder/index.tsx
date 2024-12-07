@@ -5,10 +5,10 @@ import Button from "@components/Button";
 import Input from "@components/Input";
 import { useGetSigungu } from "@api/hooks/program/useGetSigungu";
 import { useGetDong } from "@api/hooks/program/useGetdong";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProgramFinder = () => {
-  const [isSelected, setSelected] = useState(false);
+  const [isRegionSelected, setRegionSelected] = useState(false);
   const [isSigunguSelected, setSigunguSelected] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시");
   const [selectedState, setSelectedState] = useState<string>("");
@@ -17,21 +17,31 @@ const ProgramFinder = () => {
   const { data: sigunguData, isError: sigunguError } = useGetSigungu(selectedRegion);
   const { data: dongData, isError: dongError } = useGetDong(selectedState, selectedRegion);
 
+
+  const states = sigunguError ? ["정보없음"] : sigunguData || [];
+  const dongs = dongError ? ["정보없음"] : dongData || [];
+
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
-    setSelected(true);
+    setRegionSelected(true);
     setSigunguSelected(false);
     setSelectedState("");
+    setSelectedDong(false);
   };
 
   const handleStateSelect = (states: string) => {
-    setSelectedState(states);
+    setSelectedDong(false);
     setSigunguSelected(true);
+    setSelectedState(states);
   };
 
   const handleDongSelect = () => {
     setSelectedDong(true);
   };
+
+  useEffect(() => {
+    setSelectedDong(false);
+  }, [selectedState]);
 
   const regions = [
     "서울특별시",
@@ -45,9 +55,6 @@ const ProgramFinder = () => {
     "경상남도",
     "충청북도",
   ];
-
-  const states = sigunguError ? ["정보없음"] : sigunguData || [];
-  const dongs = dongError ? ["정보없음"] : dongData || [];
 
   return (
     <div>
@@ -71,7 +78,7 @@ const ProgramFinder = () => {
       <RegionDropdown options={regions} onSelect={handleRegionSelect} placeholder="시/도" />
 
       <div className="flex flex-row gap-2 mt-3">
-        {isSelected && (
+        {isRegionSelected && (
           <RegionDropdown options={states} onSelect={handleStateSelect} placeholder="시/군/구" />
         )}
 
