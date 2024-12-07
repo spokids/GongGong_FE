@@ -8,6 +8,7 @@ import { useGetDong } from "@api/hooks/program/useGetdong";
 import { useEffect, useState } from "react";
 
 const ProgramFinder = () => {
+<<<<<<< HEAD
   const [isRegionSelected, setRegionSelected] = useState(false);
   const [isSigunguSelected, setSigunguSelected] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시");
@@ -78,6 +79,17 @@ const ProgramFinder = () => {
     { icon: <JumpRoopIcon />, label: "음악줄넘기" },
     { icon: <MoreCircleIcon />, label: "기타" },
   ];
+=======
+  const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시"); 
+  const { data } = useGetSigungu(selectedRegion);
+
+  const handleRegionSelect = (region: string) => {
+    setSelectedRegion(region);
+    console.log("선택된 지역:", region);
+  };
+  
+  const regions = data || [];
+>>>>>>> 31954a58 (#46 [fix] main merge)
 
   const fields = [
     { icon: <SwimmingIcon />, label: "수영" },
@@ -118,7 +130,13 @@ const ProgramFinder = () => {
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
           <p className="font-medium text-body6 text-primary-100">지역</p>
+<<<<<<< HEAD
           <p className="text-orange-400 text-caption4 font-regular">시 / 도까지 필수입력</p>
+=======
+          <p className="text-orange-400 text-caption4 font-regular">
+            시 / 도까지 필수입력
+          </p>
+>>>>>>> 31954a58 (#46 [fix] main merge)
         </div>
       </div>
 
@@ -137,6 +155,7 @@ const ProgramFinder = () => {
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
           <p className="font-medium text-body6 text-primary-100">분야</p>
+<<<<<<< HEAD
           <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
         </div>
 <<<<<<< HEAD
@@ -144,6 +163,13 @@ const ProgramFinder = () => {
 =======
         <div className="flex gap-2 flex-wrap">
 >>>>>>> 7d1c7d8e (#52 [Refactor] 버튼 추가)
+=======
+          <p className="text-orange-400 text-caption4 font-regular">
+            여러 개 선택할 수 있어요
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+>>>>>>> 31954a58 (#46 [fix] main merge)
           {fields.map((field, index) => (
             <FieldButton key={index}>
               {field.icon}

@@ -6,7 +6,11 @@ import { DongResponse, ProgramRequest, ProgramResponse, SigunguResponse } from "
 
 // 2.1 시/군/구 조회
 export const getSigungu = (province: string) => {
+<<<<<<< HEAD
   return apiGet<SigunguResponse>(`/program/sigungu`, {province});
+=======
+  return apiGet<SigunguResponse>(`/program/sigungu?province=${province}`);
+>>>>>>> 31954a58 (#46 [fix] main merge)
 }
 
 // 2.2 동/읍/면/리 조회
