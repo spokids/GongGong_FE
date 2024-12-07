@@ -1,4 +1,4 @@
-import { SwimmingIcon } from "@assets/svg";
+import { BadmintonIcon, BasketballIcon, BowlingIcon, DancinggIcon, DumbellsIcon, EllipicalIcon, FencingIcon, FitnessIcon, GolfIcon, HollaHoopgIcon, JumpRoopIcon, MoreCircleIcon, PiaonIcon, RollerStakeIcon, SoccerIcon, SwimmingIcon, TableTennisIcon, TennisIcon, VolleyballIcon, WarriorIcon } from "@assets/svg";
 import FieldButton from "@components/FieldButton";
 import RegionDropdown from "./components/RegionDropdown";
 import Button from "@components/Button";
@@ -56,6 +56,30 @@ const ProgramFinder = () => {
     "충청북도",
   ];
 
+  const fields = [
+    { icon: <SwimmingIcon />, label: "수영" },
+    { icon: <BadmintonIcon />, label: "배드민턴" },
+    { icon: <FitnessIcon />, label: "에어로빅" },
+    { icon: <BasketballIcon />, label: "농구" },
+    { icon: <DumbellsIcon />, label: "헬스" },
+    { icon: <TableTennisIcon />, label: "탁구" },
+    { icon: <RollerStakeIcon />, label: "인라인" },
+    { icon: <DancinggIcon />, label: "댄스" },
+    { icon: <GolfIcon />, label: "골프" },
+    { icon: <HollaHoopgIcon />, label: "무용" },
+    { icon: <SoccerIcon />, label: "축구" },
+    { icon: <FencingIcon />, label: "검도" },
+    { icon: <VolleyballIcon />, label: "배구" },
+    { icon: <BowlingIcon />, label: "볼링" },
+    { icon: <EllipicalIcon />, label: "스피닝" },
+    { icon: <TennisIcon />, label: "스쿼시" },
+    { icon: <WarriorIcon />, label: "자세교정" },
+    { icon: <TennisIcon />, label: "테니스" },
+    { icon: <PiaonIcon />, label: "피아노" },
+    { icon: <JumpRoopIcon />, label: "음악줄넘기" },
+    { icon: <MoreCircleIcon />, label: "기타" },
+  ];
+
   return (
     <div>
       <div className="flex flex-col gap-1 mt-3">
@@ -92,10 +116,15 @@ const ProgramFinder = () => {
           <p className="font-medium text-body6 text-primary-100">분야</p>
           <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
         </div>
-        <FieldButton>
-          <SwimmingIcon />
-          수영
-        </FieldButton>
+        <div className="flex gap-2 flex-wrap">
+          {fields.map((field, index) => (
+            <FieldButton key={index}>
+              {field.icon}
+              {field.label}
+            </FieldButton>
+          ))}
+        </div>
+
       </div>
 
       <div className="mt-[42px]">
