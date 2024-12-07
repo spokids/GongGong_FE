@@ -23,8 +23,8 @@ export { default as BasketballIcon } from "./basketball.svg?react";
 export { default as BowlingIcon } from "./bowling.svg?react";
 export { default as DancinggIcon } from "./dancing.svg?react";
 export { default as DumbellsIcon } from "./dumbells.svg?react";
-export { default as EllipicalIcon } from "./ellipical.svg?react";
-export { default as FencingIcon } from "./fenciong.svg?react";
+export { default as EllipicalIcon } from "./elliptical.svg?react";
+export { default as FencingIcon } from "./fencing.svg?react";
 export { default as FitnessIcon } from "./fitness.svg?react";
 export { default as GolfIcon } from "./golf.svg?react";
 export { default as HollaHoopgIcon } from "./hollaHoop.svg?react";
@@ -36,6 +36,6 @@ export { default as SoccerIcon } from "./soccer.svg?react";
 export { default as TableTennisIcon } from "./tableTennis.svg?react";
 export { default as TennisIcon } from "./tennis.svg?react";
 export { default as VolleyballIcon } from "./volleyball.svg?react";
-export { default as warriorIcon } from "./warrior.svg?react";
+export { default as WarriorIcon } from "./warrior.svg?react";
 export { default as YogaMatIcon } from "./yogaMat.svg?react";
 
