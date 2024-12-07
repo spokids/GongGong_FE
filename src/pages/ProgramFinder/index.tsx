@@ -1,4 +1,4 @@
-import { BadmintonIcon, BasketballIcon, BowlingIcon, DancinggIcon, DumbellsIcon, EllipicalIcon, FencingIcon, FitnessIcon, GolfIcon, HollaHoopgIcon, JumpRoopIcon, MoreCircleIcon, PiaonIcon, RollerStakeIcon, SoccerIcon, SwimmingIcon, TableTennisIcon, TennisIcon, VolleyballIcon, WarriorIcon } from "@assets/svg";
+import { BadmintonIcon, BasketballIcon, BowlingIcon, DancinggIcon, DumbellsIcon, EllipicalIcon, FencingIcon, FitnessIcon, GolfIcon, HollaHoopgIcon, JumpRoopIcon, MoreCircleIcon, PiaonIcon, Popular1Icon, RollerStakeIcon, SoccerIcon, SwimmingIcon, TableTennisIcon, TennisIcon, VolleyballIcon, WarriorIcon } from "@assets/svg";
 import FieldButton from "@components/FieldButton";
 import RegionDropdown from "./components/RegionDropdown";
 import Button from "@components/Button";
@@ -84,7 +84,7 @@ const ProgramFinder = () => {
           3개의 항목 중 한가지만 입력해도 적용할 수 있어요
         </h2>
       </div>
-
+            
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
           <p className="font-medium text-body6 text-primary-100">지역</p>

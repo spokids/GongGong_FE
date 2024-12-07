@@ -1,5 +1,5 @@
 import LessonInfo from './LessonInfo';
-import {FireIcon, MainIcon, RunIcon, SearchIcon} from '@assets/svg';
+import {FireIcon, MainIcon, Popular1Icon, Popular2Icon, Popular3Icon, RunIcon, SearchIcon, SwimmingIcon} from '@assets/svg';
 import Button from "@components/Button";
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -25,13 +25,41 @@ const HomePage = () => {
         <MainIcon className="absolute top-0 right-0 z-0 w-60" />
       </div>
 
-      <div className="flex flex-row w-full mt-5 mb-6">
+      <div className="flex flex-row w-full mt-5">
         <FireIcon className="w-9"/>
         <div className="flex flex-col gap-0 ml-2">
           <h2 className="text-title1">아이들이 많이 수강하는 종목 Top3</h2>
           <p className="text-body9 text-primary-60">2024.11.15 기준</p>
         </div>
       </div>
+      
+      <div className="flex flex-row justify-center gap-2 mt-6 mb-6">
+  <div className="relative flex flex-col justify-end">
+    <SwimmingIcon className="absolute inset-0 z-0 flex w-8 h-8 mt-[46px] ml-[21px]" />
+    <Popular2Icon className="object-cover" />
+    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
+      <span className="text-white text-body8">name</span>
+    </div>
+  </div>
+
+  <div className="relative flex flex-col justify-end">
+    <SwimmingIcon className="absolute inset-0 z-0 flex w-8 h-8 mt-5 ml-[21px]" />
+    <Popular1Icon className="object-cover" />
+    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
+      <span className="text-white text-body8">name</span>
+    </div>
+  </div>
+
+  <div className="relative flex flex-col justify-end">
+    <SwimmingIcon className="absolute inset-0 z-0 flex w-8 h-8 mt-[74px] ml-[21px]" />
+    <Popular3Icon className="flex justify-end object-cover" />
+    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mt-[105px]">
+      <span className="text-white text-body8">name</span>
+    </div>
+  </div>
+</div>
+
+
 
       <hr
         style={{
