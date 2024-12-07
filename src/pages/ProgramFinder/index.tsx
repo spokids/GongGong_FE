@@ -17,6 +17,9 @@ const ProgramFinder = () => {
   const { data: sigunguData, isError: sigunguError } = useGetSigungu(selectedRegion);
   const { data: dongData, isError: dongError } = useGetDong(selectedState, selectedRegion);
 
+  const states = sigunguError ? ["정보없음"] : sigunguData || [];
+  const dongs = dongError ? ["정보없음"] : dongData || [];
+  
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setSelected(true);
@@ -106,7 +109,7 @@ const ProgramFinder = () => {
           <p className="font-medium text-body6 text-primary-100">분야</p>
           <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           {fields.map((field, index) => (
             <FieldButton key={index}>
               {field.icon}
