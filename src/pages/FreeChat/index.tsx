@@ -89,6 +89,7 @@ const FreeChat = () => {
 
   return (
     <div className="h-full flex flex-col justify-between bg-linear-orange overflow-y-auto">
+      <div className="px-4">
       <div>
         <BotBubble
           message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
@@ -152,14 +153,16 @@ const FreeChat = () => {
         </div>
         </>
       )}
+      </div>
 
-
-      <div>
+        {!responseMessage &&(
+        <div>
         <ChatbotInput
           onClick={handleSending}
           placeholder={"ex: 아이가 13살인데, 축구를 하고 싶어해요."}
         />
       </div>
+      )}
     </div>
   );
 };

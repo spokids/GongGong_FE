@@ -1,9 +1,9 @@
 import { authApiPost } from "./apiUtil";
-import { RegisterParams, RegisterResponse } from "./types/member";
+import { RegisterParams } from "./types/auth";
 
-export const postRegister = ({ userId, password, nickName }: RegisterParams) => {
-  return authApiPost<RegisterResponse>("/auth/register", {
-    userId,
+export const postRegister = ({ userInputId, password, nickName }: RegisterParams) => {
+  return authApiPost("/auth/register", {
+    userInputId,
     password,
     nickName,
   });

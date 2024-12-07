@@ -1,31 +1,22 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BgLogo from "@assets/BgLogo";
 import LogoLogin from "@assets/LogoLogin";
 import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
 import Input from "@components/Input";
-import usePostLogin from "@api/hooks/login/usePostLogin";
+import usePostLogin from "@api/hooks/auth/usePostSignIn";
 
 const SignIn = () => {
   const { mutate: postLogin } = usePostLogin();
-  const navigate = useNavigate();
-  const [isComplete, setIsComplete] = useState(false);
   const [userInputId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [responseMessage, setResponseMessage] = useState<string | null>(null); 
   const [errorMessage, setErrorMessage] = useState<string | null>(null); 
 
   const handleLogin = () => {
     postLogin(
       { userInputId, password },
       {
-        onSuccess: (response) => {
-          setIsComplete(true);
-          setResponseMessage(response.data?.message || null);
-          setErrorMessage(null);
-          navigate("/"); 
-        },
         onError: () => {
           setErrorMessage("로그인에 실패했습니다. 아이디나 비밀번호를 확인해주세요.");
         },
