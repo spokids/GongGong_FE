@@ -1,12 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import { postRegister } from "@api/registerAPI";
 import { RegisterParams } from "@api/types/auth";
+import { useNavigate } from "react-router-dom";
+import routes from "constants/routes";
 
 const usePostRegister = () => {
+  const navigate = useNavigate();
   return useMutation({
     mutationFn: (params: RegisterParams) => postRegister(params),
-    onSuccess: (data) => {
-      console.log("로그인 성공, 응답 데이터:", data);
+    onSuccess: () => {
+      navigate(routes.homePage);
     },
   });
 };
