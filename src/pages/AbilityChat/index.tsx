@@ -119,7 +119,8 @@ const AbilityChat: React.FC = () => {
   };
 
   return (
-    <div className="flex h-full flex-col bg-linear-orange overflow-y-auto px-4">
+    <div className="flex h-full flex-col bg-linear-orange overflow-y-auto">
+          <div className="px-4">
       <BotBubble
         message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
           찾아주는 스포키톡이에요!
@@ -198,6 +199,7 @@ const AbilityChat: React.FC = () => {
           </div>
         </div>
       )}
+      </div>
 
       {showChatbotInput && (
         <div className="mt-auto">
