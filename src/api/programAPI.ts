@@ -8,10 +8,6 @@ export const getSigungu = (province: string) => {
 }
 
 export const getDong = (sigungu: string, province: string) => {
-  console.log("전달된 province:", province);
-  console.log("전달된 sigungu:", sigungu);
-  console.log("완전한 URL:", `/program/dong?province=${province}&sigungu=${sigungu}`);
-  
   return apiGet<DongResponse>(`/program/dong?province=${province}&sigungu=${sigungu}`);
 }
 
