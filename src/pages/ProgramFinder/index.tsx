@@ -98,17 +98,23 @@ const ProgramFinder = () => {
 =======
   const [selectedRegion, setSelectedRegion] = useState<string>("서울특별시");
   const [selectedState, setSelectedState] = useState<string>("");
+<<<<<<< HEAD
   
   const { data: sigunguData } = useGetSigungu(selectedRegion);
   const { data: dongData } = useGetDong(selectedState, selectedRegion);
 >>>>>>> c4fdecd3 (#46 [feat] 동읍면리 api 연동 완료)
+=======
+  const [selectedDong, setSelectedDong] = useState(false);
+
+  const { data: sigunguData, isError: sigunguError } = useGetSigungu(selectedRegion);
+  const { data: dongData, isError: dongError } = useGetDong(selectedState, selectedRegion);
+>>>>>>> 83414352 (#46 [feat] 버튼 비활성화 설정)
 
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setSelected(true);
-    setSigunguSelected(false); 
+    setSigunguSelected(false);
     setSelectedState("");
-    console.log("선택된 지역:", region);
   };
 <<<<<<< HEAD
   
@@ -119,13 +125,12 @@ const ProgramFinder = () => {
   const handleStateSelect = (states: string) => {
     setSelectedState(states);
     setSigunguSelected(true);
-    console.log("선택된 시군구:", states);
   };
 
-  const handleDongSelect = (dong: string) => {
-    console.log("선택된 동읍면리:", dong);
+  const handleDongSelect = () => {
+    setSelectedDong(true);
   };
-  
+
   const regions = [
     "서울특별시",
     "경상북도",
@@ -140,12 +145,17 @@ const ProgramFinder = () => {
   ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const states = data || [];
 >>>>>>> 1aa83d92 (#46 [fix] main merge- finder)
 =======
   const states = sigunguData || [];
   const dongs = dongData || [];
 >>>>>>> c4fdecd3 (#46 [feat] 동읍면리 api 연동 완료)
+=======
+  const states = sigunguError ? ["정보없음"] : sigunguData || [];
+  const dongs = dongError ? ["정보없음"] : dongData || [];
+>>>>>>> 83414352 (#46 [feat] 버튼 비활성화 설정)
 
   const fields = [
     { icon: <SwimmingIcon />, label: "수영" },
@@ -187,18 +197,23 @@ const ProgramFinder = () => {
         <div className="flex items-center gap-3 mb-1">
           <p className="font-medium text-body6 text-primary-100">지역</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <p className="text-orange-400 text-caption4 font-regular">시 / 도까지 필수입력</p>
 =======
           <p className="text-orange-400 text-caption4 font-regular">
             시 / 도까지 필수입력
           </p>
 >>>>>>> 31954a58 (#46 [fix] main merge)
+=======
+          <p className="text-orange-400 text-caption4 font-regular">시 / 도까지 필수입력</p>
+>>>>>>> 83414352 (#46 [feat] 버튼 비활성화 설정)
         </div>
       </div>
 
       <RegionDropdown options={regions} onSelect={handleRegionSelect} placeholder="시/도" />
 
       <div className="flex flex-row gap-2 mt-3">
+<<<<<<< HEAD
         {isRegionSelected && (
           <RegionDropdown options={states} onSelect={handleStateSelect} placeholder="시/군/구" />
         )}
@@ -217,11 +232,21 @@ const ProgramFinder = () => {
           <RegionDropdown options={dongs} onSelect={handleDongSelect}/>
         }
       </div>
+=======
+        {isSelected && (
+          <RegionDropdown options={states} onSelect={handleStateSelect} placeholder="시/군/구" />
+        )}
+>>>>>>> 83414352 (#46 [feat] 버튼 비활성화 설정)
 
+        {isSigunguSelected && (
+          <RegionDropdown options={dongs} onSelect={handleDongSelect} placeholder="동/읍/면/리" />
+        )}
+      </div>
 
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
           <p className="font-medium text-body6 text-primary-100">분야</p>
+<<<<<<< HEAD
 <<<<<<< HEAD
           <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
         </div>
@@ -234,6 +259,9 @@ const ProgramFinder = () => {
           <p className="text-orange-400 text-caption4 font-regular">
             여러 개 선택할 수 있어요
           </p>
+=======
+          <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
+>>>>>>> 83414352 (#46 [feat] 버튼 비활성화 설정)
         </div>
         <div className="flex flex-wrap gap-2">
 >>>>>>> 31954a58 (#46 [fix] main merge)

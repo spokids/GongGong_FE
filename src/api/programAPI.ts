@@ -23,10 +23,6 @@ export const getDong = (province: string, sigungu: string) => {
   return apiGet<DongResponse>(`/program/dong`, {province, sigungu});
 =======
 export const getDong = (sigungu: string, province: string) => {
-  console.log("전달된 province:", province);
-  console.log("전달된 sigungu:", sigungu);
-  console.log("완전한 URL:", `/program/dong?province=${province}&sigungu=${sigungu}`);
-  
   return apiGet<DongResponse>(`/program/dong?province=${province}&sigungu=${sigungu}`);
 >>>>>>> c4fdecd3 (#46 [feat] 동읍면리 api 연동 완료)
 }
