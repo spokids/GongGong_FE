@@ -54,8 +54,7 @@ const ProgramFinder = () => {
     "충청남도",
     "경상남도",
     "충청북도",
-  ];
-
+    ];
   const fields = [
     { icon: <SwimmingIcon />, label: "수영" },
     { icon: <BadmintonIcon />, label: "배드민턴" },
