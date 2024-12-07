@@ -24,16 +24,13 @@ const SignUp = () => {
   //   );
   // };
   return (
-    <div>
-      <div>
-        <h3>회원가입</h3>
-      </div>
+    <div className="h-full px-4">
       <div className="mt-3">
-        <h2>
+        <h2 className="text-orange-400 font-regular text-body7">
           {step === 1 ? "스포키즈에 오신 것을 환영해요!" : "마지막 단계에요!"}
         </h2>
         <h2
-          className="mt-1"
+          className="mt-1 text-primary-100 text-title1 font-semibold"
           dangerouslySetInnerHTML={{
             __html:
               step === 1
