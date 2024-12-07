@@ -88,7 +88,7 @@ const FreeChat = () => {
 
 
   return (
-    <div className="h-full flex flex-col justify-between bg-linear-orange overflow-y-auto">
+    <div className="h-full flex flex-col justify-between bg-linear-orange overflow-y-auto px-4">
       <div>
         <BotBubble
           message={`안녕하세요, 우리 아이를 위한 체육 프로그램을 
