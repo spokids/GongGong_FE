@@ -9,7 +9,7 @@ const usePostRegister = () => {
   return useMutation({
     mutationFn: (params: RegisterParams) => postRegister(params),
     onSuccess: () => {
-      navigate(routes.homePage);
+      navigate(routes.signIn);
     },
   });
 };
