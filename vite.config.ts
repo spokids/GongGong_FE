@@ -18,17 +18,20 @@ export default defineConfig({
     // },
     rollupOptions: {
             input: "/src/main.tsx",
-            output:{
+            output: {
               manualChunks(id) {
                 if (id.includes('node_modules')) {
-                    const packageName = id.toString().split('node_modules/')[1].split('/')[0].toString();
-                    if (['react', 'react-dom'].includes(packageName)) {
-                        return 'react-vendor';
-                    }
-                    return 'vendor';
+                  const modulePath = id.split('node_modules/')[1];
+                  const topLevelFolder = modulePath.split('/')[0];
+                  if (topLevelFolder !== '.pnpm') {
+                    return topLevelFolder;
+                  }
+                  const scopedPackageName = modulePath.split('/')[1];
+                  const chunkName = scopedPackageName.split('@')[scopedPackageName.startsWith('@') ? 1 : 0];
+                  return chunkName;
                 }
-            }            
-            },
+              }
+            }
         },
   },
 });
