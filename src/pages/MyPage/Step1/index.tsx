@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import SaveProgramming from './Tab1';
-import MyReview from './Tab2/MyReview';
+import MyReview from './Tab2';
+import { useGetUser } from '@api/hooks/user/useGetUser';
 
 const MyPage = () => {
     const [activeTab, setActiveTab] = useState<"SaveProgramming" | "reviews">("SaveProgramming");
+    const { data: user } = useGetUser();
 
     return (
         <div className='mt-2'>
-            <h1 className='text-foundation-100 text-title1'>닉네임닉네임</h1>
-            <div className='flex flex-row gap-4'>            
-                <p className='text-primary-50 text-body9'>jjung0259</p>
-                <a href='/account-setting' className='underline text-primary-50 text-link'>계정설정</a>
-            </div>
+          {user&& (
+            <>
+             <h1 className="text-foundation-100 text-title1">{user.nickName}</h1>
+             <div className='flex flex-row gap-4'>            
+             <p className="text-primary-50 text-body9">{user.userInputId}</p>
+                 <a href='/account-setting' className='underline text-primary-50 text-link'>계정설정</a>
+             </div>
 
             <div className="flex mt-6 items-center justify-between w-full h-[31px] border-b p-6">
         <button
@@ -33,9 +37,11 @@ const MyPage = () => {
           }`}
           onClick={() => setActiveTab("reviews")}
         >
-          내가 남긴 후기 <span className="text-orange-400 text-body9">14개</span>
+          내가 남긴 후기 <span className="text-orange-400 text-body9">{user.reviewCount}</span>
         </button>
       </div>
+      </>
+          )}
 
       <div className="w-full">
         {activeTab === "SaveProgramming" ? (
