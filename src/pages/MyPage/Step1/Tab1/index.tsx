@@ -1,21 +1,60 @@
+import { useGetScrap } from '@api/hooks/user/useGetScrp';
+import { Scraps } from '@api/types/user';
 import LessonInfo from '@pages/HomePage/LessonInfo';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SaveProgramming = () => {
+    const [lastScrapId, setLastScrapId] = useState<number | undefined>(undefined);
+    const [scraps, setScraps] = useState<Scraps[]>([]);
+
+    console.log(lastScrapId)
+
+    const { data } = useGetScrap(lastScrapId);
+
+    console.log(data)
+
+    useEffect(() => {
+        if (data) {
+            setScraps((prev) => [...prev, ...data.scraps]);
+        }
+    }, [data]);
+
+    const handleScroll = () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop >=
+            document.documentElement.offsetHeight - 100
+        ) {
+            if (data?.hasNext) {
+                const lastId = scraps[scraps.length - 1]?.scrapId;
+                setLastScrapId(lastId);
+            }
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [scraps, data?.hasNext]);
+
     return (
         <div>
-            <Link to='/Program-info'>
-                <div className='mt-5'>
-                <LessonInfo
-                    programId={1}
-                    programType="수영"
-                    programName="그룹레슨3"
-                    facilityName="강남스포츠문화센터수영장"
-                    programAge="만 7세 ~ 만 12세"
-                    programDate="24.11.01 - 24.11.30"
-                />
-            </div>
-            </Link>
+            {data && (
+                scraps.map((scrap) => (
+                    <Link to={`/Program-info/${scrap.programId}`} key={scrap.scrapId}>
+                        <div className='mt-5'>
+                            <LessonInfo
+                                programId={scrap.programId}
+                                programType={scrap.programType}
+                                programName={scrap.programName}
+                                facilityName={scrap.facilityName}
+                                programAge={scrap.programAge}
+                                programDate={scrap.programDate}
+                            />
+                        </div>
+                     </Link>
+                ))
+            )}
         </div>
     );
 };

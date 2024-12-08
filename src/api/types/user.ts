@@ -1,4 +1,9 @@
 export interface ScrapResponse {
+  scraps: Scraps[];
+  hasNext: boolean;
+}
+
+export interface Scraps {
   scrapId: number;
   programId: number;
   programType: string;
@@ -7,6 +12,8 @@ export interface ScrapResponse {
   programAge: string;
   programDate: string;
 }
+
+
 
 export interface UserResponse {
   nickName: string;
