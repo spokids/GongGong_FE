@@ -19,12 +19,13 @@ const queryClient = new QueryClient({
 const App: React.FC = () => {
   const location = useLocation();
 
+  const showHeader = location.pathname === routes.signIn;
   const showTabBar = location.pathname === routes.homePage ||  location.pathname.includes("chat");
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider value={defaultSystem}>
         <div className="mx-auto flex h-[100vh] min-w-[390px] max-w-[410px] flex-col pt-[54px]">
-          <Header />
+          {!showHeader && <Header /> }
           <Outlet />
           {showTabBar && <TabBar />} 
         </div>
