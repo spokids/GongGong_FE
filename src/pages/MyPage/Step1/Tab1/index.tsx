@@ -37,8 +37,8 @@ const SaveProgramming = () => {
     return (
         <div>
             {data && (
-                scraps.map((scrap) => (
-                    <Link to={`/Program-info/${scrap.programId}`} key={scrap.scrapId}>
+                scraps.map((scrap, index) => (
+                    <Link to={`/Program-info/${scrap.programId}`} key={`${scrap.programId}-${index}`}>
                         <div className='mt-5'>
                             <LessonInfo
                                 programId={scrap.programId}
