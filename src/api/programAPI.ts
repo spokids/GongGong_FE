@@ -21,8 +21,18 @@ export const getProgramDetail = (programId: number) => {
 
 // 2.5 프로그램 스크랩하기
 export const postScrap = (programId: number) => {
-  return authApiPost<void>(`/program/scrap/${programId}`);
-}
+  console.log(`Sending scrap request for program ID: ${programId}`); // Log request details
+
+  return authApiPost<void>(`/program/scrap/${programId}`)
+    .then(response => {
+      console.log(`Scrap successful for program ID: ${programId}`, response); // Log response on success
+      return response; // Returning the response
+    })
+    .catch(error => {
+      console.error(`Scrap failed for program ID: ${programId}`, error); // Log error on failure
+      throw error; // Re-throw the error after logging
+    });
+};
 
 // 2.6 프로그램 스크랩 취소
 export const deleteScrap = (programId: number) => {
