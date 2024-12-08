@@ -17,10 +17,46 @@
       ]
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",       
-      "destination": "/index.html"
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/sign-in",
+      "dest": "/"
+    },
+    {
+      "src": "/sign-up",
+      "dest": "/"
+    },
+    {
+      "src": "/program-finder",
+      "dest": "/"
+    },
+    {
+      "src": "/write-review",
+      "dest": "/"
+    },
+    {
+      "src": "/my-page",
+      "dest": "/"
+    },
+    {
+      "src": "/account-setting",
+      "dest": "/"
+    },
+    {
+      "src": "/chatbot",
+      "dest": "/"
+    },
+    {
+      "src": "/chatbot/ability",
+      "dest": "/"
+    },
+    {
+      "src": "/chatbot/free",
+      "dest": "/"
     }
   ]
 }
