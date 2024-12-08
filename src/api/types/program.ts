@@ -53,7 +53,6 @@ export interface ProgramDetailResponse {
   reviewCount: number;
 }
 
-// 2.6 프로그램 후기 리스트 조회
 export interface ProgramReviewListResponse {
   reviews: {
     reviewId: number;

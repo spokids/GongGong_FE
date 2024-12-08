@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between px-4 py-[10px]">
-      <h1 className="text-center text-title1 font-semibold">{title}</h1>
+      <h1 className="font-semibold text-center text-title1">{title}</h1>
       <UserIcon />
     </header>
   );

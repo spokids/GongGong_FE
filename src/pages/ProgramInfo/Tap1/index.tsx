@@ -100,7 +100,7 @@ const DetailTab = () => {
         href={programDetail?.homepageUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-link text-foundation-100"
+        className="text-link text-foundation-100 underline"
       >
         {programDetail?.homepageUrl}
       </a>

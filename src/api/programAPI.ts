@@ -15,7 +15,6 @@ export const postProgram = (data: ProgramRequest, page: number, size: number) =>
   return apiPost<ProgramResponse>(`/program?page=${page}&size=${size}`, data);
 }
 
-// 2.4 프로그램 상세 조회
 export const getProgramDetail = (programId: number) => {
   return apiGet<ProgramDetailResponse>(`/program/${programId}`);
 }
