@@ -38,4 +38,8 @@ export { default as TennisIcon } from "./tennis.svg?react";
 export { default as VolleyballIcon } from "./volleyball.svg?react";
 export { default as WarriorIcon } from "./warrior.svg?react";
 export { default as YogaMatIcon } from "./yogaMat.svg?react";
+export { default as Popular1Icon } from "./popular1.svg?react";
+export { default as Popular2Icon } from "./popular2.svg?react";
+export { default as Popular3Icon } from "./popular3.svg?react";
+
 

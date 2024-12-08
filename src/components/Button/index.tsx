@@ -3,12 +3,12 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 const ButtonVariants = cva(
-  "text-md font-button1 text-regular flex justify-center items-center disabled:bg-foundation-5 disabled:text-foundation-30 rounded-xl",
+  "text-md font-button1 text-regular flex justify-center items-center rounded-xl",
   {
     variants: {
       style: {
-        filled: "bg-orange-400 text-white",
-        white: "",
+        filled: "bg-orange-400 text-white disabled:bg-foundation-5 disabled:text-primary-30",
+        white: "disabled:bg-foundation-5 disabled:text-primary-30",
       },
     },
   },
