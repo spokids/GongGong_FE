@@ -18,6 +18,7 @@ export interface Scraps {
 export interface UserResponse {
   nickName: string;
   userInputId: string;
+  reviewCount: number;
 }
 
 export interface ReviewResponse {

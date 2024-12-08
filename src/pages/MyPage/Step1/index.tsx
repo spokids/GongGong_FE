@@ -16,8 +16,6 @@ const MyPage = () => {
              <p className="text-primary-50 text-body9">{user.userInputId}</p>
                  <a href='/account-setting' className='underline text-primary-50 text-link'>계정설정</a>
              </div>
-             </>
-          )}
 
             <div className="flex mt-6 items-center justify-between w-full h-[31px] border-b p-6">
         <button
@@ -39,9 +37,11 @@ const MyPage = () => {
           }`}
           onClick={() => setActiveTab("reviews")}
         >
-          내가 남긴 후기 <span className="text-orange-400 text-body9">14개</span>
+          내가 남긴 후기 <span className="text-orange-400 text-body9">{user.reviewCount}</span>
         </button>
       </div>
+      </>
+          )}
 
       <div className="w-full">
         {activeTab === "SaveProgramming" ? (
