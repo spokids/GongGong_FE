@@ -1,4 +1,4 @@
-import { apiPost, authApiPost } from "./apiUtil";
+import { apiPost, authApiDelete, authApiPost } from "./apiUtil";
 import { LoginParams, LoginResponse, RegisterParams } from "./types/auth";
 
 export const postLogin = (data: LoginParams) => {
@@ -11,4 +11,8 @@ export const postRegister = ({ userInputId, password, nickName }: RegisterParams
     password,
     nickName,
   });
+};
+
+export const deleteUser = () => {
+  return authApiDelete("user");
 };
