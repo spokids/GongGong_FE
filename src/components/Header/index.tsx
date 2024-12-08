@@ -38,6 +38,9 @@ const Header = () => {
     } else if (location.pathname.startsWith("/program-info") && programId) {
       title = `프로그램 정보 - ${programId}`;
       iconNeeded = false;
+    }  else if (location.pathname === "/my-page") {
+      title = "마이페이지";
+      iconNeeded = false;
     }
 
     return { title, needUserIcon: iconNeeded };
