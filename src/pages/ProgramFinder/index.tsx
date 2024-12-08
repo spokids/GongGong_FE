@@ -17,6 +17,9 @@ const ProgramFinder = () => {
   const { data: sigunguData, isError: sigunguError } = useGetSigungu(selectedRegion);
   const { data: dongData, isError: dongError } = useGetDong(selectedState, selectedRegion);
 
+  const states = sigunguError ? ["정보없음"] : sigunguData || [];
+  const dongs = dongError ? ["정보없음"] : dongData || [];
+  
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setSelected(true);
@@ -71,8 +74,8 @@ const ProgramFinder = () => {
   ];
 
   return (
-    <div>
-      <div className="flex flex-col gap-1 mt-3">
+    <div className="px-4">
+      <div className="flex flex-col gap-1 px-4 mt-3">
         <h2 className="font-semibold text-title1 text-primary-100">
           지역, 분야, 아이의 나이를 <br />
           입력하고 잘 맞는 프로그램을 찾아봐요!
@@ -81,7 +84,7 @@ const ProgramFinder = () => {
           3개의 항목 중 한가지만 입력해도 적용할 수 있어요
         </h2>
       </div>
-
+            
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-1">
           <p className="font-medium text-body6 text-primary-100">지역</p>
@@ -106,7 +109,7 @@ const ProgramFinder = () => {
           <p className="font-medium text-body6 text-primary-100">분야</p>
           <p className="text-orange-400 text-caption4 font-regular">여러 개 선택할 수 있어요</p>
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           {fields.map((field, index) => (
             <FieldButton key={index}>
               {field.icon}

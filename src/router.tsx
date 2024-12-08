@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <ProgramFinder />,
       },
       {
-        path: routes.ProgramInfo,
+        path: "/program-info/:programId",
         element: <ProgramInfo />,
       },
       {
