@@ -43,7 +43,7 @@ export interface ProgramDetailResponse {
   leaderQualification: boolean;
   facultyName: string;
   address: string;
-  pargarmAge: string;
+  programAge: string;
   programRecruitNumber: number;
   programDate: string;
   programWeekDay: string[];

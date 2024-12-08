@@ -1,4 +1,4 @@
-import { apiGet, apiPost, authApiDelete, authApiGet, authApiPost } from "./apiUtil";
+import { apiGet, apiPost, authApiDelete, authApiPost } from "./apiUtil";
 import { DongResponse, postProgramReviewResponse, ProgramDetailResponse, ProgramRequest, ProgramResponse, ProgramReviewListResponse, SigunguResponse } from "./types/program";
 
 export const getSigungu = (province: string) => {
@@ -17,7 +17,7 @@ export const postProgram = (data: ProgramRequest, page: number, size: number) =>
 
 // 2.4 프로그램 상세 조회
 export const getProgramDetail = (programId: number) => {
-  return authApiGet<ProgramDetailResponse>(`/program/${programId}`);
+  return apiGet<ProgramDetailResponse>(`/program/${programId}`);
 }
 
 // 2.5 프로그램 스크랩하기
