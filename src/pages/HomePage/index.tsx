@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BadmintonIcon, BasketballIcon, BowlingIcon, DancinggIcon, DumbellsIcon, EllipicalIcon, FencingIcon, FitnessIcon, GolfIcon, HollaHoopgIcon, JumpRoopIcon, MoreCircleIcon, PiaonIcon, Popular1Icon, RollerStakeIcon, SoccerIcon, SwimmingIcon, TableTennisIcon, TennisIcon, VolleyballIcon, WarriorIcon } from "@assets/svg";
 import { getProgramReviewed, getProgramTop3 } from '@api/programAPI';
 import { useEffect, useState } from 'react';
+import Pagination from './Pagenation';
 
   const HomePage = () => {
     const navigate = useNavigate();
@@ -20,9 +21,9 @@ import { useEffect, useState } from 'react';
       }
     };
   
-    const fetchReviewedPrograms = async () => {
+    const fetchReviewedPrograms = async (page: number) => {
       try {
-        const response = await getProgramReviewed(1, 10);
+        const response = await getProgramReviewed(page, 10);
         console.log('API Response:', response);
         console.log('API Response data:', response.data);
     
@@ -41,9 +42,15 @@ import { useEffect, useState } from 'react';
   
     useEffect(() => {
       useGetProgramTop3();
-      fetchReviewedPrograms();
+      fetchReviewedPrograms(1);
     }, []);
 
+    const handlePageChange = (page: number) => {
+      if (page >= 1 && page <= totalPages!) {
+        fetchReviewedPrograms(page);
+      }
+    };
+    
   const handleFinder = () => {
     navigate("/program-finder");
   };
@@ -132,20 +139,27 @@ import { useEffect, useState } from 'react';
       </Button>
 
       <div className="mt-5">
-      {programLists.map((programList) => (
-        <Link to={`/program-info/${programList.programId}`} key={programList.programId}>
-          <LessonInfo
-            programId={programList.programId}
-            programType={programList.programType}
-            programName={programList.programName}
-            facilityName={programList.facilityName}
-            programAge={programList.programAge}
-            programDate={programList.programDate}
-          />
-        </Link>
-      ))}
-    </div>
+        {programLists.map((programList) => (
+          <Link to={`/program-info/${programList.programId}`} key={programList.programId}>
+            <LessonInfo
+              programId={programList.programId}
+              programType={programList.programType}
+              programName={programList.programName}
+              facilityName={programList.facilityName}
+              programAge={programList.programAge}
+              programDate={programList.programDate}
+            />
+          </Link>
+        ))}
+      </div>
 
+      {totalPages && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 };
