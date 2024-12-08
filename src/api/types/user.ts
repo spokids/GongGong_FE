@@ -19,3 +19,16 @@ export interface UserResponse {
   nickName: string;
   userInputId: string;
 }
+
+export interface ReviewResponse {
+  reviews: Reviews[];
+  hasNext: boolean;
+}
+
+export interface Reviews {
+  reviewId: number;
+  programName: string;
+  content: string;
+  imageUrl: string;
+  createdAt: string;
+}

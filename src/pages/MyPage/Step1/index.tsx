@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SaveProgramming from './Tab1';
-import MyReview from './Tab2/MyReview';
+import MyReview from './Tab2';
 import { useGetUser } from '@api/hooks/user/useGetUser';
 
 const MyPage = () => {
