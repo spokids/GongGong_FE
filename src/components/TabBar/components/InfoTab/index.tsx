@@ -1,21 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ScrabIcon } from "@assets/svg";
 import Button from "@components/Button";
 import { useParams } from "react-router-dom";
 import usePostScrap from "@api/hooks/program/usePostScrab";
+import useDeleteScrab from "@api/hooks/program/useDeleteScrab";
+import {useGetScrap} from "@api/hooks/user/useGetScrp"; // New hook to fetch the scrap status
 
 const InfoTab = () => {
-  const [isScrabbed, setIsScrabbed] = useState(false);
   const { programId } = useParams<{ programId: string }>();
+  const [isScrabbed, setIsScrabbed] = useState(false);
+
+  // Fetch scrap status when the component mounts or when programId changes
+  const { data: scrapStatus, isLoading, isError } = useGetScrap(Number(programId));
+
   const { mutate: handlePostScrap } = usePostScrap();
+  const { mutate: handleDeleteScrap } = useDeleteScrab();
+
+  useEffect(() => {
+    if (scrapStatus !== undefined) {
+      setIsScrabbed(Boolean(scrapStatus));
+    }
+  }, [scrapStatus]);
 
   const handleScrabClick = () => {
     if (!programId) return;
 
-    handlePostScrap(Number(programId), {
-      onSuccess: () => setIsScrabbed(true),
-      onError: () => setIsScrabbed(false),
-    });
+    if (isScrabbed) {
+      handleDeleteScrap(Number(programId), {
+        onSuccess: () => setIsScrabbed(false),
+        onError: () => setIsScrabbed(true),
+      });
+    } else {
+      handlePostScrap(Number(programId), {
+        onSuccess: () => setIsScrabbed(true),
+        onError: () => setIsScrabbed(false),
+      });
+    }
+    console.log(scrapStatus);
   };
 
   return (
@@ -25,7 +46,8 @@ const InfoTab = () => {
           className={`flex justify-center p-5 h-11 ${
             isScrabbed ? "bg-orange-50" : "bg-primary-5"
           }`}
-          onClick={handleScrabClick} 
+          onClick={handleScrabClick}
+          disabled={isLoading || isError}
         >
           <ScrabIcon className={isScrabbed ? "text-orange-400" : "text-primary-60"} />
         </Button>
