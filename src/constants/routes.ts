@@ -4,7 +4,7 @@ const routes = {
   signUp: "/sign-up",
   homePage: "/",
   ProgramFinder: "/program-finder",
-  ProgramInfo: "/program-info",
+  // ProgramInfo: (programId: string) => `/program-info/${programId}`, // 동적 경로
   WriteReview: "/write-review",
   MyPage: "/my-page",
   AccountSetting: "/account-setting",
