@@ -23,7 +23,7 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider value={defaultSystem}>
-        <div className="mx-auto flex h-[100vh] min-w-[390px] max-w-[410px] flex-col pt-[54px]">
+        <div className="mx-auto flex h-[100vh] min-w-[390px] max-w-[410px] flex-col mt-5">
           <Header />
           <Outlet />
           {showTabBar && <TabBar />} 

@@ -36,7 +36,7 @@ const Header = () => {
       title = "회원가입";
       iconNeeded = false;
     } else if (location.pathname.startsWith("/program-info") && programId) {
-      title = `프로그램 정보 - ${programId}`;
+      title = `프로그램 정보`;
       iconNeeded = false;
     }
 
@@ -53,11 +53,23 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between px-4 py-[10px]">
-      <h1 className={`text-title1 font-bold ${needUserIcon ? 'text-center' : 'flex-1 text-left'}`}>{title}</h1>
-      {needUserIcon && <UserIcon type="button" className="cursor-pointer" onClick={handleUserIconClick} />}
-    </header>
-  );
+    <header className="flex items-center justify-center px-4 py-[10px] top-0 h-[55px]">
+      <h1
+        className={`text-title1 font-bold flex-1 ${
+          needUserIcon ? '' : 'text-center'
+        }`}
+      >
+        {title}
+      </h1>
+      {needUserIcon && (
+        <UserIcon
+          type="button"
+          className="cursor-pointer"
+          onClick={handleUserIconClick}
+        />
+      )}
+    </header>  
+  )
 };
 
 export default Header;
