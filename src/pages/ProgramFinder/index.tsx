@@ -74,8 +74,8 @@ const ProgramFinder = () => {
   ];
 
   return (
-    <div>
-      <div className="flex flex-col gap-1 mt-3">
+    <div className="px-4">
+      <div className="flex flex-col gap-1 px-4 mt-3">
         <h2 className="font-semibold text-title1 text-primary-100">
           지역, 분야, 아이의 나이를 <br />
           입력하고 잘 맞는 프로그램을 찾아봐요!

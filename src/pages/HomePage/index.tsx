@@ -86,7 +86,7 @@ import Pagination from './Pagenation';
   return (
     <div className="w-full min-h-screen bg-white">
       <div className="w-100vw relative h-[252px] bg-orange-400" style={{ margin: "0 -20px 0 -20px" }}>
-        <div className="absolute left-5 top-[126px] z-10 text-white">
+        <div className="absolute left-5 top-[126px] z-10 text-white px-4">
           <p className="text-body9">안녕하세요, 닉네임님</p>
           <h1 className="mt-1 text-headline1">
             우리 아이를 위한 <br /> 체육 활동을 찾아볼까요?
@@ -95,7 +95,7 @@ import Pagination from './Pagenation';
         <MainIcon className="absolute top-0 right-0 z-0 w-60" />
       </div>
 
-      <div className="flex flex-row w-full mt-5">
+      <div className="flex flex-row w-full px-4 mt-5">
         <FireIcon className="w-9" />
         <div className="flex flex-col gap-0 ml-2">
           <h2 className="text-title1">아이들이 많이 수강하는 종목 Top3</h2>
@@ -103,7 +103,7 @@ import Pagination from './Pagenation';
         </div>
       </div>
 
-      <div className="flex flex-row justify-center gap-2 mt-6 mb-6">
+      <div className="flex flex-row justify-center gap-2 px-4 mt-6 mb-6">
         {selectedFields.map((field, index) => (
           <div key={index} className="relative flex flex-col justify-end">
             <div className="relative flex flex-col justify-end">
@@ -125,7 +125,7 @@ import Pagination from './Pagenation';
 
       <hr style={{ margin: "0 -20px 0 -20px", height: "8px", background: "var(--primary_foundation-5, #F3F3F4)", border: "none" }} />
 
-      <div className="flex flex-row w-full mt-4 mb-6">
+      <div className="flex flex-row w-full px-4 mt-4 mb-6">
         <RunIcon className="w-8" />
         <div className="flex flex-col gap-0 ml-3">
           <h2 className="text-title1">체육 프로그램 목록</h2>
@@ -133,12 +133,14 @@ import Pagination from './Pagenation';
         </div>
       </div>
 
-      <Button style="filled" className="mt-6 w-full h-[54px] items-center flex gap-2 bg-primary-100" onClick={handleFinder}>
-        <SearchIcon className="w-5 h-5" />
-        아이에게 딱 맞는 프로그램 찾기
-      </Button>
+      <div className='px-4'>
+        <Button style="filled" className="mt-6 w-full h-[54px] items-center flex gap-2 bg-primary-100" onClick={handleFinder}>
+          <SearchIcon className="w-5 h-5 " />
+          아이에게 딱 맞는 프로그램 찾기
+        </Button>
+      </div>
 
-      <div className="mt-5">
+      <div className="px-4 mt-5">
         {programLists.map((programList) => (
           <Link to={`/program-info/${programList.programId}`} key={programList.programId}>
             <LessonInfo
