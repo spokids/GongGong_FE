@@ -29,7 +29,6 @@ export const deleteScrap = (programId: number) => {
   return authApiDelete<void>(`/program/scrap/${programId}`);
 }
 
-// 2.6 프로그램 후기 리스트 조회
 export const getProgramReviewList = (programId: number, lastReviewId?: number, size?: number) => {
   return apiGet<ProgramReviewListResponse>(`/review/list/${programId}`, {lastReviewId, size});
 }

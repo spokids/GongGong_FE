@@ -49,9 +49,9 @@ const ProgramInfo = () => {
   }
 
   return (
-    <div className="w-full h-screen mt-14">
+    <div className="w-full h-screen mt-14 ">
       <div className="flex h-[118px] w-full flex-col">
-        <div className="flex flex-row gap-2 mt-2">
+        <div className="flex flex-row gap-2 px-4 mt-2">
           <Chip>
             <SwimmingIcon />
             {programDetail?.programType || "수영"}
@@ -64,7 +64,7 @@ const ProgramInfo = () => {
           )}
          
         </div>
-        <h1 className="mt-[6px] text-title1 text-foundation-100">
+        <h1 className="mt-[6px] text-title1 text-foundation-100 px-4">
           {programDetail?.programName || "프로그램 이름"}
         </h1>
       </div>

@@ -52,7 +52,7 @@ const DetailTab = () => {
 
   
   return (
-    <div className="mt-5">
+    <div className="px-4 mt-5">
       <div className="flex items-center gap-2">
         <img src={runIcon} className="w-6" alt="Run Icon" />
         <h2 className="text-xl font-semibold">프로그램 기본 정보</h2>
@@ -100,7 +100,7 @@ const DetailTab = () => {
         href={programDetail?.homepageUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-link text-foundation-100 underline"
+        className="underline text-link text-foundation-100"
       >
         {programDetail?.homepageUrl}
       </a>

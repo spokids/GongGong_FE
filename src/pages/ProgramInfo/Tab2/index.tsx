@@ -25,14 +25,14 @@ const ReviewItem = ({
   };
 
   return (
-    <div className="flex flex-col gap-1 mt-5">
+    <div className="flex flex-col gap-1 px-4 mt-5">
       <p className="text-body8 text-foundation-100">
         {name}
         <span className="ml-2 text-caption4 text-foundation-40">{date}</span>
       </p>
       <div className="h-auto w-full gap-2 rounded-lg bg-[#F7F7F7] p-3">
         <p className="text-body9 text-foundation-100">
-          {content.startsWith('http') ? (
+          {typeof content === 'string' && content.startsWith('http') ? (
             <a href={content} target="_blank" rel="noopener noreferrer">
               {content}
             </a>
@@ -83,14 +83,13 @@ const ReviewTab = () => {
             key={`${review.reviewId}-${index}`}
             name={review.nickName}
             date={review.createdAt}
-            content={review.imageUrl}
-            image={review.content}
+            content={review.content || ""}
+            image={review.imageUrl}
           />
         ))
       ) : (
         <p>리뷰가 없습니다.</p>
       )}
-
     </div>
   );
 };
