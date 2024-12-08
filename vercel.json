@@ -12,10 +12,10 @@
       "dest": "/api/[...slug].js"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  // "rewrites": [
+  //   {
+  //     "source": "/(.*)",
+  //     "destination": "/index.html"
+  //   }
+  // ]
 }
