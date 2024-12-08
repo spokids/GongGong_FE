@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Snackbar } from "@mui/material";
-import useDeleteReview from "@api/hooks/user/useDeleteReview";
+
 
 interface MyReviewItemProps {
   reviewId: number;
@@ -8,6 +6,7 @@ interface MyReviewItemProps {
   createdAt: string;
   content: string;
   imageUrl?: string | null;
+  onDelete: (reviewId: number) => void;
 }
 
 const MyReviewItem: React.FC<MyReviewItemProps> = ({
@@ -15,28 +14,14 @@ const MyReviewItem: React.FC<MyReviewItemProps> = ({
   createdAt,
   content,
   imageUrl,
-  reviewId
+  reviewId,
+  onDelete
 }) => {
-  const { mutate } = useDeleteReview();
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const handleDelete = () => {
-    mutate(reviewId, {
-      onSuccess: () => {
-        setSnackbarMessage("리뷰가 삭제되었습니다.");
-        setOpenSnackbar(true);
-      },
-      onError: (error) => {
-        setSnackbarMessage("삭제 실패");
-        setOpenSnackbar(true);
-      }
-    });
+    onDelete(reviewId); 
   };
 
-  const handleCloseSnackbar = () => {
-    setOpenSnackbar(false);
-  };
 
   return (
     <div className="flex flex-col gap-1 mt-5">
@@ -54,16 +39,6 @@ const MyReviewItem: React.FC<MyReviewItemProps> = ({
           삭제
         </button>
       </div>
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={3000} 
-        onClose={handleCloseSnackbar}
-        message={snackbarMessage}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-      />  
     </div>
   );
 };
