@@ -1,4 +1,4 @@
-import { authApiGet } from "./apiUtil";
+import { authApiDelete, authApiGet } from "./apiUtil";
 import { ReviewResponse, ScrapResponse, UserResponse } from "./types/user";
 
 export const getScrap = (lastScrapId?: number) => {
@@ -13,4 +13,8 @@ export const getUser = () => {
 export const getReview = (reviewId?: number) => {
   const params = reviewId ? { reviewId } : undefined;
   return authApiGet<ReviewResponse>('/review/mypage', params);
+};
+
+export const deleteReview = (reviewId: number) => {
+  return authApiDelete(`/review/mypage/${reviewId}`);
 };

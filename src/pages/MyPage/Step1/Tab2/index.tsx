@@ -39,6 +39,7 @@ useEffect(() => {
         reviews.map((reviews) => (
           <MyReviewItem
             key={reviews.reviewId}
+            reviewId={reviews.reviewId}
             programName={reviews.programName}
             createdAt={reviews.createdAt}
             content={reviews.content}
