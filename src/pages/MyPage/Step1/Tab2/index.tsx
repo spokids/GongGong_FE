@@ -36,14 +36,14 @@ useEffect(() => {
     return (
       <div className="mb-4">
         {data &&(
-        reviews.map((reviews) => (
+        reviews.map((review, index) => (
           <MyReviewItem
-            key={reviews.reviewId}
-            reviewId={reviews.reviewId}
-            programName={reviews.programName}
-            createdAt={reviews.createdAt}
-            content={reviews.content}
-            imageUrl={reviews.imageUrl}
+            key={`${review.reviewId}-${index}`}
+            reviewId={review.reviewId}
+            programName={review.programName}
+            createdAt={review.createdAt}
+            content={review.content}
+            imageUrl={review.imageUrl}
           />
         ))
         )}
