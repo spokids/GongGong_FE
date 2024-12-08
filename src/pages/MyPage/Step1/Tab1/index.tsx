@@ -8,11 +8,8 @@ const SaveProgramming = () => {
     const [lastScrapId, setLastScrapId] = useState<number | undefined>(undefined);
     const [scraps, setScraps] = useState<Scraps[]>([]);
 
-    console.log(lastScrapId)
-
     const { data } = useGetScrap(lastScrapId);
 
-    console.log(data)
 
     useEffect(() => {
         if (data) {
