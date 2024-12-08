@@ -52,24 +52,15 @@ export const PostProgramReview = (programId: number, content: string, image?: Fi
   // });
 };
 
-// 2.8 인기 종목 Top 3 조회
 export const getProgramTop3 = () => {
   return apiGet(`/program/top3`)
-    .then(response => {
-      console.log("API Response:", response);
-      return response;
-    })
-    .catch(error => {
-      console.error("API Error:", error); // 오류 로그 추가
-      throw error; // 오류를 다시 던져서 호출한 곳에서 처리할 수 있게 함
-    });
 };
 
 
 // 2.9 최신 후기 달린 프로그램 리스트 조회
-export const getProgramReviewed = (page?: number, size?: number) => {
-  return apiGet<ProgramResponse>(`/program/reviewed`, {page, size});
-}
+export const getProgramReviewed = (page: number, size: number) => {
+  return apiGet<ProgramResponse>(`/program/reviewed?page=${page}&size=${size}`);
+};
 
 // 2.10 후기 신고하기
 export const postReviewReport = (reviewId: number, reports: string[]) => {

@@ -3,7 +3,7 @@ import { getProgramTop3 } from "@api/programAPI";
 
 export const useGetTop3 = () => {
   return useQuery({
-    queryKey: [data], 
+    queryKey: [], 
     queryFn: getProgramTop3,
     select: (data) => data, 
   });
