@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-  base: '/', 
+  base: 'https://spokids.netlify.app', 
   plugins: [
     react(),
     tsconfigPaths(),
