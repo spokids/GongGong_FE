@@ -89,7 +89,7 @@ const ProgramInfo = () => {
           }`}
           onClick={() => setActiveTab("reviews")}
         >
-          후기 <span className="text-orange-400 text-body9">14개</span>
+          후기 <span className="text-orange-400 text-body9">{programDetail?.reviewCount}개</span>
         </button>
       </div>
 

@@ -30,6 +30,7 @@ const DetailTab = () => {
       setLoading(false);
     }
   };
+  
   const formatWeekDays = (weekDays: string[]) => {
     return weekDays.join(", ");
   };
