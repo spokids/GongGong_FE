@@ -10,8 +10,8 @@ export const getUser = () => {
   return authApiGet<UserResponse>("/user");
 };
 
-export const getReview = (reviewId?: number) => {
-  const params = reviewId ? { reviewId } : undefined;
+export const getReview = (lastReviewId?: number) => {
+  const params = lastReviewId ? { lastReviewId } : undefined;
   return authApiGet<ReviewResponse>('/review/mypage', params);
 };
 
