@@ -4,15 +4,11 @@ import Button from "@components/Button";
 import { useParams } from "react-router-dom";
 import usePostScrap from "@api/hooks/program/usePostScrab";
 import useDeleteScrab from "@api/hooks/program/useDeleteScrab";
-import {useGetScrap} from "@api/hooks/user/useGetScrp"; // New hook to fetch the scrap status
-
+import {useGetScrap} from "@api/hooks/user/useGetScrp";
 const InfoTab = () => {
   const { programId } = useParams<{ programId: string }>();
   const [isScrabbed, setIsScrabbed] = useState(false);
-
-  // Fetch scrap status when the component mounts or when programId changes
   const { data: scrapStatus, isLoading, isError } = useGetScrap(Number(programId));
-
   const { mutate: handlePostScrap } = usePostScrap();
   const { mutate: handleDeleteScrap } = useDeleteScrab();
 
