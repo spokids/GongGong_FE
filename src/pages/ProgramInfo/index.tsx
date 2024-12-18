@@ -8,6 +8,7 @@ import Button from "@components/Button";
 import { getProgramDetail } from "@api/programAPI";
 import { useParams } from "react-router-dom";
 import { ProgramDetailResponse } from "@api/types/program";
+import InfoTab from "@components/TabBar/components/InfoTab";
 
 const ProgramInfo = () => {
   const { programId } = useParams<{ programId: string }>();
@@ -100,6 +101,7 @@ const ProgramInfo = () => {
       <Button style="filled" className="mt-[136px] w-full h-14 flex">
         다음
       </Button>
+      <InfoTab/>
     </div>
   );
 };

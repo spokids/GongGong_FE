@@ -41,5 +41,5 @@ export { default as YogaMatIcon } from "./yogaMat.svg?react";
 export { default as Popular1Icon } from "./popular1.svg?react";
 export { default as Popular2Icon } from "./popular2.svg?react";
 export { default as Popular3Icon } from "./popular3.svg?react";
-
+export { default as ScrabIcon } from "./scrab.svg?react";
 

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import BgLogo from "@assets/BgLogo";
 import LogoLogin from "@assets/LogoLogin";
-import { SwimmingIcon } from "@assets/svg";
 import Button from "@components/Button";
 import Input from "@components/Input";
 import usePostLogin from "@api/hooks/auth/usePostSignIn";
@@ -62,7 +61,6 @@ const SignIn = () => {
         로그인하기
       </Button>
 
-
       <span
         style={{
           display: "flex",
@@ -71,24 +69,23 @@ const SignIn = () => {
           letterSpacing: "-0.42px",
           marginTop: "20px",
         }}
-      >
+        >
         스포키즈가 처음이신가요?
       </span>
-      <Link to="/sign-up">
-        <span
-          style={{
-            display: "flex",
-            color: "#484851",
-            fontSize: "14px",
-            letterSpacing: "-0.42px",
-            textDecorationLine: "underline",
-            marginTop: "-20px",
-          }}
-        >
-          회원가입하기
-        </span>
-        <SwimmingIcon />
-      </Link>
+
+      <div className="flex flex-row gap-2 mt-1">
+        <Link to="/sign-up">
+          <span className="flex text-primary-70 text-button3 fontSize-[14px] underline">
+            회원가입하기
+          </span>
+        </Link>
+        <span className="text-primary-70 text-button3 ontSize-[12px]">|</span>
+        <Link to="/">
+          <span className="flex text-primary-70 fontSize-[14px] text-button3 underline">
+            로그인 없이 둘러보기
+          </span>
+        </Link>
+      </div>
     </div>
   );
 };
